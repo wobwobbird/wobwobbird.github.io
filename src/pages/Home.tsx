@@ -1,5 +1,11 @@
+import Balatro from "@/components/Balatro";
+
 const Home = () => {
-    return <div>Home</div>;
-}
+    return (
+      <div className="fixed inset-0 w-full h-full min-h-screen">
+        {/* <Balatro /> */}
+      </div>
+    );
+  };
 
 export default Home;

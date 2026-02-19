@@ -1,9 +1,23 @@
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
 
-import './Balatro.css';
+interface BalatroProps {
+  spinRotation?: number;
+  spinSpeed?: number;
+  offset?: [number, number];
+  color1?: string;
+  color2?: string;
+  color3?: string;
+  contrast?: number;
+  lighting?: number;
+  spinAmount?: number;
+  pixelFilter?: number;
+  spinEase?: number;
+  isRotate?: boolean;
+  mouseInteraction?: boolean;
+}
 
-function hexToVec4(hex) {
+function hexToVec4(hex: string): [number, number, number, number] {
   let hexStr = hex.replace('#', '');
   let r = 0,
     g = 0,
@@ -117,9 +131,9 @@ export default function Balatro({
   pixelFilter = 745.0,
   spinEase = 1.0,
   isRotate = false,
-  mouseInteraction = true
-}) {
-  const containerRef = useRef(null);
+  mouseInteraction = false
+}: BalatroProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -128,7 +142,7 @@ export default function Balatro({
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 1);
 
-    let program;
+    let program: Program;
 
     function resize() {
       renderer.setSize(container.offsetWidth, container.offsetHeight);
@@ -165,9 +179,9 @@ export default function Balatro({
     });
 
     const mesh = new Mesh(gl, { geometry, program });
-    let animationFrameId;
+    let animationFrameId: number;
 
-    function update(time) {
+    function update(time: number) {
       animationFrameId = requestAnimationFrame(update);
       program.uniforms.iTime.value = time * 0.001;
       renderer.render({ scene: mesh });
@@ -175,7 +189,7 @@ export default function Balatro({
     animationFrameId = requestAnimationFrame(update);
     container.appendChild(gl.canvas);
 
-    function handleMouseMove(e) {
+    function handleMouseMove(e: MouseEvent) {
       if (!mouseInteraction) return;
       const rect = container.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
@@ -204,9 +218,8 @@ export default function Balatro({
     pixelFilter,
     spinEase,
     isRotate,
-    mouseInteraction,
-    containerRef
+    mouseInteraction
   ]);
 
-  return <div ref={containerRef} className="balatro-container" />;
+  return <div ref={containerRef} className="w-full h-full" />;
 }
