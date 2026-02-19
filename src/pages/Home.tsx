@@ -2,13 +2,16 @@ import Balatro from "@/components/Balatro";
 
 const Home = () => {
     return (
-      <div className="fixed inset-0 w-full h-full min-h-screen pt-14 overflow-y-auto">
+      <div className=" w-full h-full min-h-screen pt-14 ">
         {/* <Balatro /> */}
         {/* Body */}
-        <div className="bg-amber-300 border-8 h-auto p-2 flex flex-col gap-10 pt-10 pb-20" >
+        <div className="  h-auto p-2 flex flex-col gap-10 pt-10 pb-20" >
           <h2
-            className="text-2xl google-sans-flex-bold-round text-6xl"
+            className="google-sans-flex-bold-round text-6xl"
           >Guy - Junior Full-Stack Dev</h2>
+          <h2
+            className="google-sans-flex-bold-round text-6xl"
+          >LordMarshy</h2>
           <p>I'm a Full-Stack Developer based in London with two years of intensive self-driven learning and nine months of commercial experience at a PropTech startup.</p>
           <p>Recently, I've been focusing more on backend development, working with Node.js, Express, server architecture, authentication, and databases including SQLite and PostgreSQL.</p>
           {/* <p className="google-sans-flex rounded-soft flex items-center text-9xl font-semibold text-slate-800" >Github</p>
@@ -21,17 +24,17 @@ const Home = () => {
         {/* Projects */}
         <div>
           <div
-            className="bg-amber-200 w-full h-50 flex flex-row justify-between"
+            className=" w-full h-50 flex flex-row justify-between"
           >
             <p>project 1</p>
           </div>
           <div
-            className="bg-amber-400 w-full h-50 flex flex-row justify-between"
+            className=" w-full h-50 flex flex-row justify-between"
           >
             <p>project 1</p>
           </div>
           <div
-            className="bg-amber-600 w-full h-50 flex flex-row justify-between"
+            className=" w-full h-50 flex flex-row justify-between"
           >
             <p>project 1</p>
           </div>
