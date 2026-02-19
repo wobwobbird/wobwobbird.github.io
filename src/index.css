@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Google Sans Flex", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -187,4 +187,52 @@ button:focus-visible {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.google-sans-flex-default {
+  font-family: "Google Sans Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600; /* 1-1000 */
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0, /* slantedness | -10-0 */
+    "wdth" 100, /* width | thickness of letter stem | 25-150 */
+    "GRAD" 0, /* grade | mini thickness of letter stem | 0-100 */
+    "ROND" 0; /* roundness | 0-100 */
+}
+
+.google-sans-flex-skinny {
+  font-family: "Google Sans Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300; /* 1-1000 */
+  font-style: normal;
+  font-variation-settings:
+    "slnt" -0, /* slantedness | -10-0 */
+    "wdth" 130, /* width | thickness of letter stem | 25-150 */
+    "GRAD" 0, /* grade | mini thickness of letter stem | 0-100 */
+    "ROND" 0; /* roundness | 0-100 */
+}
+
+.google-sans-flex-bold-round {
+  font-family: "Google Sans Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 1000; /* 1-1000 */
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0, /* slantedness | -10-0 */
+    "wdth" 100, /* width | thickness of letter stem | 25-150 */
+    "GRAD" 0, /* grade | mini thickness of letter stem | 0-100 */
+    "ROND" 60; /* roundness | 0-100 */
+}
+
+.google-sans-flex-3 {
+  font-family: "Google Sans Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600; /* 1-1000 */
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0, /* slantedness | -10-0 */
+    "wdth" 150, /* width | thickness of letter stem | 25-150 */
+    "GRAD" 0, /* grade | mini thickness of letter stem | 0-100 */
+    "ROND" 0; /* roundness | 0-100 */
 }
