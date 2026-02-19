@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+
+.app-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  z-index: 100;
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  /* gap: 1rem; */
+  justify-content: space-around;
+  padding: 0 1.5rem;
+  font-weight: bold;
+  /* text-decoration: underline; */
+  background: #242424;   /* or whatever matches your theme */
+  border-bottom: 1px solid #444;
+}
