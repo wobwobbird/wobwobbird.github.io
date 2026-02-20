@@ -1,16 +1,26 @@
 // import Balatro from "@/components/Balatro";
 import { GridScan } from "@/components/GridScan";
 import GlassIcons from "@/components/GlassIcons";
-import { FiLinkedin, FiGithub, FiFileText } from 'react-icons/fi';
+import { FiGithub, FiFileText } from 'react-icons/fi';
 import { LiaLinkedin } from "react-icons/lia";
-
+import cvPdf from '@/assets/Guy_Marshman_Full-Stack_Software_Dev_CV.pdf';
 
 const Contact = () => {
     // update with your own icons and colors
     const items = [
-        { icon: <LiaLinkedin />, color: 'blue', label: 'LinkedIn' },
-        { icon: <FiGithub />, color: 'purple', label: 'GitHub' },
-        { icon: <FiFileText />, color: 'purple', label: 'CV' },
+        { icon: <FiGithub />, color: '#24292e', label: 'GitHub', onClick: () => window.open("https://github.com/wobwobbird") },
+        { icon: <LiaLinkedin />, color: '#0A66C2', label: 'LinkedIn', onClick: () => window.open("https://linkedin.com/in/guymarshman")},
+        { 
+            icon: <FiFileText />,
+            color: '#059669',
+            label: 'Download CV',
+            onClick: () => {
+                const link = document.createElement('a');
+                link.href = cvPdf;
+                link.download = 'Guy_Marshman_Full-Stack_Software_Dev_CV.pdf';
+                link.click();
+            }
+        },
     ];
 
     return (
@@ -34,20 +44,19 @@ const Contact = () => {
                 />
             </div>
             <div
-                className=" relative z-10 contact-page"
+                className="relative z-10 flex flex-col items-center justify-center w-full h-full"
             
             >
-                <h2 className="google-sans-flex-bold-round text-6xl -mb-5" >Get in</h2>
-                <h2 className="google-sans-flex-bold-round text-8xl" >Contact</h2>
-                <h2 className="google-sans-flex-skinny text-5xl pt-0" >I don't bite</h2>
-                <h4></h4>
                 <div>
-
-                    <div style={{ height: '600px', position: 'relative' }}>
-                        <GlassIcons items={items} className="custom-class" iconSize="2em" />
+                    <h2 className="google-sans-flex-bold-round text-6xl -mb-5" >Get in</h2>
+                    <h2 className="google-sans-flex-bold-round text-8xl" >Contact</h2>
+                    <h2 className="google-sans-flex-skinny text-5xl pt-0" >I don't bite</h2>
+                    <h4></h4>
+                    <div>
+                        <div className="h-auto relative" >
+                            <GlassIcons items={items} className="custom-class" />
+                        </div>
                     </div>
-
-                    <div></div>
                 </div>
             </div>
         </div>
