@@ -222,9 +222,9 @@ button:focus-visible {
   font-style: normal;
   font-variation-settings:
     "slnt" -0, /* slantedness | -10-0 */
-    "wdth" 130, /* width | thickness of letter stem | 25-150 */
-    "GRAD" 0, /* grade | mini thickness of letter stem | 0-100 */
-    "ROND" 0; /* roundness | 0-100 */
+    "wdth" 150, /* width | thickness of letter stem | 25-150 */
+    "GRAD" 100, /* grade | mini thickness of letter stem | 0-100 */
+    "ROND" 100; /* roundness | 0-100 */
 }
 
 .google-sans-flex-bold-round {
