@@ -1,29 +1,31 @@
-import Balatro from "@/components/Balatro";
+// import Balatro from "@/components/Balatro";
 import { GridScan } from "@/components/GridScan";
 
 const Contact = () => {
     return (
         <div className="fixed inset-0 w-full h-full">
             {/* <Balatro mouseInteraction={false} spinRotation={-1.0} spinSpeed={3.0} /> */}
-            {/* <GridScan 
-                sensitivity={0.1}
-                lineThickness={1}
-                linesColor="rgba(44, 81, 36, 0.87);"
-                gridScale={0.1}
-                scanColor="rgba(3, 196, 51, 0.87);"
-                scanOpacity={0.4}
-                enablePost
-                bloomIntensity={0.6}
-                chromaticAberration={0.002}
-                noiseIntensity={0.01}
-            /> */}
+            <div className="absolute inset-0" >
+                <GridScan 
+                    sensitivity={0.1}
+                    lineThickness={1}
+                    linesColor="rgba(44, 81, 36, 0.87);"
+                    gridScale={0.1}
+                    scanColor="rgba(3, 196, 51, 0.87);"
+                    scanOpacity={0.4}
+                    enablePost
+                    bloomIntensity={0.6}
+                    chromaticAberration={0.002}
+                    noiseIntensity={0.01}
+                />
+            </div>
             <div
-                className="contact-page"
+                className=" relative z-10 contact-page"
             
             >
                 <h2 className="google-sans-flex-bold-round text-6xl pb-1" >Get in</h2>
                 <h2 className="google-sans-flex-bold-round text-8xl" >Contact</h2>
-                <h2 className="google-sans-flex-skinny text-6  ∫∫xl pt-5" >I don't bite</h2>
+                <h2 className="google-sans-flex-skinny text-6xl pt-5" >I don't bite</h2>
                 <h4></h4>
                 <div>
                     <div></div>

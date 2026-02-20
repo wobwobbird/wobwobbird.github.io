@@ -1,4 +1,4 @@
-import Balatro from "@/components/Balatro";
+// import Balatro from "@/components/Balatro";
 
 const Home = () => {
     return (
