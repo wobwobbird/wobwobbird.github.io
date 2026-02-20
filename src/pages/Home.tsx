@@ -5,7 +5,7 @@ const Home = () => {
       <div className=" w-full h-full min-h-screen pt-14 ">
         {/* <Balatro /> */}
         {/* Body */}
-        <div className="  h-auto p-2 flex flex-col gap-10 pt-10 pb-20" >
+        <div className="h-auto p-2 flex flex-col gap-10 pt-10 pb-20" >
           <h2
             className="google-sans-flex-bold-round text-6xl"
           >Guy - Junior Full-Stack Dev</h2>

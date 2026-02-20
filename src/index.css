@@ -203,6 +203,18 @@ button:focus-visible {
     "ROND" 0; /* roundness | 0-100 */
 }
 
+.google-sans-flex-contact {
+  font-family: "Google Sans Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700; /* 1-1000 */
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0, /* slantedness | -10-0 */
+    "wdth" 100, /* width | thickness of letter stem | 25-150 */
+    "GRAD" 0, /* grade | mini thickness of letter stem | 0-100 */
+    "ROND" 100; /* roundness | 0-100 */
+}
+
 .google-sans-flex-skinny {
   font-family: "Google Sans Flex", sans-serif;
   font-optical-sizing: auto;

@@ -85,16 +85,14 @@
   font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 100, "ROND" 0;
 }
 
-
-
-.google-sans-flex-navbar {
-  font-family: "Google Sans Flex", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 1000; /* 1-1000 */
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0, /* slantedness | -10-0 */
-    "wdth" 100, /* width | thickness of letter stem | 25-150 */
-    "GRAD" 0, /* grade | mini thickness of letter stem | 0-100 */
-    "ROND" 0; /* roundness | 0-100 */
+.contact-page {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
+
+
+

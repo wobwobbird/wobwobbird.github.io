@@ -5,7 +5,7 @@ const Contact = () => {
     return (
         <div className="fixed inset-0 w-full h-full">
             {/* <Balatro mouseInteraction={false} spinRotation={-1.0} spinSpeed={3.0} /> */}
-            <GridScan 
+            {/* <GridScan 
                 sensitivity={0.1}
                 lineThickness={1}
                 linesColor="rgba(44, 81, 36, 0.87);"
@@ -16,7 +16,19 @@ const Contact = () => {
                 bloomIntensity={0.6}
                 chromaticAberration={0.002}
                 noiseIntensity={0.01}
-            />
+            /> */}
+            <div
+                className="contact-page"
+            
+            >
+                <h2 className="google-sans-flex-bold-round text-6xl pb-1" >Get in</h2>
+                <h2 className="google-sans-flex-bold-round text-8xl" >Contact</h2>
+                <h2 className="google-sans-flex-skinny text-6  ∫∫xl pt-5" >I don't bite</h2>
+                <h4></h4>
+                <div>
+                    <div></div>
+                </div>
+            </div>
         </div>
         // <div className="w-full min-h-screen pt-24">
         // </div>
