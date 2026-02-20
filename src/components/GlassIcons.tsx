@@ -1,10 +1,12 @@
 import React from 'react';
+// add prop open source - change side of icons | add an onlick option
 
 export interface GlassIconsItem {
   icon: React.ReactElement;
   color: string;
   label: string;
   customClass?: string;
+  onClick?: () => void;
 }
 
 export interface GlassIconsProps {
@@ -36,6 +38,7 @@ const GlassIcons: React.FC<GlassIconsProps> = ({ items, className }) => {
           key={index}
           type="button"
           aria-label={item.label}
+          onClick={item.onClick}
           className={`relative !bg-transparent outline-none border-none cursor-pointer w-[4.5em] h-[4.5em] [perspective:24em] [transform-style:preserve-3d] [-webkit-tap-highlight-color:transparent] group ${
             item.customClass || ''
           }`}
@@ -54,7 +57,12 @@ const GlassIcons: React.FC<GlassIconsProps> = ({ items, className }) => {
               boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'
             }}
           >
+            {/* // original
             <span className="m-auto w-[1.5em] h-[1.5em] flex items-center justify-center" aria-hidden="true">
+              {item.icon}
+            </span> */}
+            {/* updated */}
+            <span className="m-auto w-[1.5em] h-[1.5em] flex items-center justify-center [&_svg]:w-[2em] [&_svg]:h-[2em]" aria-hidden="true">
               {item.icon}
             </span>
           </span>
