@@ -82,7 +82,7 @@
 .app-nav a.active {
   /* color: #646cff; */
   text-decoration: underline;
-  font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 100, "ROND" 0;
+  /* font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 100, "ROND" 0; */
 }
 
 /* .contact-page {

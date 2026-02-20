@@ -1,13 +1,16 @@
 import './App.css'
-import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, NavLink, Link, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Vite from './pages/Vite';
+import Entry from './pages/Entry';
 import GlassSurface from './components/GlassSurface';
 import { ReactLenis } from 'lenis/react'
 import lord_marshy_logo from './assets/lord_marshy_logo.png'
 
 function App() {
+  // const { pathname } = useLocation();
+
   return (
     <BrowserRouter>
       <ReactLenis
@@ -39,19 +42,37 @@ function App() {
             className="app-nav-glass"
           >
             <nav className="app-nav">
-              <img src={lord_marshy_logo} alt="website logo" className="h-12 rotate-4"/>
+              <Link to="/">
+                <img 
+                  src={lord_marshy_logo}
+                  alt="website logo"
+                  className="h-10 rotate-4"
+                />
+              </Link>
               <div className="flex items-center gap-12">
-                <NavLink to="" end>Home</NavLink>
+                <NavLink to="/home" end>Home</NavLink>
                 <NavLink to="/contact">Contact</NavLink>
-                <NavLink to="/vite">Vite</NavLink>
+                {/* <NavLink to="/vite">Vite</NavLink> */}
               </div>
+              {/* {pathname !== "/" && (
+                <>
+                  <img src={lord_marshy_logo} alt="website logo" className="h-12 rotate-4"/>
+                  <div className="flex items-center gap-12">
+                    <NavLink to="/home" end>Home</NavLink>
+                    <NavLink to="/contact">Contact</NavLink>
+                    <NavLink to="/vite">Vite</NavLink>
+                  </div>
+                </>
+
+              )} */}
             </nav>
           </GlassSurface>
         </div>
 
         <Routes>
+          <Route path="/" element={<Entry/>} />
           <Route path="/vite" element={<Vite/>} />
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </ReactLenis>

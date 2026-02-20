@@ -40,7 +40,7 @@ const Home = () => {
           </div>
         </div>
         {/* Footer */}
-        <div
+        {/* <div
           className="h-30 p-5 "
         >
           <div className="bg-amber-200 w-full h-full flex flex-row justify-between" >
@@ -56,7 +56,7 @@ const Home = () => {
 
           </div>
 
-        </div>
+        </div> */}
       </div>
     );
   };
