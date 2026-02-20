@@ -75,6 +75,17 @@
   font-variation-settings: "slnt" 0, "wdth" 110, "GRAD" 100, "ROND" 0;
 }
 
+.app-nav a {
+  color: inherit;
+}
+
+.app-nav a.active {
+  /* color: #646cff; */
+  text-decoration: underline;
+  font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 100, "ROND" 0;
+}
+
+
 
 .google-sans-flex-navbar {
   font-family: "Google Sans Flex", sans-serif;
@@ -86,14 +97,4 @@
     "wdth" 100, /* width | thickness of letter stem | 25-150 */
     "GRAD" 0, /* grade | mini thickness of letter stem | 0-100 */
     "ROND" 0; /* roundness | 0-100 */
-}
-
-
-.app-nav a {
-  color: inherit;
-}
-
-.app-nav a.active {
-  color: #646cff;
-  text-decoration: underline;
 }

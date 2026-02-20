@@ -41,7 +41,7 @@ function App() {
             <nav className="app-nav">
               <img src={lord_marshy_logo} alt="website logo" className="h-12 rotate-4"/>
               <div className="flex items-center gap-12">
-                <NavLink to="" end>GHome</NavLink>
+                <NavLink to="" end>Home</NavLink>
                 <NavLink to="/contact">Contact</NavLink>
                 <NavLink to="/vite">Vite</NavLink>
               </div>
