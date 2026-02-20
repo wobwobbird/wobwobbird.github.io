@@ -1,5 +1,3 @@
-import { GridScan } from "@/components/GridScan";
-import GlassIcons from "@/components/GlassIcons";
 import LetterGlitch from "@/components/LetterGlitch";
 import GlassSurface from '../components/GlassSurface';
 import { Link } from "react-router-dom";
@@ -11,10 +9,13 @@ const Entry = () => {
         <div className="fixed inset-0 w-full h-full">
             <div className="absolute inset-0" >
                 <LetterGlitch 
+                    glitchColors={['#2b4539', '#61dca3', '#61b3dc']}
                     glitchSpeed={100}
                     centerVignette={false}
                     outerVignette={true}
                     smooth={true}
+                    // characters="MARSH"
+                    characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>.,0123456789"
                 />
             </div>
             <div
