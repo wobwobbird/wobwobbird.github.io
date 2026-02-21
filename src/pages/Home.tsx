@@ -1,4 +1,7 @@
 import LightRays from "@/components/LightRays";
+import IconSet, { devicon } from "@/components/IconSet";
+
+
 
 const Home = () => {
     return (
@@ -31,7 +34,7 @@ const Home = () => {
 
             {/* FIRST */}
             <div
-              className="relative w-full h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-3 m-3"
+              className="relative w-full min-h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-3 m-3"
               style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
             >
               <h3 className="google-sans-flex-default text-3xl"
@@ -40,7 +43,6 @@ const Home = () => {
 
               <div className="flex flex-row gap-5 p-5">
                 <button
-                  // onClick={}
                   className="w-[200px]"
                 >
                   <p
@@ -57,6 +59,16 @@ const Home = () => {
                   >Open on Github</p>
                 </button>
               </div>
+              <IconSet
+                items={[
+                  { src: devicon("javascript"), label: "JavaScript" },
+                  { src: devicon("sqlite"), label: "SQLite" },
+                  { src: devicon("react"), label: "React" },
+                  { src: devicon("nodejs"), label: "Node.js" },
+                  { src: devicon("gnubash"), label: "Ink (TUI)" },
+                ]}
+              />
+
             </div>
 
             {/* SECOND */}
@@ -117,10 +129,9 @@ const Home = () => {
                 </button>
               </div>
             </div>
-            
           </div>
           {/* Body - Learning */}
-          <div className="text-left" >
+          <div className="text-left pb-[150px]" >
             <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left"
             >Learning</h2>
             <p>I have been putting in the effort to learn about many different areas</p>
