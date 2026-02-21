@@ -1,8 +1,10 @@
 import LightRays from "@/components/LightRays";
 import IconSet, { devicon } from "@/components/IconSet";
 import inkLogo from '../assets/ink_logo.png'
-
-
+import ProfileCard from "@/components/ProfileCard";
+import profilePic_nobg from '../assets/profile_pic_nobg.png';
+import lordMarshy from '../assets/lord_marshy_logo.png'
+import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
 
 const Home = () => {
     return (
@@ -11,7 +13,7 @@ const Home = () => {
         <div className="absolute inset-0">
           <LightRays />
         </div>
-        {/* Body - data-lenis-prevent stops Lenis from capturing scroll, allowing native overflow scroll */}
+        {/* Body */}
         <div
           className="relative z-10 w-full min-h-0 pt-14 overflow-y-auto overflow-x-hidden overscroll-contain"
           style={{ height: '100vh' }}
@@ -24,9 +26,30 @@ const Home = () => {
           {/* Body - intro*/}
           <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left"
           >Introduction</h2>
-          <div className="h-auto p-2 flex flex-col gap-10 pt-5 " >
-            <p>I'm a Full-Stack Developer based in London with two years of intensive self-driven learning and nine months of commercial experience at a PropTech startup.</p>
-            <p>Recently, I've been focusing more on backend development, working with Node.js, Express, server architecture, authentication, and databases including SQLite and PostgreSQL.</p>
+          <div className="flex flex-row p-5">
+            <div className="scale-100 origin-top-left w-fit">
+              <ProfileCard
+                name="Guy Marshman"
+                title="Junior Full-Stack Developer"
+                handle="javicodes"
+                status="Online"
+                contactText="Contact Me"
+                avatarUrl={profilePic_nobg}
+                showUserInfo={false}
+                enableTilt={true}
+                enableMobileTilt={true}
+                onContactClick={() => console.log('Contact clicked')}
+                behindGlowColor="rgba(125, 190, 255, 0.67)"
+                iconUrl={lordMarshy_s}
+                behindGlowEnabled
+                innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
+              />
+
+            </div>
+            <div className="h-auto p-2 flex flex-col gap-10 pt-5 " >
+              <p>I'm a Full-Stack Developer based in London with two years of intensive self-driven learning and nine months of commercial experience at a PropTech startup.</p>
+              <p>Recently, I've been focusing more on backend development, working with Node.js, Express, server architecture, authentication, and databases including SQLite and PostgreSQL.</p>
+            </div>
           </div>
           {/* Body - Projects */}
           <div className="text-left" >
