@@ -1,5 +1,6 @@
 import LightRays from "@/components/LightRays";
 import IconSet, { devicon } from "@/components/IconSet";
+import inkLogo from '../assets/ink_logo.png'
 
 
 
@@ -32,28 +33,27 @@ const Home = () => {
             <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left"
             >Projects</h2>
 
-            {/* FIRST */}
-            <div
-              className="relative w-full min-h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-3 m-3"
-              style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
-            >
-              <h3 className="google-sans-flex-default text-3xl"
-              >Mood Tracker</h3>
-              <p>Mental Health Tracker CLI tool, record mood and review results. Uses Ink to create a full screen TUI, saves results in a SQLite database.</p>
+              {/* FIRST */}
+              <div
+                className="relative w-full min-h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 m-3"
+                style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
+              >
+                <h3 className="google-sans-flex-default text-3xl"
+                >Mood Tracker</h3>
+                <p>Mental Health Tracker CLI tool, record mood and review results. Uses Ink to create a full screen TUI, saves results in a SQLite database.</p>
 
-              <div className="flex flex-row gap-5 p-5">
-                <button
-                  className="w-[200px]"
-                >
-                  <p
-                    className="google-sans-flex-default text-black"
-                  >Start Application</p>
-                </button>
-                <button
-                  // onClick={}
-                  className="w-[200px]"
-                >
-                  <p
+                <div className="flex flex-row gap-5 py-5">
+                  <button
+                    className="w-[200px]"
+                  >
+                    <p
+                      className="google-sans-flex-default text-black"
+                    >Start App</p>
+                  </button>
+                  <button
+                    className="w-[200px]"
+                  >
+                    <p
                     className="google-sans-flex-default text-black"
                     onClick={() => window.open("https://github.com/wobwobbird/Mood_Tracker")}
                   >Open on Github</p>
@@ -62,10 +62,10 @@ const Home = () => {
               <IconSet
                 items={[
                   { src: devicon("javascript"), label: "JavaScript" },
-                  { src: devicon("sqlite"), label: "SQLite" },
-                  { src: devicon("react"), label: "React" },
                   { src: devicon("nodejs"), label: "Node.js" },
-                  { src: devicon("gnubash"), label: "Ink (TUI)" },
+                  { src: devicon("react"), label: "React" },
+                  { src: inkLogo, label: "Ink (TUI)" },
+                  { src: devicon("sqlite"), label: "SQLite" },
                 ]}
               />
 
@@ -73,23 +73,21 @@ const Home = () => {
 
             {/* SECOND */}
             <div
-              className="relative w-full h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-3 m-3"
+              className="relative w-full min-h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 m-3"
               style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
             >
               <h3 className="google-sans-flex-default text-3xl"
               >Tap 'O' Matic</h3>
               <p>A React Native TypeScript random number generator app</p>
-              <div className="flex flex-row gap-5 p-5">
+              <div className="flex flex-row gap-5 py-5">
                 <button
-                  // onClick={}
                   className="w-[200px]"
                 >
                   <p
                     className="google-sans-flex-default text-black"
-                  >Start Application</p>
+                  >Start App</p>
                 </button>
                 <button
-                  // onClick={}
                   className="w-[200px]"
                 >
                   <p
@@ -98,28 +96,34 @@ const Home = () => {
                   >Open on Github</p>
                 </button>
               </div>
+              <IconSet
+                items={[
+                  { src: devicon("typescript"), label: "TypeScript" },
+                  { src: devicon("react"), label: "React" },
+                  { src: "https://cdn.simpleicons.org/react/000020", label: "React Native" },
+                  { src: "https://cdn.simpleicons.org/expo/000020", label: "Expo" },
+                ]}
+              />
             </div>
 
 
             {/* THIRD */}
             <div
-              className="relative w-full h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-3 m-3"
+              className="relative w-full min-h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 m-3"
               style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
             >
               <h3 className="google-sans-flex-default text-3xl"
               >Super Connect</h3>
               <p>A two-player turn-based Connect 4–style game built in Unity 6 (URP). Get four in a row: horizontally, vertically, or diagonally to win. Full game with start scene, player naming, scoring, winning screen, music control, 3D background and animations</p>
-              <div className="flex flex-row gap-5 p-5">
+              <div className="flex flex-row gap-5 py-5">
                 <button
-                  // onClick={}
                   className="w-[200px]"
                 >
                   <p
                     className="google-sans-flex-default text-black"
-                  >Start Application</p>
+                  >Start App</p>
                 </button>
                 <button
-                  // onClick={}
                   className="w-[200px]"
                 >
                   <p
@@ -128,7 +132,51 @@ const Home = () => {
                   >Open on Github</p>
                 </button>
               </div>
+              <IconSet
+                items={[
+                  { src: devicon("unity"), label: "Unity" },
+                  { src: devicon("csharp"), label: "C#" },
+                ]}
+              />
             </div>
+          </div>
+          <div className="text-left" >
+            <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left"
+            >Commercial Experiance</h2>
+
+              {/* FIRST */}
+              <div
+                className="relative w-full min-h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 m-3"
+                style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
+              >
+                <h3 className="google-sans-flex-default text-3xl"
+                >iRealty PropTech</h3>
+                <p>Worked as a Junior Front-End Developer at the PropTech startup Converted the customer facing CRM to tablet and mobile responsive, and built a customer support pannel available across the app Built property filtering, comparison tools, and multilingual support (Catalan/French) </p>
+
+                <div className="flex flex-row gap-5 py-5">
+                  <button
+                    className="w-[200px]"
+                  >
+                    <p
+                    className="google-sans-flex-default text-black"
+                    onClick={() => window.open("https://irealty.app/")}
+                  >Visit Site</p>
+                </button>
+              </div>
+              <IconSet
+                items={[
+                  { src: devicon("javascript"), label: "JavaScript" },
+                  { src: devicon("typescript"), label: "TypeScript" },
+                  { src: devicon("react"), label: "React" },
+                  { src: devicon("redux"), label: "Redux" },
+                  { src: devicon("css3"), label: "CSS" },
+                  { src: devicon("sass"), label: "SASS" },
+                  { src: devicon("tailwindcss"), label: "Tailwind" },
+                ]}
+              />
+
+            </div>
+
           </div>
           {/* Body - Learning */}
           <div className="text-left pb-[150px]" >
