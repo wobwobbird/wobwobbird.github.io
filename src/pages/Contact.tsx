@@ -4,6 +4,7 @@ import GlassIcons from "@/components/GlassIcons";
 import { FiGithub, FiFileText } from 'react-icons/fi';
 import { LiaLinkedin } from "react-icons/lia";
 import cvPdf from '@/assets/Guy_Marshman_Full-Stack_Software_Dev_CV.pdf';
+import GlassPanel from "@/components/GlassPanel";
 
 const Contact = () => {
     // update with your own icons and colors
@@ -48,14 +49,25 @@ const Contact = () => {
             
             >
                 <div>
-                    <h2 className="google-sans-flex-bold-round text-6xl -mb-5" >Get in</h2>
-                    <h2 className="google-sans-flex-bold-round text-8xl" >Contact</h2>
-                    <h2 className="google-sans-flex-skinny text-5xl pt-0" >I don't bite</h2>
-                    <h4></h4>
+                    <h2 className="google-sans-flex-bold-round text-6xl -mb-5 select-none" >Get in</h2>
+                    <h2 className="google-sans-flex-bold-round text-8xl select-none" >Contact</h2>
+                    <h2 className="google-sans-flex-skinny text-5xl pt-0 select-none" >I don't bite</h2>
                     <div>
-                        <div className="h-auto relative" >
+                        <div className="h-auto relative " >
                             <GlassIcons items={items} className="custom-class" />
                         </div>
+                    </div>
+                    <div
+                        className=" w-[380 px] h-auto pt-0"
+                    >
+                        <GlassPanel
+                        >
+                            <div className="flex flex-col text-center" > 
+                                <p className="google-sans-flex-contact-calltoaction select-none" >Open to fulltime ( Office | Hybrid |  Remote )</p>
+                                {/* <p className="google-sans-flex-contact-calltoaction" >( Office | Hybrid |  Remote )</p> */}
+                                <p className="google-sans-flex-contact-calltoaction select-none" >and contract work</p>
+                            </div>
+                        </GlassPanel>
                     </div>
                 </div>
             </div>
