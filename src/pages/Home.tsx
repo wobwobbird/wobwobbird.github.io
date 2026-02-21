@@ -28,25 +28,93 @@ const Home = () => {
             <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left"
             >Projects</h2>
 
-            <div className=" w-full h-50 flex flex-col bg-green-300 p-3 m-3"
+            {/* FIRST */}
+            <div
+              className="relative w-full h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-3 m-3"
+              style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
             >
               <h3 className="google-sans-flex-default text-3xl"
               >Mood Tracker</h3>
               <p>Mental Health Tracker CLI tool, record mood and review results. Uses Ink to create a full screen TUI, saves results in a SQLite database.</p>
+
+              <div className="flex flex-row gap-5 p-5">
+                <button
+                  // onClick={}
+                  className="w-[200px]"
+                >
+                  <p
+                    className="google-sans-flex-default text-black"
+                  >Start Application</p>
+                </button>
+                <button
+                  // onClick={}
+                  className="w-[200px]"
+                >
+                  <p
+                    className="google-sans-flex-default text-black"
+                    onClick={() => window.open("https://github.com/wobwobbird/Mood_Tracker")}
+                  >Open on Github</p>
+                </button>
+              </div>
             </div>
 
-            <div className=" w-full h-50 flex flex-col bg-green-300 p-3 m-3"
+            {/* SECOND */}
+            <div
+              className="relative w-full h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-3 m-3"
+              style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
             >
               <h3 className="google-sans-flex-default text-3xl"
               >Tap 'O' Matic</h3>
               <p>A React Native TypeScript random number generator app</p>
+              <div className="flex flex-row gap-5 p-5">
+                <button
+                  // onClick={}
+                  className="w-[200px]"
+                >
+                  <p
+                    className="google-sans-flex-default text-black"
+                  >Start Application</p>
+                </button>
+                <button
+                  // onClick={}
+                  className="w-[200px]"
+                >
+                  <p
+                    className="google-sans-flex-default text-black"
+                    onClick={() => window.open("https://github.com/wobwobbird/Tap-O-Matic")}
+                  >Open on Github</p>
+                </button>
+              </div>
             </div>
 
-            <div className=" w-full h-50 flex flex-col bg-green-300 p-3 m-3"
+
+            {/* THIRD */}
+            <div
+              className="relative w-full h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-3 m-3"
+              style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
             >
               <h3 className="google-sans-flex-default text-3xl"
               >Super Connect</h3>
               <p>A two-player turn-based Connect 4–style game built in Unity 6 (URP). Get four in a row: horizontally, vertically, or diagonally to win. Full game with start scene, player naming, scoring, winning screen, music control, 3D background and animations</p>
+              <div className="flex flex-row gap-5 p-5">
+                <button
+                  // onClick={}
+                  className="w-[200px]"
+                >
+                  <p
+                    className="google-sans-flex-default text-black"
+                  >Start Application</p>
+                </button>
+                <button
+                  // onClick={}
+                  className="w-[200px]"
+                >
+                  <p
+                    className="google-sans-flex-default text-black"
+                    onClick={() => window.open("https://github.com/wobwobbird/Super-Connect-Game")}
+                  >Open on Github</p>
+                </button>
+              </div>
             </div>
             
           </div>
@@ -55,8 +123,13 @@ const Home = () => {
             <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left"
             >Learning</h2>
             <p>I have been putting in the effort to learn about many different areas</p>
-            <p>So my learning certificates on my links here</p>
-
+            <div className="flex flex-row gap-2">
+              <p>So my learning certificates on my linkedIn:</p>
+              <p
+                className="cursor-pointer text-blue-600 underline hover:text-blue-800 hover:underline"
+                onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}
+              >here</p>
+            </div>
           </div>
         </div>
       </div>
