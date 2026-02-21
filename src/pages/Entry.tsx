@@ -11,25 +11,25 @@ const Entry = () => {
                 <LetterGlitch 
                     glitchColors={['#2b4539', '#61dca3', '#61b3dc']}
                     glitchSpeed={100}
-                    centerVignette={false}
-                    outerVignette={true}
+                    centerVignette={true}
+                    outerVignette={false}
                     smooth={true}
                     // characters="MARSH"
                     characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>.,0123456789"
                 />
             </div>
             <div
-                className="relative z-10 flex flex-col items-center justify-center w-full h-full"
+                className="relative z-10 flex items-center justify-center w-full h-full"
             
             >
-                <div>
-                    <h2 className="google-sans-flex-bold-round text-6xl -mb-5" >Welcome to</h2>
-                    <h2 className="google-sans-flex-bold-round text-8xl" >Guy's website</h2>
-                    {/* <h2 className="google-sans-flex-skinny text-5xl pt-0" >I don't bite</h2> */}
-                    <h4></h4>
+                <div className="w-[800px] flex flex-col items-center" >
+                    <h2 className="google-sans-flex-bold-round text-6xl -mb-5 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]" >Welcome to</h2>
+                    {/* <h2 className="google-sans-flex-bold-round text-6xl -mb-5 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]" >Welcome to</h2> */}
+                    <h2 className="google-sans-flex-bold-round text-8xl drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]" >Guy's website</h2>
+                    <h2 className="google-sans-flex-bold-round text-4xl drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]" >Junior Full-Stack Software Developer</h2>
                     <Link to="/home" >
                         <GlassSurface 
-                            className="absolute mt-20 cursor-pointer"
+                            className="absolute mt-10 cursor-pointer w-[600] self"
                             width={700}
                             height={70}
                             borderRadius={30}
@@ -44,7 +44,6 @@ const Entry = () => {
                             backgroundOpacity={0.4}
                             saturation={0.9}
                             mixBlendMode="screen"
-
                         >
                             <p
                                 className="google-sans-flex-contact text-5xl"
