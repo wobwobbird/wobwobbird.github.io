@@ -19,7 +19,8 @@ function App() {
           lerp: 0.1,           // Smoothness (0–1, lower = smoother)
           duration: 1.2,       // Scroll duration in seconds
           smoothWheel: true,   // Smooth mouse wheel (default: true)
-          wheelMultiplier: 1, // Scroll speed      
+          wheelMultiplier: 1, // Scroll speed
+          allowNestedScroll: true, // Enables overflow scroll in pages like Home
         }}
       >
         <div className="app-nav-wrapper">

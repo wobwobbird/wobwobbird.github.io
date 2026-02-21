@@ -1,11 +1,19 @@
-// import Balatro from "@/components/Balatro";
+import LightRays from "@/components/LightRays";
 
 const Home = () => {
     return (
-      <div className=" w-full h-full min-h-screen pt-14 ">
-        {/* <Balatro /> */}
-        {/* Body */}
-        <div className="max-w-[1100px] h-auto">
+      <div className="fixed inset-0 w-full h-full">
+        {/* Background */}
+        <div className="absolute inset-0">
+          <LightRays />
+        </div>
+        {/* Body - data-lenis-prevent stops Lenis from capturing scroll, allowing native overflow scroll */}
+        <div
+          className="relative z-10 w-full min-h-0 pt-14 overflow-y-auto overflow-x-hidden overscroll-contain"
+          style={{ height: '100vh' }}
+          data-lenis-prevent=""
+        >
+          <div className="max-w-[1100px] h-auto mx-auto px-4">
           {/* Body - heading*/}
           <h1 className="google-sans-flex-bold-round text-6xl pt-10"
           >Guy - Junior Full-Stack Dev</h1>
@@ -13,15 +21,8 @@ const Home = () => {
           <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left"
           >Introduction</h2>
           <div className="h-auto p-2 flex flex-col gap-10 pt-5 " >
-
             <p>I'm a Full-Stack Developer based in London with two years of intensive self-driven learning and nine months of commercial experience at a PropTech startup.</p>
             <p>Recently, I've been focusing more on backend development, working with Node.js, Express, server architecture, authentication, and databases including SQLite and PostgreSQL.</p>
-            {/* <p className="google-sans-flex rounded-soft flex items-center text-9xl font-semibold text-slate-800" >Github</p>
-            <p className="google-sans-flex rounded-strong flex items-center text-9xl font-semibold text-slate-800" >Github</p>
-            <p className="google-sans-flex grade-subtle flex items-center text-9xl font-semibold text-slate-800" >Github</p> */}
-            {/* <p className="google-sans-flex-default flex items-center text-9xl" >Github</p>
-            <p className="google-sans-flex-1 flex items-center text-9xl" >Github</p> */}
-
           </div>
           {/* Body - Projects */}
           <div className="text-left" >
@@ -131,6 +132,7 @@ const Home = () => {
               >here</p>
             </div>
           </div>
+        </div>
         </div>
       </div>
     );
