@@ -3,7 +3,7 @@ import IconSet, { devicon } from "@/components/IconSet";
 import inkLogo from '../assets/ink_logo.png'
 import ProfileCard from "@/components/ProfileCard";
 import profilePic_nobg from '../assets/profile_pic_nobg.png';
-import lordMarshy from '../assets/lord_marshy_logo.png'
+// import lordMarshy from '../assets/lord_marshy_logo.png'
 import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
 
 const Home = () => {
@@ -21,6 +21,12 @@ const Home = () => {
         >
           <div className="max-w-[1100px] h-auto mx-auto px-4">
           {/* Body - heading*/}
+          <h1 className="google-sans-flex-bold-round text-4xl pt-10"
+          >🚧🚧🚧</h1>
+          <h1 className="google-sans-flex-bold-round text-4xl pt-10"
+          >NOTE WEBSITE STILL UNDER CONSTRUCTION</h1>
+          <h1 className="google-sans-flex-bold-round text-4xl pt-10"
+          >🚧🚧🚧</h1>
           <h1 className="google-sans-flex-bold-round text-6xl pt-10"
           >Guy - Junior Full-Stack Dev</h1>
           {/* Body - intro*/}
