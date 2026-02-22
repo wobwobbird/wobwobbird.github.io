@@ -21,12 +21,12 @@ const Home = () => {
         >
           <div className="max-w-[1100px] h-auto mx-auto px-4">
           {/* Body - heading*/}
-          <h1 className="google-sans-flex-bold-round text-4xl pt-10"
+          {/* <h1 className="google-sans-flex-bold-round text-4xl pt-10"
           >🚧🚧🚧</h1>
           <h1 className="google-sans-flex-bold-round text-4xl pt-10"
           >NOTE WEBSITE STILL UNDER CONSTRUCTION</h1>
           <h1 className="google-sans-flex-bold-round text-4xl pt-10"
-          >🚧🚧🚧</h1>
+          >🚧🚧🚧</h1> */}
           <h1 className="google-sans-flex-bold-round text-6xl pt-10"
           >Guy - Junior Full-Stack Dev</h1>
           {/* Body - intro*/}
@@ -49,6 +49,10 @@ const Home = () => {
                 iconUrl={lordMarshy_s}
                 behindGlowEnabled
                 innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
+                cardHeight='40svh'
+                nameTextSize='min(5svh, 2em)'
+                roleTextSize='16px'
+                iconSize='50%'
               />
 
             </div>

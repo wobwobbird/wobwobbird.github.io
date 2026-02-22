@@ -1,3 +1,5 @@
+// Opensource improvement - ad ability to set card size
+
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 
 const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
@@ -49,6 +51,11 @@ interface ProfileCardProps {
   contactText?: string;
   showUserInfo?: boolean;
   onContactClick?: () => void;
+  // here - I added - add to open source
+  cardHeight?: string; 
+  nameTextSize?: string;
+  roleTextSize?: string;
+  iconSize?: string;
 }
 
 interface TiltEngine {
@@ -79,7 +86,12 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   status = 'Online',
   contactText = 'Contact',
   showUserInfo = true,
-  onContactClick
+  onContactClick,
+  // added
+  cardHeight = '80svh',
+  nameTextSize = 'min(5svh, 3em)',
+  roleTextSize = '16px',
+  iconSize = '150%'
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
@@ -381,7 +393,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     maskImage: 'var(--icon)',
     maskMode: 'luminance',
     maskRepeat: 'repeat',
-    maskSize: '150%',
+    // here - updated
+    maskSize: iconSize,
     maskPosition: 'top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x))',
     filter: 'brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5)',
     animation: 'pc-holo-bg 18s linear infinite',
@@ -461,7 +474,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         <section
           className="grid relative overflow-hidden"
           style={{
-            height: '80svh',
+            // here
+            height: cardHeight,
             maxHeight: '540px',
             aspectRatio: '0.718',
             borderRadius: cardRadius,
@@ -600,7 +614,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 <h3
                   className="font-semibold m-0"
                   style={{
-                    fontSize: 'min(5svh, 3em)',
+                    // here edited
+                    fontSize: nameTextSize,
                     backgroundImage: 'linear-gradient(to bottom, #fff, #6f6fbe)',
                     backgroundSize: '1em 1.5em',
                     WebkitTextFillColor: 'transparent',
@@ -611,7 +626,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                     borderRadius: '0',
                     pointerEvents: 'auto'
                   }}
-                >
+                  >
                   {name}
                 </h3>
                 <p
@@ -619,7 +634,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                   style={{
                     position: 'relative',
                     top: '-12px',
-                    fontSize: '16px',
+                    // here edited
+                    fontSize: roleTextSize,
                     margin: '0 auto',
                     backgroundImage: 'linear-gradient(to bottom, #fff, #4a4ac0)',
                     backgroundSize: '1em 1.5em',
