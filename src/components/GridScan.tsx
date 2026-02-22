@@ -226,7 +226,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
 
     float dur = max(0.05, uScanDuration);
     float del = max(0.0, uScanDelay);
-    float scanZMax = 2.0;
+    float scanZMax = 3.0; // here edited 2m => 3
     float widthScale = max(0.1, uScanGlow);
     float sigma = max(0.001, 0.18 * widthScale * uScanSoftness);
     float sigmaA = sigma * 2.0;
