@@ -22,12 +22,12 @@ const Entry = () => {
                 className="relative z-10 flex items-center justify-center w-full h-full"
             >
                 <div className="w-full max-w-[800px] px-4 flex flex-col items-center" >
-                    <h2 className="google-sans-flex-bold-round text-3xl md:text-6xl md:-mb-5 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
+                    <h2 className="google-sans-flex-bold-round text-4xl md:text-6xl md:-mb-5 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
                     >Welcome to</h2>
                     {/* <h2 className="google-sans-flex-bold-round text-6xl -mb-5 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]" >Welcome to</h2> */}
-                    <h2 className="google-sans-flex-bold-round text-5xl md:text-8xl max-w-full text-center drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
+                    <h2 className="google-sans-flex-bold-round text-6xl md:text-8xl max-w-full text-center drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
                     >Guy's Website</h2>
-                    <h2 className="google-sans-flex-bold-round text-2xl md:text-4xl max-md:pt-4 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
+                    <h2 className="google-sans-flex-bold-round text-3xl md:text-4xl max-md:pt-4 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
                     >Junior Full-Stack Software Developer</h2>
                     <Link to="/home" className="block w-[90%] sm:w-[600px] mt-10">
                         <GlassSurface
