@@ -43,7 +43,7 @@ function App() {
             className="app-nav-glass"
           >
               {pathname === "/" ? (
-                <nav className="app-nav max-md:!justify-center">
+                <nav className="app-nav max-md:justify-center!">
                   <Link to="/">
                     <img 
                       src={lord_marshy_logo}
@@ -61,10 +61,10 @@ function App() {
                       className="h-10 rotate-4"
                     />
                   </Link>
-                    <div className="flex items-center gap-12">
-                      <NavLink to="/home" end>Home</NavLink>
-                      <NavLink to="/contact">Contact</NavLink>
-                    </div>
+                  <div className="flex items-center gap-12">
+                    <NavLink to="/home" end>Home</NavLink>
+                    <NavLink to="/contact">Contact</NavLink>
+                  </div>
                 </nav>
               )}
           </GlassSurface>

@@ -7,6 +7,9 @@ import profilePic_nobg from '../assets/profile_pic_nobg.png';
 import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
 
 const Home = () => {
+
+
+
     return (
       <div className="fixed inset-0 w-full h-full">
         {/* Background */}
@@ -27,13 +30,17 @@ const Home = () => {
           >NOTE WEBSITE STILL UNDER CONSTRUCTION</h1>
           <h1 className="google-sans-flex-bold-round text-4xl pt-10"
           >🚧🚧🚧</h1> */}
-          <h1 className="google-sans-flex-bold-round text-6xl pt-10"
-          >Guy - Junior Full-Stack Dev</h1>
+          <p className="google-sans-flex-bold-round text-4xl md:text-6xl pt-14"
+          >Guy - Junior Full-Stack Dev</p>
           {/* Body - intro*/}
           <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left"
           >Introduction</h2>
-          <div className="flex flex-row p-5">
-            <div className="scale-100 origin-top-left w-fit">
+          <div className="flex flex-col sm:flex-row md:p-5 gap-4 ">
+            <div className="h-auto p-2 flex flex-col gap-4 pt-5 flex-1" >
+              <p>I'm a Full-Stack Developer based in London with two years of intensive self-driven learning and nine months of commercial experience at a PropTech startup.</p>
+              <p>Recently, I've been focusing more on backend development, working with Node.js, Express, server architecture, authentication, and databases including SQLite and PostgreSQL.</p>
+            </div>
+            <div className="origin-top-left w-full flex-1 flex justify-center">
               <ProfileCard
                 name="Guy Marshman"
                 title="Junior Full-Stack Developer"
@@ -54,39 +61,27 @@ const Home = () => {
                 roleTextSize='16px'
                 iconSize='50%'
               />
-
-            </div>
-            <div className="h-auto p-2 flex flex-col gap-10 pt-5 " >
-              <p>I'm a Full-Stack Developer based in London with two years of intensive self-driven learning and nine months of commercial experience at a PropTech startup.</p>
-              <p>Recently, I've been focusing more on backend development, working with Node.js, Express, server architecture, authentication, and databases including SQLite and PostgreSQL.</p>
             </div>
           </div>
           {/* Body - Projects */}
-          <div className="text-left" >
-            <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left"
-            >Projects</h2>
 
-              {/* FIRST */}
-              <div
-                className="relative w-full min-h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 m-3"
-                style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
-              >
-                <h3 className="google-sans-flex-default text-3xl"
-                >Mood Tracker</h3>
-                <p>Mental Health Tracker CLI tool, record mood and review results. Uses Ink to create a full screen TUI, saves results in a SQLite database.</p>
+          <div className="flex flex-col gap-4 text-left">
+            <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left">Projects</h2>
 
-                <div className="flex flex-row gap-5 py-5">
-                  <button
-                    className="w-[200px]"
-                  >
-                    <p
-                      className="google-sans-flex-default text-black"
-                    >Start App</p>
-                  </button>
-                  <button
-                    className="w-[200px]"
-                  >
-                    <p
+            {/* FIRST */}
+            <div
+              className="relative w-full min-h-50 flex flex-col gap-4 p-5 md:m-3 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)]"
+              style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
+            >
+              <h3 className="google-sans-flex-default text-3xl">Mood Tracker</h3>
+              <p>Mental Health Tracker CLI tool, record mood and review results. Uses Ink to create a full screen TUI, saves results in a SQLite database.</p>
+
+              <div className="flex flex-row gap-5 py-5">
+                <button className="w-[200px]">
+                  <p className="google-sans-flex-default text-black">Start App</p>
+                </button>
+                <button className="w-[200px]">
+                  <p
                     className="google-sans-flex-default text-black"
                     onClick={() => window.open("https://github.com/wobwobbird/Mood_Tracker")}
                   >Open on Github</p>
@@ -106,23 +101,16 @@ const Home = () => {
 
             {/* SECOND */}
             <div
-              className="relative w-full min-h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 m-3"
+              className="relative w-full min-h-50 flex flex-col gap-4 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 md:m-3"
               style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
             >
-              <h3 className="google-sans-flex-default text-3xl"
-              >Tap 'O' Matic</h3>
+              <h3 className="google-sans-flex-default text-3xl">Tap 'O' Matic</h3>
               <p>A React Native TypeScript random number generator app</p>
               <div className="flex flex-row gap-5 py-5">
-                <button
-                  className="w-[200px]"
-                >
-                  <p
-                    className="google-sans-flex-default text-black"
-                  >Start App</p>
+                <button className="w-[200px]">
+                  <p className="google-sans-flex-default text-black">Start App</p>
                 </button>
-                <button
-                  className="w-[200px]"
-                >
+                <button className="w-[200px]">
                   <p
                     className="google-sans-flex-default text-black"
                     onClick={() => window.open("https://github.com/wobwobbird/Tap-O-Matic")}
@@ -139,26 +127,18 @@ const Home = () => {
               />
             </div>
 
-
             {/* THIRD */}
             <div
-              className="relative w-full min-h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 m-3"
+              className="relative w-full min-h-50 flex flex-col gap-4 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 md:m-3"
               style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
             >
-              <h3 className="google-sans-flex-default text-3xl"
-              >Super Connect</h3>
+              <h3 className="google-sans-flex-default text-3xl">Super Connect</h3>
               <p>A two-player turn-based Connect 4–style game built in Unity 6 (URP). Get four in a row: horizontally, vertically, or diagonally to win. Full game with start scene, player naming, scoring, winning screen, music control, 3D background and animations</p>
               <div className="flex flex-row gap-5 py-5">
-                <button
-                  className="w-[200px]"
-                >
-                  <p
-                    className="google-sans-flex-default text-black"
-                  >Start App</p>
+                <button className="w-[200px]">
+                  <p className="google-sans-flex-default text-black">Start App</p>
                 </button>
-                <button
-                  className="w-[200px]"
-                >
+                <button className="w-[200px]">
                   <p
                     className="google-sans-flex-default text-black"
                     onClick={() => window.open("https://github.com/wobwobbird/Super-Connect-Game")}
@@ -173,24 +153,22 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="text-left" >
-            <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left"
-            >Commercial Experiance</h2>
+          
+          {/* Body - Commercial */}
+          <div className="text-left flex flex-col gap-4 pt-4">
+            <h2 className="google-sans-flex-skinny text-3xl pt-5 text-left">Commercial Experiance</h2>
 
-              {/* FIRST */}
-              <div
-                className="relative w-full min-h-50 flex flex-col rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 m-3"
-                style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
-              >
-                <h3 className="google-sans-flex-default text-3xl"
-                >iRealty PropTech</h3>
-                <p>Worked as a Junior Front-End Developer at the PropTech startup Converted the customer facing CRM to tablet and mobile responsive, and built a customer support pannel available across the app Built property filtering, comparison tools, and multilingual support (Catalan/French) </p>
+            {/* FIRST */}
+            <div
+              className="relative w-full min-h-50 flex flex-col gap-4 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 md:m-3"
+              style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
+            >
+              <h3 className="google-sans-flex-default text-3xl">iRealty PropTech</h3>
+              <p>Worked as a Junior Front-End Developer at the PropTech startup Converted the customer facing CRM to tablet and mobile responsive, and built a customer support pannel available across the app Built property filtering, comparison tools, and multilingual support (Catalan/French) </p>
 
-                <div className="flex flex-row gap-5 py-5">
-                  <button
-                    className="w-[200px]"
-                  >
-                    <p
+              <div className="flex flex-row gap-5 py-5">
+                <button className="w-[200px]">
+                  <p
                     className="google-sans-flex-default text-black"
                     onClick={() => window.open("https://irealty.app/")}
                   >Visit Site</p>
@@ -207,9 +185,7 @@ const Home = () => {
                   { src: devicon("tailwindcss"), label: "Tailwind" },
                 ]}
               />
-
             </div>
-
           </div>
           {/* Body - Learning */}
           <div className="text-left pb-[150px]" >
@@ -231,22 +207,3 @@ const Home = () => {
   };
   
   export default Home;
-
-  {/* Footer */}
-  {/* <div
-    className="h-30 p-5 "
-  >
-    <div className="bg-amber-200 w-full h-full flex flex-row justify-between" >
-      <div className="bg-amber-500 w-40 h-full flex items-center justify-center" >
-        <p className=" google-sans-flex-skinny flex items-center text-3xl" >Github</p>
-      </div>
-      <div className="bg-amber-500 w-40 h-full flex items-center justify-center" >
-        <p className=" google-sans-flex-skinny flex items-center text-3xl" >LinkedIn</p>
-      </div>
-      <div className="bg-amber-500 w-40 h-full flex items-center justify-center" >
-        <p className=" google-sans-flex-skinny flex items-center text-4xl" >Github</p>
-      </div>
-
-    </div>
-
-  </div> */}

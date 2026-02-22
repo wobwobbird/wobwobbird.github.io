@@ -18,7 +18,7 @@ export interface IconSetProps {
 
 const IconSet: React.FC<IconSetProps> = ({ items, className }) => {
   return (
-    <div className={`grid grid-flow-col auto-cols-[5rem] gap-[1em] justify-items-start  pb-[1em] overflow-visible w-fit ${className || ''}`}>
+    <div className={`grid grid-flow-col auto-cols-[5rem] gap-[1em] justify-items-start py-[1em] pb-[2em] overflow-x-auto overflow-y-visible w-full max-w-full min-w-0 min-h-full ${className || ''}`}>
       {items.map((item, index) => (
         <div
           key={index}
