@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Route, Routes, NavLink, Link } from 'react-router-dom';
+import { Route, Routes, Link, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Vite from './pages/Vite';
@@ -7,13 +7,13 @@ import Entry from './pages/Entry';
 import GlassSurface from './components/GlassSurface';
 import { ReactLenis } from 'lenis/react'
 import lord_marshy_logo from './assets/lord_marshy_logo.png'
+import { NavLink } from 'react-router-dom';
 
 function App() {
-  // const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
   return (
-    <BrowserRouter>
-      <ReactLenis
+    <ReactLenis
         root
         options={{
           lerp: 0.1,           // Smoothness (0–1, lower = smoother)
@@ -42,33 +42,47 @@ function App() {
 
             className="app-nav-glass"
           >
-            <nav className="app-nav">
+              {pathname === "/" ? (
+                <nav className="app-nav max-md:!justify-center">
+                  <Link to="/">
+                    <img 
+                      src={lord_marshy_logo}
+                      alt="website logo"
+                      className="h-10 rotate-4"
+                    />
+                  </Link>
+                </nav>
+              ) : (
+                <nav className="app-nav">
+                  <Link to="/">
+                    <img 
+                      src={lord_marshy_logo}
+                      alt="website logo"
+                      className="h-10 rotate-4"
+                    />
+                  </Link>
+                    <div className="flex items-center gap-12">
+                      <NavLink to="/home" end>Home</NavLink>
+                      <NavLink to="/contact">Contact</NavLink>
+                    </div>
+                </nav>
+              )}
+          </GlassSurface>
+        </div>
+            {/* <nav className="app-nav">
               <Link to="/">
                 <img 
                   src={lord_marshy_logo}
                   alt="website logo"
                   className="h-10 rotate-4"
                 />
-              </Link>
-              <div className="flex items-center gap-12">
-                <NavLink to="/home" end>Home</NavLink>
-                <NavLink to="/contact">Contact</NavLink>
-                {/* <NavLink to="/vite">Vite</NavLink> */}
-              </div>
-              {/* {pathname !== "/" && (
-                <>
-                  <img src={lord_marshy_logo} alt="website logo" className="h-12 rotate-4"/>
-                  <div className="flex items-center gap-12">
-                    <NavLink to="/home" end>Home</NavLink>
-                    <NavLink to="/contact">Contact</NavLink>
-                    <NavLink to="/vite">Vite</NavLink>
-                  </div>
-                </>
-
+              </Link>   
+              {pathname !== "/" && (
+                <div className="flex items-center gap-12">
+                  <NavLink to="/home" end>Home</NavLink>
+                  <NavLink to="/contact">Contact</NavLink>
+                </div>
               )} */}
-            </nav>
-          </GlassSurface>
-        </div>
 
         <Routes>
           <Route path="/" element={<Entry/>} />
@@ -77,7 +91,6 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </ReactLenis>
-    </BrowserRouter>
   )
 }
 
