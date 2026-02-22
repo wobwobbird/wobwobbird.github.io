@@ -46,19 +46,21 @@ const Contact = () => {
             </div>
             <div
                 className="relative z-10 flex flex-col items-center justify-center w-full h-full"
-            
             >
                 <div>
-                    <h2 className="google-sans-flex-bold-round text-6xl -mb-5 select-none" >Get in</h2>
-                    <h2 className="google-sans-flex-bold-round text-8xl select-none" >Contact</h2>
-                    <h2 className="google-sans-flex-skinny text-5xl pt-0 select-none" >I don't bite</h2>
+                    <h2 className="google-sans-flex-bold-round text-5xl md:text-6xl -mb-5 select-none"
+                    >Get in</h2>
+                    <h2 className="google-sans-flex-bold-round text-7xl md:text-8xl select-none"
+                    >Contact</h2>
+                    <h2 className="google-sans-flex-skinny text-4xl md:text-5xl pt-0 select-none"
+                    >I don't bite</h2>
                     <div>
                         <div className="h-auto relative " >
                             <GlassIcons items={items} className="custom-class" />
                         </div>
                     </div>
                     <div
-                        className=" w-[380 px] h-auto pt-0"
+                        className="w-[90%] md:w-[380px] h-auto pt-0 mx-auto"
                     >
                         <GlassPanel
                         >
