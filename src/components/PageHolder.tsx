@@ -14,8 +14,8 @@ const PageHolder = ({ background, children, className, scrollable, navbarOffset 
         : `relative z-10 flex items-center justify-center w-full h-full ${navbarOffset !== false ? "pt-14" : ""}`;
 
     const contentWrapperClasses = scrollable
-        ? `min-w-0 w-full max-w-[1100px] h-auto mx-auto px-4 flex flex-col ${className || ""}`
-        : `min-w-0 w-full max-w-[1100px] px-3 md:px-4 flex flex-col ${className || ""}`;
+        ? `min-w-0 w-full max-w-[1100px] h-auto mx-auto px-3 md:px-10 flex flex-col ${className || ""}`
+        : `min-w-0 w-full max-w-[1100px] px-3 md:px-10 flex flex-col ${className || ""}`;
 
     return (
         <div className="fixed inset-0 w-full h-full">

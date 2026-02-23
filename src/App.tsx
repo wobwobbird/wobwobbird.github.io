@@ -53,12 +53,12 @@ function App() {
                   </Link>
                 </nav>
               ) : (
-                <nav className="app-nav">
+                <nav className="app-nav max-[600px]:justify-center!">
                   <Link to="/">
                     <img 
                       src={lord_marshy_logo}
                       alt="website logo"
-                      className="h-10 rotate-4"
+                      className="h-10 rotate-4 max-[600px]:hidden "
                     />
                   </Link>
                   <div className="flex items-center gap-12">

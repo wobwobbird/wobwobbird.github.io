@@ -50,10 +50,11 @@ const Contact = () => {
             <div className="h-auto relative">
                 <GlassIcons items={items} className="custom-class" />
             </div>
-            <div className="w-[90%] md:w-[380px] h-auto pt-0 mx-auto">
+            <div className="w-[280px] md:w-[380px] h-auto pt-0 mx-auto">
                 <GlassPanel>
                     <div className="flex flex-col text-center"> 
-                        <p className="text-xl font-semibold select-none">Open to fulltime ( Office | Hybrid |  Remote )</p>
+                        <p className="text-xl font-semibold select-none">Open to fulltime</p>
+                        <p className="text-xl font-semibold select-none">(Office | Hybrid | Remote)</p>
                         <p className="text-xl font-semibold select-none">and contract work</p>
                     </div>
                 </GlassPanel>

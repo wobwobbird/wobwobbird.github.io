@@ -81,13 +81,13 @@ const COMMERCIAL_PROJECTS: ProjectBoardData[] = [
 ];
 
 const StartAppButton = ({ label }: StartAppAction) => (
-  <button className="w-[200px]">
+  <button className="w-[200px] max-xs:w-full">
     <p className="google-sans-flex-default text-black">{label}</p>
   </button>
 );
 
 const WebsiteLinkButton = ({ label, url }: WebsiteLinkAction) => (
-  <button className="w-[200px]" onClick={() => window.open(url)}>
+  <button className="w-[200px] max-xs:w-full" onClick={() => window.open(url)}>
     <p className="google-sans-flex-default text-black">{label}</p>
   </button>
 );
@@ -105,14 +105,14 @@ const Board = ({ title, description, techStack, startApp, websiteLink }: BoardPr
 
   return (
     <div
-      className="relative w-full min-h-50 flex flex-col gap-4 p-5 md:m-3 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)]"
+      className="relative w-full min-h-50 flex flex-col gap-4 p-5  rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)]"
       style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
     >
       <h3>{title}</h3>
       <p>{description}</p>
 
       {hasActions && (
-        <div className="flex flex-row gap-5 py-5">
+        <div className="flex flex-row gap-5 py-0 max-xs:w-full ">
           {startApp && <StartAppButton label={startApp.label} />}
           {websiteLink && <WebsiteLinkButton label={websiteLink.label} url={websiteLink.url} />}
         </div>
