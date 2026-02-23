@@ -9,7 +9,7 @@ import profilePic_nobg from '../assets/profile_pic_nobg.png';
 import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
 import { Button } from "@/components/ui/button"
 import { ExternalLink, SquareTerminal } from "lucide-react"
-
+import CircularText from "@/components/CircularText";
 
 interface StartAppAction {
   label: string;
@@ -127,90 +127,94 @@ const Board = ({ title, description, techStack, startApp, websiteLink }: BoardPr
 };
 
 const Home = () => {
-
-
-
-    return (
-        <PageHolder
-            background={<LightRays />}
-            scrollable
-        >
-          {/* Body - heading*/}
-          <h1 className="pt-14">Guy - Junior Full-Stack Dev</h1>
-          {/* Body - intro*/}
-          <h2 className="pt-5 text-left">Introduction</h2>
-          <div className="flex flex-col sm:flex-row md:p-5 gap-4 ">
-            <div className="h-auto p-0 flex flex-col gap-4 pt-5 flex-1" >
-              <p>I'm a Full-Stack Developer based in London with two years of intensive self-driven learning and nine months of commercial experience at a PropTech startup.</p>
-              <p>Recently, I've been focusing more on backend development, working with Node.js, Express, server architecture, authentication, and databases including SQLite and PostgreSQL.</p>
-            </div>
-            <div className="origin-top-left w-full flex-1 flex justify-center">
-              <ProfileCard
-                name="Guy Marshman"
-                title="Junior Full-Stack Developer"
-                handle="javicodes"
-                status="Online"
-                contactText="Contact Me"
-                avatarUrl={profilePic_nobg}
-                showUserInfo={false}
-                enableTilt={true}
-                enableMobileTilt={true}
-                onContactClick={() => console.log('Contact clicked')}
-                behindGlowColor="rgba(125, 190, 255, 0.67)"
-                iconUrl={lordMarshy_s}
-                behindGlowEnabled
-                innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
-                cardHeight='min(45svh, 380px)'
-                nameTextSize='min(5svh, 2em)'
-                roleTextSize='16px'
-                iconSize='50%'
-              />
-            </div>
+  return (
+      <PageHolder
+          background={<LightRays />}
+          scrollable
+      >
+        {/* Body - heading*/}
+        <h1 className="pt-14">Guy - Junior Full-Stack Dev</h1>
+        {/* Body - intro*/}
+        <h2 className="pt-5 text-left">Introduction</h2>
+        <div className="flex flex-col sm:flex-row md:p-5 gap-4 ">
+          <div className="h-auto p-0 flex flex-col gap-4 pt-5 flex-1" >
+            <p>I'm a Full-Stack Developer based in London with two years of intensive self-driven learning and nine months of commercial experience at a PropTech startup.</p>
+            <p>Recently, I've been focusing more on backend development, working with Node.js, Express, server architecture, authentication, and databases including SQLite and PostgreSQL.</p>
           </div>
-          {/* Body - Projects */}
+          <div className="origin-top-left w-full flex-1 flex justify-center">
+            <ProfileCard
+              name="Guy Marshman"
+              title="Junior Full-Stack Developer"
+              handle="javicodes"
+              status="Online"
+              contactText="Contact Me"
+              avatarUrl={profilePic_nobg}
+              showUserInfo={false}
+              enableTilt={true}
+              enableMobileTilt={true}
+              onContactClick={() => console.log('Contact clicked')}
+              behindGlowColor="rgba(125, 190, 255, 0.67)"
+              iconUrl={lordMarshy_s}
+              behindGlowEnabled
+              innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
+              cardHeight='min(45svh, 380px)'
+              nameTextSize='min(5svh, 2em)'
+              roleTextSize='16px'
+              iconSize='50%'
+            />
+          </div>
+        </div>
+        {/* Body - Projects */}
 
-          <div className="flex flex-col gap-4 text-left">
-            <h2 className="pt-5 text-left">Projects</h2>
-            {PROJECTS.map((project) => (
-              <Board
-                key={project.title}
-                title={project.title}
-                description={project.description}
-                techStack={project.techStack}
-                startApp={project.startApp}
-                websiteLink={project.websiteLink}
-              />
-            ))}
+        <div className="flex flex-col gap-4 text-left">
+          <h2 className="pt-5 text-left">Projects</h2>
+          {PROJECTS.map((project) => (
+            <Board
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              techStack={project.techStack}
+              startApp={project.startApp}
+              websiteLink={project.websiteLink}
+            />
+          ))}
+        </div>
+        
+        {/* Body - Commercial */}
+        <div className="text-left flex flex-col gap-4 pt-4">
+          <h2 className="pt-5 text-left">Commercial Experiance</h2>
+          {COMMERCIAL_PROJECTS.map((project) => (
+            <Board
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              techStack={project.techStack}
+              startApp={project.startApp}
+              websiteLink={project.websiteLink}
+            />
+          ))}
+        </div>
+        {/* Body - Learning */}
+        <div className="text-left pb-[50px]" >
+          <h2 className="pt-5 text-left">Learning</h2>
+          <p>I have been putting in the effort to learn about many different areas</p>
+          <div className="flex flex-row gap-2">
+            <p>So my learning certificates on my linkedIn:</p>
+            <p
+              className="cursor-pointer text-blue-600 underline hover:text-blue-800 hover:underline"
+              onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}
+            >here</p>
           </div>
-          
-          {/* Body - Commercial */}
-          <div className="text-left flex flex-col gap-4 pt-4">
-            <h2 className="pt-5 text-left">Commercial Experiance</h2>
-            {COMMERCIAL_PROJECTS.map((project) => (
-              <Board
-                key={project.title}
-                title={project.title}
-                description={project.description}
-                techStack={project.techStack}
-                startApp={project.startApp}
-                websiteLink={project.websiteLink}
-              />
-            ))}
-          </div>
-          {/* Body - Learning */}
-          <div className="text-left pb-[150px]" >
-            <h2 className="pt-5 text-left">Learning</h2>
-            <p>I have been putting in the effort to learn about many different areas</p>
-            <div className="flex flex-row gap-2">
-              <p>So my learning certificates on my linkedIn:</p>
-              <p
-                className="cursor-pointer text-blue-600 underline hover:text-blue-800 hover:underline"
-                onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}
-              >here</p>
-            </div>
-          </div>
-        </PageHolder>
-    );
+        </div>
+        <CircularText
+          text="FRONT-END*BACK-END*DEVELOPER*"
+          onHover="speedUp"
+          spinDuration={20}
+          className="custom-class"
+        />
+
+      </PageHolder>
+  );
 };
   
   export default Home;

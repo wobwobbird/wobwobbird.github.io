@@ -1,8 +1,8 @@
 import LetterGlitch from "@/components/LetterGlitch";
-import GlassSurface from '../components/GlassSurface';
 import { Link } from "react-router-dom";
 import PageHolder from "@/components/PageHolder";
-
+import { Button } from "@/components/ui/button"
+import { GrCodeSandbox } from "react-icons/gr";
 
 const Entry = () => {
 
@@ -32,7 +32,7 @@ const Entry = () => {
             >Guy's Website</h2>
             <h2 className="google-sans-flex-bold-round text-3xl md:text-4xl max-md:pt-4 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
             >Junior Full-Stack Software Developer</h2> */}
-            <Link to="/home" className="block w-[90%] sm:w-[600px] mt-10">
+            {/* <Link to="/home" className="block w-[90%] sm:w-[600px] mt-10">
                 <GlassSurface
                     className="cursor-pointer w-full"
                     width="100%"
@@ -54,16 +54,22 @@ const Entry = () => {
                         className="google-sans-flex-contact text-5xl"
                     >Enter</p>
                 </GlassSurface>
-            </Link>
-
-            <div>
-                <div className="h-auto relative" >
-                    {/* <GlassIcons items={items} className="custom-class" /> */}
-                </div>
-            </div>
+            </Link> */}
             <p
                 className="mt-5 p-3 bg-green-950 border-amber-950 border rounded-4xl"
-            >🚧 Note this site is still under construction 🚧</p>
+            >🚧 Site under construction 🚧</p>
+            <Button asChild variant="outline" className="mt-10 px-20 has-[>svg]:px-10 rounded-xl [&_svg]:size-[1.2em]">
+                <Link to="/home">
+                    Enter <GrCodeSandbox data-icon="inline-end" />
+                </Link>
+            </Button>
+
+            {/* <div>
+                <div className="h-auto relative" >
+                    <GlassIcons items={items} className="custom-class" />
+                </div>
+            </div> */}
+
 
         </PageHolder>
     )
