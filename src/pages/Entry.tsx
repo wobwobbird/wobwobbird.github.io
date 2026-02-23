@@ -61,6 +61,10 @@ const Entry = () => {
                     {/* <GlassIcons items={items} className="custom-class" /> */}
                 </div>
             </div>
+            <p
+                className="mt-5 p-3 bg-green-950 border-amber-950 border rounded-4xl"
+            >🚧 Note this site is still under construction 🚧</p>
+
         </PageHolder>
     )
 }

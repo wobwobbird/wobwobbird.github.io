@@ -1,5 +1,5 @@
-// import Balatro from "@/components/Balatro";
 import { GridScan } from "@/components/GridScan";
+import PageHolder from "@/components/PageHolder";
 import GlassIcons from "@/components/GlassIcons";
 import { FiGithub, FiFileText } from 'react-icons/fi';
 import { LiaLinkedin } from "react-icons/lia";
@@ -7,7 +7,6 @@ import cvPdf from '@/assets/Guy_Marshman_Full-Stack_Software_Dev_CV.pdf';
 import GlassPanel from "@/components/GlassPanel";
 
 const Contact = () => {
-    // update with your own icons and colors
     const items = [
         { icon: <FiGithub />, color: '#24292e', label: 'GitHub', onClick: () => window.open("https://github.com/wobwobbird") },
         { icon: <LiaLinkedin />, color: '#0A66C2', label: 'LinkedIn', onClick: () => window.open("https://linkedin.com/in/guymarshman")},
@@ -25,9 +24,8 @@ const Contact = () => {
     ];
 
     return (
-        <div className="fixed inset-0 w-full h-full">
-            {/* <Balatro mouseInteraction={false} spinRotation={-1.0} spinSpeed={3.0} /> */}
-            <div className="absolute inset-0" >
+        <PageHolder
+            background={
                 <GridScan 
                     sensitivity={0.1}
                     lineThickness={1}
@@ -38,47 +36,30 @@ const Contact = () => {
                     enablePost
                     bloomIntensity={0.6}
                     chromaticAberration={0.002}
-                    noiseIntensity={0.05} //0.01
-                    // scanOnClick={true}
-                    // scanDelay={6}
+                    noiseIntensity={0.05}
                     scanDuration={6}
                 />
+            }
+            className="items-center"
+        >
+            <h1 className="display select-none">
+                <span className="block -mb-5">Get in</span>
+                <span className="block">Contact</span>
+            </h1>
+            <h2 className="pt-0 select-none">I don't bite</h2>
+            <div className="h-auto relative">
+                <GlassIcons items={items} className="custom-class" />
             </div>
-            <div
-                className="relative z-10 flex flex-col items-center justify-center w-full h-full"
-            >
-                <div>
-                    <h1 className="display select-none">
-                        <span className="block -mb-5">Get in</span>
-                        <span className="block">Contact</span>
-                    </h1>
-                    <h2 className="pt-0 select-none">I don't bite</h2>
-                    <div>
-                        <div className="h-auto relative " >
-                            <GlassIcons items={items} className="custom-class" />
-                        </div>
+            <div className="w-[90%] md:w-[380px] h-auto pt-0 mx-auto">
+                <GlassPanel>
+                    <div className="flex flex-col text-center"> 
+                        <p className="text-xl font-semibold select-none">Open to fulltime ( Office | Hybrid |  Remote )</p>
+                        <p className="text-xl font-semibold select-none">and contract work</p>
                     </div>
-                    <div
-                        className="w-[90%] md:w-[380px] h-auto pt-0 mx-auto"
-                    >
-                        <GlassPanel
-                        >
-                            <div className="flex flex-col text-center" > 
-                                <p className="text-xl font-semibold select-none">Open to fulltime ( Office | Hybrid |  Remote )</p>
-                                <p className="text-xl font-semibold select-none">and contract work</p>
-                            </div>
-                        </GlassPanel>
-                    </div>
-                </div>
+                </GlassPanel>
             </div>
-        </div>
-        // <div className="w-full min-h-screen pt-24">
-        // </div>
-    )
+        </PageHolder>
+    );
 }
 
 export default Contact;
-
-
-// spinRotation = -2.0,
-// spinSpeed = 7.0,

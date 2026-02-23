@@ -1,4 +1,5 @@
 import LightRays from "@/components/LightRays";
+import PageHolder from "@/components/PageHolder";
 import IconSet, { devicon } from "@/components/IconSet";
 import inkLogo from '../assets/ink_logo.png'
 import ProfileCard from "@/components/ProfileCard";
@@ -7,29 +8,12 @@ import profilePic_nobg from '../assets/profile_pic_nobg.png';
 import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
 
 const Home = () => {
-
-
-
     return (
-      <div className="fixed inset-0 w-full h-full">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <LightRays />
-        </div>
-        {/* Body */}
-        <div
-          className="relative z-10 w-full min-h-0 pt-14 overflow-y-auto overflow-x-hidden overscroll-contain"
-          style={{ height: '100vh' }}
-          data-lenis-prevent=""
+        <PageHolder
+            background={<LightRays />}
+            scrollable
         >
-          <div className="max-w-[1100px] h-auto mx-auto px-4">
           {/* Body - heading*/}
-          {/* <h1 className="google-sans-flex-bold-round text-4xl pt-10"
-          >🚧🚧🚧</h1>
-          <h1 className="google-sans-flex-bold-round text-4xl pt-10"
-          >NOTE WEBSITE STILL UNDER CONSTRUCTION</h1>
-          <h1 className="google-sans-flex-bold-round text-4xl pt-10"
-          >🚧🚧🚧</h1> */}
           <h1 className="pt-14">Guy - Junior Full-Stack Dev</h1>
           {/* Body - intro*/}
           <h2 className="pt-5 text-left">Introduction</h2>
@@ -197,10 +181,8 @@ const Home = () => {
               >here</p>
             </div>
           </div>
-        </div>
-        </div>
-      </div>
+        </PageHolder>
     );
-  };
+};
   
   export default Home;

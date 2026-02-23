@@ -1,25 +1,38 @@
-interface PageGolderProps {
+interface PageHolderProps {
     background?: React.ReactNode;
     children: React.ReactNode;
     className?: string;
+    /** When true, content is scrollable and top-aligned (e.g. for long pages like Home) */
+    scrollable?: boolean;
+    /** Top padding for navbar on centered layouts. Default true. Set false for pages without navbar. */
+    navbarOffset?: boolean;
 }
 
+const PageHolder = ({ background, children, className, scrollable, navbarOffset = true }: PageHolderProps) => {
+    const contentAreaClasses = scrollable
+        ? "relative z-10 w-full min-h-0 pt-14 overflow-y-auto overflow-x-hidden overscroll-contain"
+        : `relative z-10 flex items-center justify-center w-full h-full ${navbarOffset !== false ? "pt-14" : ""}`;
 
-const PageHolder = ({ background, children, className }: PageGolderProps) => {
+    const contentWrapperClasses = scrollable
+        ? `min-w-0 w-full max-w-[1100px] h-auto mx-auto px-4 flex flex-col ${className || ""}`
+        : `min-w-0 w-full max-w-[1100px] px-3 md:px-4 flex flex-col ${className || ""}`;
+
     return (
         <div className="fixed inset-0 w-full h-full">
-            <div className="absolute inset-0" >
+            <div className="absolute inset-0">
                 {background}
             </div>
             <div
-                className="relative z-10 flex items-center justify-center w-full h-full"
+                className={contentAreaClasses}
+                style={scrollable ? { height: "100vh" } : undefined}
+                {...(scrollable ? { "data-lenis-prevent": "" } : {})}
             >
-                <div className={"min-w-0 w-full max-w-[800px] px-3 md:px-4 flex flex-col" + (className ? ` ${className}` : "")} >
+                <div className={contentWrapperClasses}>
                     {children}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default PageHolder;
