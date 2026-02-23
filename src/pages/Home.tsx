@@ -1,11 +1,121 @@
 import LightRays from "@/components/LightRays";
 import PageHolder from "@/components/PageHolder";
 import IconSet, { devicon } from "@/components/IconSet";
+import type { IconSetItem } from "@/components/IconSet";
 import inkLogo from '../assets/ink_logo.png'
 import ProfileCard from "@/components/ProfileCard";
 import profilePic_nobg from '../assets/profile_pic_nobg.png';
 // import lordMarshy from '../assets/lord_marshy_logo.png'
 import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
+
+interface BoardAction {
+  label: string;
+  url?: string;
+}
+
+interface ProjectBoardData {
+  title: string;
+  description: string;
+  techStack: IconSetItem[];
+  actions: BoardAction[];
+}
+
+const PROJECTS: ProjectBoardData[] = [
+  {
+    title: "Mood Tracker",
+    description: "Mental Health Tracker CLI tool, record mood and review results. Uses Ink to create a full screen TUI, saves results in a SQLite database.",
+    techStack: [
+      { src: devicon("javascript"), label: "JavaScript" },
+      { src: devicon("nodejs"), label: "Node.js" },
+      { src: devicon("react"), label: "React" },
+      { src: inkLogo, label: "Ink (TUI)" },
+      { src: devicon("sqlite"), label: "SQLite" },
+    ],
+    actions: [
+      { label: "Start App" },
+      { label: "Open on Github", url: "https://github.com/wobwobbird/Mood_Tracker" },
+    ],
+  },
+  {
+    title: "Tap 'O' Matic",
+    description: "A React Native TypeScript random number generator app",
+    techStack: [
+      { src: devicon("typescript"), label: "TypeScript" },
+      { src: devicon("react"), label: "React" },
+      { src: "https://cdn.simpleicons.org/react/000020", label: "React Native" },
+      { src: "https://cdn.simpleicons.org/expo/000020", label: "Expo" },
+    ],
+    actions: [
+      { label: "Start App" },
+      { label: "Open on Github", url: "https://github.com/wobwobbird/Tap-O-Matic" },
+    ],
+  },
+  {
+    title: "Super Connect",
+    description: "A two-player turn-based Connect 4–style game built in Unity 6 (URP). Get four in a row: horizontally, vertically, or diagonally to win. Full game with start scene, player naming, scoring, winning screen, music control, 3D background and animations",
+    techStack: [
+      { src: devicon("unity"), label: "Unity" },
+      { src: devicon("csharp"), label: "C#" },
+    ],
+    actions: [
+      { label: "Start App" },
+      { label: "Open on Github", url: "https://github.com/wobwobbird/Super-Connect-Game" },
+    ],
+  },
+];
+
+const COMMERCIAL_PROJECTS: ProjectBoardData[] = [
+  {
+    title: "iRealty PropTech",
+    description: "Worked as a Junior Front-End Developer at the PropTech startup Converted the customer facing CRM to tablet and mobile responsive, and built a customer support pannel available across the app Built property filtering, comparison tools, and multilingual support (Catalan/French) ",
+    techStack: [
+      { src: devicon("javascript"), label: "JavaScript" },
+      { src: devicon("typescript"), label: "TypeScript" },
+      { src: devicon("react"), label: "React" },
+      { src: devicon("redux"), label: "Redux" },
+      { src: devicon("css3"), label: "CSS" },
+      { src: devicon("sass"), label: "SASS" },
+      { src: devicon("tailwindcss"), label: "Tailwind" },
+    ],
+    actions: [
+      { label: "Visit Site", url: "https://irealty.app/" },
+    ],
+  },
+];
+
+interface BoardProps {
+  title: string;
+  description: string;
+  techStack: IconSetItem[];
+  actions?: BoardAction[];
+}
+
+const Board = ({ title, description, techStack, actions = [] }: BoardProps) => {
+  return (
+    <div
+      className="relative w-full min-h-50 flex flex-col gap-4 p-5 md:m-3 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)]"
+      style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
+    >
+      <h3>{title}</h3>
+      <p>{description}</p>
+
+      {actions.length > 0 && (
+        <div className="flex flex-row gap-5 py-5">
+          {actions.map((action, i) => (
+            <button
+              key={i}
+              className="w-[200px]"
+              {...(action.url && { onClick: () => window.open(action.url!) })}
+            >
+              <p className="google-sans-flex-default text-black">{action.label}</p>
+            </button>
+          ))}
+        </div>
+      )}
+      <IconSet items={techStack} />
+    </div>
+  );
+};
 
 const Home = () => {
     return (
@@ -18,7 +128,7 @@ const Home = () => {
           {/* Body - intro*/}
           <h2 className="pt-5 text-left">Introduction</h2>
           <div className="flex flex-col sm:flex-row md:p-5 gap-4 ">
-            <div className="h-auto p-2 flex flex-col gap-4 pt-5 flex-1" >
+            <div className="h-auto p-0 flex flex-col gap-4 pt-5 flex-1" >
               <p>I'm a Full-Stack Developer based in London with two years of intensive self-driven learning and nine months of commercial experience at a PropTech startup.</p>
               <p>Recently, I've been focusing more on backend development, working with Node.js, Express, server architecture, authentication, and databases including SQLite and PostgreSQL.</p>
             </div>
@@ -49,125 +159,29 @@ const Home = () => {
 
           <div className="flex flex-col gap-4 text-left">
             <h2 className="pt-5 text-left">Projects</h2>
-
-            {/* FIRST */}
-            <div
-              className="relative w-full min-h-50 flex flex-col gap-4 p-5 md:m-3 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)]"
-              style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
-            >
-              <h3>Mood Tracker</h3>
-              <p>Mental Health Tracker CLI tool, record mood and review results. Uses Ink to create a full screen TUI, saves results in a SQLite database.</p>
-
-              <div className="flex flex-row gap-5 py-5">
-                <button className="w-[200px]">
-                  <p className="google-sans-flex-default text-black">Start App</p>
-                </button>
-                <button className="w-[200px]">
-                  <p
-                    className="google-sans-flex-default text-black"
-                    onClick={() => window.open("https://github.com/wobwobbird/Mood_Tracker")}
-                  >Open on Github</p>
-                </button>
-              </div>
-              <IconSet
-                items={[
-                  { src: devicon("javascript"), label: "JavaScript" },
-                  { src: devicon("nodejs"), label: "Node.js" },
-                  { src: devicon("react"), label: "React" },
-                  { src: inkLogo, label: "Ink (TUI)" },
-                  { src: devicon("sqlite"), label: "SQLite" },
-                ]}
+            {PROJECTS.map((project) => (
+              <Board
+                key={project.title}
+                title={project.title}
+                description={project.description}
+                techStack={project.techStack}
+                actions={project.actions}
               />
-
-            </div>
-
-            {/* SECOND */}
-            <div
-              className="relative w-full min-h-50 flex flex-col gap-4 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 md:m-3"
-              style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
-            >
-              <h3>Tap 'O' Matic</h3>
-              <p>A React Native TypeScript random number generator app</p>
-              <div className="flex flex-row gap-5 py-5">
-                <button className="w-[200px]">
-                  <p className="google-sans-flex-default text-black">Start App</p>
-                </button>
-                <button className="w-[200px]">
-                  <p
-                    className="google-sans-flex-default text-black"
-                    onClick={() => window.open("https://github.com/wobwobbird/Tap-O-Matic")}
-                  >Open on Github</p>
-                </button>
-              </div>
-              <IconSet
-                items={[
-                  { src: devicon("typescript"), label: "TypeScript" },
-                  { src: devicon("react"), label: "React" },
-                  { src: "https://cdn.simpleicons.org/react/000020", label: "React Native" },
-                  { src: "https://cdn.simpleicons.org/expo/000020", label: "Expo" },
-                ]}
-              />
-            </div>
-
-            {/* THIRD */}
-            <div
-              className="relative w-full min-h-50 flex flex-col gap-4 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 md:m-3"
-              style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
-            >
-              <h3>Super Connect</h3>
-              <p>A two-player turn-based Connect 4–style game built in Unity 6 (URP). Get four in a row: horizontally, vertically, or diagonally to win. Full game with start scene, player naming, scoring, winning screen, music control, 3D background and animations</p>
-              <div className="flex flex-row gap-5 py-5">
-                <button className="w-[200px]">
-                  <p className="google-sans-flex-default text-black">Start App</p>
-                </button>
-                <button className="w-[200px]">
-                  <p
-                    className="google-sans-flex-default text-black"
-                    onClick={() => window.open("https://github.com/wobwobbird/Super-Connect-Game")}
-                  >Open on Github</p>
-                </button>
-              </div>
-              <IconSet
-                items={[
-                  { src: devicon("unity"), label: "Unity" },
-                  { src: devicon("csharp"), label: "C#" },
-                ]}
-              />
-            </div>
+            ))}
           </div>
           
           {/* Body - Commercial */}
           <div className="text-left flex flex-col gap-4 pt-4">
             <h2 className="pt-5 text-left">Commercial Experiance</h2>
-
-            {/* FIRST */}
-            <div
-              className="relative w-full min-h-50 flex flex-col gap-4 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] p-5 md:m-3"
-              style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
-            >
-              <h3>iRealty PropTech</h3>
-              <p>Worked as a Junior Front-End Developer at the PropTech startup Converted the customer facing CRM to tablet and mobile responsive, and built a customer support pannel available across the app Built property filtering, comparison tools, and multilingual support (Catalan/French) </p>
-
-              <div className="flex flex-row gap-5 py-5">
-                <button className="w-[200px]">
-                  <p
-                    className="google-sans-flex-default text-black"
-                    onClick={() => window.open("https://irealty.app/")}
-                  >Visit Site</p>
-                </button>
-              </div>
-              <IconSet
-                items={[
-                  { src: devicon("javascript"), label: "JavaScript" },
-                  { src: devicon("typescript"), label: "TypeScript" },
-                  { src: devicon("react"), label: "React" },
-                  { src: devicon("redux"), label: "Redux" },
-                  { src: devicon("css3"), label: "CSS" },
-                  { src: devicon("sass"), label: "SASS" },
-                  { src: devicon("tailwindcss"), label: "Tailwind" },
-                ]}
+            {COMMERCIAL_PROJECTS.map((project) => (
+              <Board
+                key={project.title}
+                title={project.title}
+                description={project.description}
+                techStack={project.techStack}
+                actions={project.actions}
               />
-            </div>
+            ))}
           </div>
           {/* Body - Learning */}
           <div className="text-left pb-[150px]" >
