@@ -105,7 +105,6 @@ h2 {
 h3 {
   font-family: "Google Sans Flex", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 600;
   font-style: normal;
   font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0;
   line-height: 1.2;
@@ -119,7 +118,10 @@ h3 {
 
 p {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.2;
+  font-family: "Google Sans Flex", sans-serif;
+  font-weight: 400;
+  font-variation-settings: "slnt" 0, "wdth" 80, "GRAD" 0, "ROND" 80;
 }
 
 .display {
@@ -127,7 +129,6 @@ p {
   font-optical-sizing: auto;
   font-weight: 1000;
   font-style: normal;
-  font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 60;
   line-height: 1.1;
   font-size: 3rem;
 }

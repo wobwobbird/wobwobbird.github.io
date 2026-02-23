@@ -48,12 +48,11 @@ const Contact = () => {
                 className="relative z-10 flex flex-col items-center justify-center w-full h-full"
             >
                 <div>
-                    <h2 className="google-sans-flex-bold-round text-5xl md:text-6xl -mb-5 select-none"
-                    >Get in</h2>
-                    <h2 className="google-sans-flex-bold-round text-7xl md:text-8xl select-none"
-                    >Contact</h2>
-                    <h2 className="google-sans-flex-skinny text-4xl md:text-5xl pt-0 select-none"
-                    >I don't bite</h2>
+                    <h1 className="display select-none">
+                        <span className="block -mb-5">Get in</span>
+                        <span className="block">Contact</span>
+                    </h1>
+                    <h2 className="pt-0 select-none">I don't bite</h2>
                     <div>
                         <div className="h-auto relative " >
                             <GlassIcons items={items} className="custom-class" />
@@ -65,9 +64,8 @@ const Contact = () => {
                         <GlassPanel
                         >
                             <div className="flex flex-col text-center" > 
-                                <p className="google-sans-flex-contact-calltoaction select-none" >Open to fulltime ( Office | Hybrid |  Remote )</p>
-                                {/* <p className="google-sans-flex-contact-calltoaction" >( Office | Hybrid |  Remote )</p> */}
-                                <p className="google-sans-flex-contact-calltoaction select-none" >and contract work</p>
+                                <p className="text-xl font-semibold select-none">Open to fulltime ( Office | Hybrid |  Remote )</p>
+                                <p className="text-xl font-semibold select-none">and contract work</p>
                             </div>
                         </GlassPanel>
                     </div>

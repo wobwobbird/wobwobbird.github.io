@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // add prop open source - change side of icons | add an onlick option
 
 export interface GlassIconsItem {
@@ -24,6 +24,8 @@ const gradientMapping: Record<string, string> = {
 };
 
 const GlassIcons: React.FC<GlassIconsProps> = ({ items, className }) => {
+  const [pressedIndex, setPressedIndex] = useState<number | null>(null);
+
   const getBackgroundStyle = (color: string): React.CSSProperties => {
     if (gradientMapping[color]) {
       return { background: gradientMapping[color] };
@@ -32,13 +34,18 @@ const GlassIcons: React.FC<GlassIconsProps> = ({ items, className }) => {
   };
 
   return (
-    <div className={`grid gap-[5em] grid-cols-2 md:grid-cols-3 mx-auto py-[3em] overflow-visible ${className || ''}`}>
+    <div className={`grid gap-[2em] md:gap-[5em] grid-cols-3 md:grid-cols-3 mx-auto py-[3em] overflow-visible ${className || ''}`}>
       {items.map((item, index) => (
         <button
           key={index}
           type="button"
           aria-label={item.label}
           onClick={item.onClick}
+          data-pressed={pressedIndex === index}
+          onPointerDown={() => setPressedIndex(index)}
+          onPointerUp={() => setPressedIndex(null)}
+          onPointerLeave={() => setPressedIndex(null)}
+          onPointerCancel={() => setPressedIndex(null)}
           className={`relative !bg-transparent outline-none border-none cursor-pointer w-[4.5em] h-[4.5em] [perspective:24em] [transform-style:preserve-3d] [-webkit-tap-highlight-color:transparent] group ${
             item.customClass || ''
           }`}
@@ -67,7 +74,7 @@ const GlassIcons: React.FC<GlassIconsProps> = ({ items, className }) => {
             </span>
           </span>
 
-          <span className="absolute top-full left-0 right-0 text-center whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] translate-y-0 group-hover:opacity-100 group-hover:[transform:translateY(20%)]">
+          <span className="absolute top-full left-1/2 text-center whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [transform:translate(-50%,0)] group-hover:opacity-100 group-hover:[transform:translate(-50%,20%)] group-data-[pressed=true]:opacity-100 group-data-[pressed=true]:[transform:translate(-50%,20%)]">
             {item.label}
           </span>
         </button>
