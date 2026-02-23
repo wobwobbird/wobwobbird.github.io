@@ -7,6 +7,9 @@ import ProfileCard from "@/components/ProfileCard";
 import profilePic_nobg from '../assets/profile_pic_nobg.png';
 // import lordMarshy from '../assets/lord_marshy_logo.png'
 import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
+import { Button } from "@/components/ui/button"
+import { ExternalLink, SquareTerminal } from "lucide-react"
+
 
 interface StartAppAction {
   label: string;
@@ -81,15 +84,16 @@ const COMMERCIAL_PROJECTS: ProjectBoardData[] = [
 ];
 
 const StartAppButton = ({ label }: StartAppAction) => (
-  <button className="w-[200px] max-xs:w-full">
-    <p className="google-sans-flex-default text-black">{label}</p>
-  </button>
+  <Button className="w-full min-[470px]:w-[200px]" variant="outline">
+    {label} <SquareTerminal />
+  </Button>
 );
 
 const WebsiteLinkButton = ({ label, url }: WebsiteLinkAction) => (
-  <button className="w-[200px] max-xs:w-full" onClick={() => window.open(url)}>
-    <p className="google-sans-flex-default text-black">{label}</p>
-  </button>
+  <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open(url)}>
+    <p className=" ">{label}</p>
+    <ExternalLink className="size-4 shrink-0" aria-hidden />
+  </Button>
 );
 
 interface BoardProps {
@@ -105,14 +109,14 @@ const Board = ({ title, description, techStack, startApp, websiteLink }: BoardPr
 
   return (
     <div
-      className="relative w-full min-h-50 flex flex-col gap-4 p-5  rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)]"
+      className="relative w-full min-h-50 flex flex-col gap-4 p-3 xs:p-5  rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)]"
       style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
     >
       <h3>{title}</h3>
       <p>{description}</p>
 
       {hasActions && (
-        <div className="flex flex-row gap-5 py-0 max-xs:w-full ">
+        <div className="flex flex-col gap-5 py-0 min-[470px]:flex-row">
           {startApp && <StartAppButton label={startApp.label} />}
           {websiteLink && <WebsiteLinkButton label={websiteLink.label} url={websiteLink.url} />}
         </div>
@@ -156,7 +160,7 @@ const Home = () => {
                 iconUrl={lordMarshy_s}
                 behindGlowEnabled
                 innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
-                cardHeight='40svh'
+                cardHeight='min(45svh, 380px)'
                 nameTextSize='min(5svh, 2em)'
                 roleTextSize='16px'
                 iconSize='50%'

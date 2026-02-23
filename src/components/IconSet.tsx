@@ -31,7 +31,7 @@ const IconSet: React.FC<IconSetProps> = ({ items, className }) => {
         }
       `}</style>
       <div
-        className={`icon-set-scroll grid grid-flow-col auto-cols-[5rem] gap-[1em] justify-items-center py-[0em] pb-[0em] overflow-x-auto overflow-y-hidden w-full max-w-full min-w-0 touch-pan-x ${className || ''}`}
+        className={`icon-set-scroll grid grid-flow-col auto-cols-[5rem] gap-[0em] justify-items-center py-[0em] pb-[0em] overflow-x-auto overflow-y-hidden w-full max-w-full min-w-0 touch-pan-x ${className || ''}`}
       >
       {items.map((item, index) => (
         <div
@@ -46,7 +46,7 @@ const IconSet: React.FC<IconSetProps> = ({ items, className }) => {
           <div
             role="img"
             aria-label={item.label}
-            className="relative w-[4.5em] h-[4.5em] overflow-hidden [perspective:24em] [transform-style:preserve-3d] [-webkit-tap-highlight-color:transparent] cursor-default rounded-[1.25em] touch-manipulation"
+            className="relative w-[3.5em] h-[3.5em] overflow-hidden [perspective:24em] [transform-style:preserve-3d] [-webkit-tap-highlight-color:transparent] cursor-default rounded-[1.25em] touch-manipulation"
           >
             <span
               className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] origin-[80%_50%] flex items-center justify-center backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] [will-change:transform] group-hover:[transform:translate3d(0,0,2em)]"
