@@ -8,16 +8,21 @@ import profilePic_nobg from '../assets/profile_pic_nobg.png';
 // import lordMarshy from '../assets/lord_marshy_logo.png'
 import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
 
-interface BoardAction {
+interface StartAppAction {
   label: string;
-  url?: string;
+}
+
+interface WebsiteLinkAction {
+  label: string;
+  url: string;
 }
 
 interface ProjectBoardData {
   title: string;
   description: string;
   techStack: IconSetItem[];
-  actions: BoardAction[];
+  startApp?: StartAppAction;
+  websiteLink?: WebsiteLinkAction;
 }
 
 const PROJECTS: ProjectBoardData[] = [
@@ -31,10 +36,8 @@ const PROJECTS: ProjectBoardData[] = [
       { src: inkLogo, label: "Ink (TUI)" },
       { src: devicon("sqlite"), label: "SQLite" },
     ],
-    actions: [
-      { label: "Start App" },
-      { label: "Open on Github", url: "https://github.com/wobwobbird/Mood_Tracker" },
-    ],
+    startApp: { label: "Start App" },
+    websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/Mood_Tracker" },
   },
   {
     title: "Tap 'O' Matic",
@@ -45,10 +48,8 @@ const PROJECTS: ProjectBoardData[] = [
       { src: "https://cdn.simpleicons.org/react/000020", label: "React Native" },
       { src: "https://cdn.simpleicons.org/expo/000020", label: "Expo" },
     ],
-    actions: [
-      { label: "Start App" },
-      { label: "Open on Github", url: "https://github.com/wobwobbird/Tap-O-Matic" },
-    ],
+    startApp: { label: "Start App" },
+    websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/Tap-O-Matic" },
   },
   {
     title: "Super Connect",
@@ -57,10 +58,8 @@ const PROJECTS: ProjectBoardData[] = [
       { src: devicon("unity"), label: "Unity" },
       { src: devicon("csharp"), label: "C#" },
     ],
-    actions: [
-      { label: "Start App" },
-      { label: "Open on Github", url: "https://github.com/wobwobbird/Super-Connect-Game" },
-    ],
+    startApp: { label: "Start App" },
+    websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/Super-Connect-Game" },
   },
 ];
 
@@ -77,20 +76,33 @@ const COMMERCIAL_PROJECTS: ProjectBoardData[] = [
       { src: devicon("sass"), label: "SASS" },
       { src: devicon("tailwindcss"), label: "Tailwind" },
     ],
-    actions: [
-      { label: "Visit Site", url: "https://irealty.app/" },
-    ],
+    websiteLink: { label: "Visit Site", url: "https://irealty.app/" },
   },
 ];
+
+const StartAppButton = ({ label }: StartAppAction) => (
+  <button className="w-[200px]">
+    <p className="google-sans-flex-default text-black">{label}</p>
+  </button>
+);
+
+const WebsiteLinkButton = ({ label, url }: WebsiteLinkAction) => (
+  <button className="w-[200px]" onClick={() => window.open(url)}>
+    <p className="google-sans-flex-default text-black">{label}</p>
+  </button>
+);
 
 interface BoardProps {
   title: string;
   description: string;
   techStack: IconSetItem[];
-  actions?: BoardAction[];
+  startApp?: StartAppAction;
+  websiteLink?: WebsiteLinkAction;
 }
 
-const Board = ({ title, description, techStack, actions = [] }: BoardProps) => {
+const Board = ({ title, description, techStack, startApp, websiteLink }: BoardProps) => {
+  const hasActions = startApp || websiteLink;
+
   return (
     <div
       className="relative w-full min-h-50 flex flex-col gap-4 p-5 md:m-3 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)]"
@@ -99,17 +111,10 @@ const Board = ({ title, description, techStack, actions = [] }: BoardProps) => {
       <h3>{title}</h3>
       <p>{description}</p>
 
-      {actions.length > 0 && (
+      {hasActions && (
         <div className="flex flex-row gap-5 py-5">
-          {actions.map((action, i) => (
-            <button
-              key={i}
-              className="w-[200px]"
-              {...(action.url && { onClick: () => window.open(action.url!) })}
-            >
-              <p className="google-sans-flex-default text-black">{action.label}</p>
-            </button>
-          ))}
+          {startApp && <StartAppButton label={startApp.label} />}
+          {websiteLink && <WebsiteLinkButton label={websiteLink.label} url={websiteLink.url} />}
         </div>
       )}
       <IconSet items={techStack} />
@@ -118,6 +123,9 @@ const Board = ({ title, description, techStack, actions = [] }: BoardProps) => {
 };
 
 const Home = () => {
+
+
+
     return (
         <PageHolder
             background={<LightRays />}
@@ -165,7 +173,8 @@ const Home = () => {
                 title={project.title}
                 description={project.description}
                 techStack={project.techStack}
-                actions={project.actions}
+                startApp={project.startApp}
+                websiteLink={project.websiteLink}
               />
             ))}
           </div>
@@ -179,7 +188,8 @@ const Home = () => {
                 title={project.title}
                 description={project.description}
                 techStack={project.techStack}
-                actions={project.actions}
+                startApp={project.startApp}
+                websiteLink={project.websiteLink}
               />
             ))}
           </div>
