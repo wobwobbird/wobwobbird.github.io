@@ -10,9 +10,11 @@ import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
 import { Button } from "@/components/ui/button"
 import { ExternalLink, SquareTerminal } from "lucide-react"
 import CircularText from "@/components/CircularText";
+import { useState, useEffect } from "react";
 
 interface StartAppAction {
   label: string;
+  underConstruction?: boolean;
 }
 
 interface WebsiteLinkAction {
@@ -39,7 +41,7 @@ const PROJECTS: ProjectBoardData[] = [
       { src: inkLogo, label: "Ink (TUI)" },
       { src: devicon("sqlite"), label: "SQLite" },
     ],
-    startApp: { label: "Start App" },
+    startApp: { label: "Start App", underConstruction: true },
     websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/Mood_Tracker" },
   },
   {
@@ -51,7 +53,7 @@ const PROJECTS: ProjectBoardData[] = [
       { src: "https://cdn.simpleicons.org/react/000020", label: "React Native" },
       { src: "https://cdn.simpleicons.org/expo/000020", label: "Expo" },
     ],
-    startApp: { label: "Start App" },
+    startApp: { label: "Start App", underConstruction: true },
     websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/Tap-O-Matic" },
   },
   {
@@ -61,7 +63,7 @@ const PROJECTS: ProjectBoardData[] = [
       { src: devicon("unity"), label: "Unity" },
       { src: devicon("csharp"), label: "C#" },
     ],
-    startApp: { label: "Start App" },
+    startApp: { label: "Start App", underConstruction: true },
     websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/Super-Connect-Game" },
   },
 ];
@@ -83,11 +85,38 @@ const COMMERCIAL_PROJECTS: ProjectBoardData[] = [
   },
 ];
 
-const StartAppButton = ({ label }: StartAppAction) => (
-  <Button className="w-full min-[470px]:w-[200px]" variant="outline">
-    {label} <SquareTerminal />
-  </Button>
-);
+const StartAppButton = ({ label, underConstruction = false }: StartAppAction) => {
+  const [isFlashing, setIsFlashing] = useState(false);
+  const [clickedText, setClickedText] = useState<string | null>(null);
+  const [isNarrowScreen, setIsNarrowScreen] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 799px)");
+    const handler = () => setIsNarrowScreen(mq.matches);
+    handler();
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  const handleClick = () => {
+    if (!underConstruction) return;
+    setIsFlashing(true);
+    setClickedText(isNarrowScreen ? "View on desktop to run app" : "Coming soon!");
+    setTimeout(() => {
+      setIsFlashing(false);
+    }, 400);
+  };
+
+  return (
+    <Button
+      className={`w-full min-[470px]:w-[200px] transition-colors duration-150 ${isFlashing ? "bg-red-500!" : ""}`}
+      variant="outline"
+      onClick={handleClick}
+    >
+      {clickedText ?? label} <SquareTerminal />
+    </Button>
+  );
+};
 
 const WebsiteLinkButton = ({ label, url }: WebsiteLinkAction) => (
   <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open(url)}>
@@ -107,6 +136,7 @@ interface BoardProps {
 const Board = ({ title, description, techStack, startApp, websiteLink }: BoardProps) => {
   const hasActions = startApp || websiteLink;
 
+
   return (
     <div
       className="relative w-full min-h-50 flex flex-col gap-4 p-3 xs:p-5  rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)]"
@@ -117,7 +147,7 @@ const Board = ({ title, description, techStack, startApp, websiteLink }: BoardPr
 
       {hasActions && (
         <div className="flex flex-col gap-5 py-0 min-[470px]:flex-row">
-          {startApp && <StartAppButton label={startApp.label} />}
+          {startApp && <StartAppButton label={startApp.label} underConstruction={startApp.underConstruction} />}
           {websiteLink && <WebsiteLinkButton label={websiteLink.label} url={websiteLink.url} />}
         </div>
       )}
@@ -195,8 +225,8 @@ const Home = () => {
           ))}
         </div>
         {/* Body - Learning */}
-        <div className="text-left pb-[50px]" >
-          <h2 className="pt-5 text-left">Learning</h2>
+        <div className="text-left" >
+          <h2 className="pt-5 text-left pb-4">Learning</h2>
           <p>I have been putting in the effort to learn about many different areas</p>
           <div className="flex flex-row gap-2">
             <p>So my learning certificates on my linkedIn:</p>
@@ -206,12 +236,16 @@ const Home = () => {
             >here</p>
           </div>
         </div>
-        <CircularText
-          text="FRONT-END*BACK-END*DEVELOPER*"
-          onHover="speedUp"
-          spinDuration={20}
-          className="custom-class"
-        />
+        <div className="h-[160px] flex items-center justify-center">
+          <CircularText
+            text="FRONT-END*BACK-END*DEVELOPER*"
+            size="text-xs"
+            width="100px"        
+            onHover="speedUp"
+            spinDuration={40}
+            className="goBonkers mx-2"
+          />
+        </div>
 
       </PageHolder>
   );
