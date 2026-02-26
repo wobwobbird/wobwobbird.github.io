@@ -12,7 +12,7 @@ const Entry = () => {
                 <LetterGlitch 
                     glitchColors={['#2b4539', '#61dca3', '#61b3dc']}
                     glitchSpeed={100}
-                    centerVignette={true}
+                    centerVignette={false}
                     outerVignette={false}
                     smooth={true}
                     characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>.,0123456789"
@@ -20,11 +20,11 @@ const Entry = () => {
             } 
             className="items-center"
         >
-            <h1 className="w-full max-xs:text-3xl! md:-mb-5 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
+            <h1 className="w-full max-xs:text-3xl! md:-mb-4 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
             >Welcome to</h1>
             <h1 className="display w-full max-xs:text-4xl! drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
             >Guy's Website</h1>
-            <h1 className="w-full max-xs:text-2xl! max-md:pt-4 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
+            <h1 className="w-full sm:w-[600px] max-xs:text-2xl! max-md:pt-4 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
             >Junior Full-Stack Software Developer</h1>
             {/* <h2 className="google-sans-flex-bold-round text-4xl md:text-6xl md:-mb-5 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
             >Welcome to</h2>
