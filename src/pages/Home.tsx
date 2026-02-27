@@ -41,7 +41,7 @@ const PROJECTS: ProjectBoardData[] = [
       { src: inkLogo, label: "Ink (TUI)" },
       { src: devicon("sqlite"), label: "SQLite" },
     ],
-    startApp: { label: "Start App", underConstruction: true },
+    startApp: { label: "Run Demo", underConstruction: true },
     websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/Mood_Tracker" },
   },
   {
@@ -53,7 +53,7 @@ const PROJECTS: ProjectBoardData[] = [
       { src: "https://cdn.simpleicons.org/react/000020", label: "React Native" },
       { src: "https://cdn.simpleicons.org/expo/000020", label: "Expo" },
     ],
-    startApp: { label: "Start App", underConstruction: true },
+    startApp: { label: "Run Demo", underConstruction: true },
     websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/Tap-O-Matic" },
   },
   {
@@ -63,7 +63,7 @@ const PROJECTS: ProjectBoardData[] = [
       { src: devicon("unity"), label: "Unity" },
       { src: devicon("csharp"), label: "C#" },
     ],
-    startApp: { label: "Start App", underConstruction: true },
+    startApp: { label: "Run Demo", underConstruction: true },
     websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/Super-Connect-Game" },
   },
 ];
@@ -145,13 +145,13 @@ const Board = ({ title, description, techStack, startApp, websiteLink }: BoardPr
       <h3>{title}</h3>
       <p>{description}</p>
 
+      <IconSet items={techStack} />
       {hasActions && (
         <div className="flex flex-col gap-5 py-0 min-[470px]:flex-row">
           {startApp && <StartAppButton label={startApp.label} underConstruction={startApp.underConstruction} />}
           {websiteLink && <WebsiteLinkButton label={websiteLink.label} url={websiteLink.url} />}
         </div>
       )}
-      <IconSet items={techStack} />
     </div>
   );
 };
