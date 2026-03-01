@@ -163,7 +163,7 @@ const Home = () => {
           scrollable
       >
         {/* Body - heading*/}
-        <h1 className="pt-14">Guy - Junior Full-Stack Dev</h1>
+        <h1 className="pt-14">Guy - Full-Stack Dev</h1>
         {/* Body - intro*/}
         <h2 className="pt-5 text-left">Introduction</h2>
         <div className="flex flex-col sm:flex-row md:p-5 gap-4 ">
