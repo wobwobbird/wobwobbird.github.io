@@ -11,6 +11,14 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink, SquareTerminal } from "lucide-react"
 import CircularText from "@/components/CircularText";
 import { useState, useEffect } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+
 
 interface StartAppAction {
   label: string;
