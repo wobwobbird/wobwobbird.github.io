@@ -3,7 +3,7 @@ import PageHolder from "@/components/PageHolder";
 import GlassIcons from "@/components/GlassIcons";
 import { FiGithub, FiFileText } from 'react-icons/fi';
 import { LiaLinkedin } from "react-icons/lia";
-import cvPdf from '@/assets/Guy_Marshman_Full-Stack_Software_Dev_CV.pdf';
+import cvPdf from '@/assets/Guy_Marshman_CV.pdf';
 import GlassPanel from "@/components/GlassPanel";
 
 const Contact = () => {
