@@ -113,18 +113,34 @@ const StartAppButton = ({ label, underConstruction = false, onClick }: StartAppB
   }, []);
 
   const handleClick = () => {
+    if (underConstruction) {
+      setIsFlashing(true);
+      setClickedText(isNarrowScreen ? "View on desktop to run app" : "Coming soon!");
+      setTimeout(() => {
+        setIsFlashing(false);
+      }, 400);
+      return;
+    }
+
     if (onClick) {
       onClick();
       return;
     }
-
-    if (!underConstruction) return;
-    setIsFlashing(true);
-    setClickedText(isNarrowScreen ? "View on desktop to run app" : "Coming soon!");
-    setTimeout(() => {
-      setIsFlashing(false);
-    }, 400);
   };
+
+  // const handleClick = () => {
+  //   if (onClick) {
+  //     onClick();
+  //     return;
+  //   }
+
+  //   if (!underConstruction) return;
+  //   setIsFlashing(true);
+  //   setClickedText(isNarrowScreen ? "View on desktop to run app" : "Coming soon!");
+  //   setTimeout(() => {
+  //     setIsFlashing(false);
+  //   }, 400);
+  // };
 
   return (
     <Button
@@ -156,10 +172,14 @@ interface BoardProps {
 const Board = ({ title, description, techStack, startApp, websiteLink, onStartAppClick }: BoardProps) => {
   const hasActions = startApp || websiteLink;
 
+  // transition-all duration-200 hover:bg-[hsla(0,0%,100%,0.22)] hover:shadow-lg hover:scale-[1.01] shadow-amber-600
 
   return (
     <div
-      className="relative w-full min-h-50 flex flex-col gap-4 p-3 xs:p-5  rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)]"
+      className="
+        relative w-full min-h-50 flex flex-col gap-4 p-3 xs:p-5 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] 
+        transition-all duration-200  shadow-lg  shadow-lime-100/40
+      "
       style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
     >
       <h3>{title}</h3>
@@ -195,7 +215,7 @@ const Home = () => {
 
   return (
       <PageHolder
-          background={<LightRays />}
+          // background={<LightRays />}
           scrollable
       >
         {/* Body - heading*/}
@@ -301,21 +321,25 @@ const Home = () => {
         <Dialog open={!!openProject} onOpenChange={(open) => (open ? null : handleCloseDemo())} >
           <DialogContent className=" sm:max-w-[90vw] w-[90vw] max-h-[90vh] h-[90vh] z-10000 rounded-2xl p-0 overflow-hidden flex flex-col" >
             
-            <DialogHeader className="px-6 pt-4 pb-2 bg-neutral-300">
+            <DialogHeader className="px-6 pt-4 pb-2">
               <DialogTitle
-                className="text-white bg-amber-100"
+                className="text-white"
               >{openProject?.title ?? "Project demo"}</DialogTitle>
               <DialogDescription
-                className="text-white bg-sky-400"
+                className="text-white"
               > {openProject?.description ?? "Interactive demo"}</DialogDescription>
             </DialogHeader>
             
-            <div className="flex-1 overflow-auto px-6 pb-6 bg-teal-200">
+            <div className="flex-1 overflow-auto px-6 pb-6 ">
               <div className="w-full h-full flex items-center justify-center border border-dashed border-white/20 rounded-xl">
-                <p className="text-sm text-center text-white/80">
+                {/* <p className="text-3xl text-center text-white/80">
                   Demo area for <span className="font-semibold">{openProject?.title}</span>.<br />
                   Later: iframe / WebGL / video / instructions go here.
-                </p>
+                </p> */}
+                <h3 className="text-3xl text-center text-white/80">
+                  Demo area for <span className="font-semibold">{openProject?.title}</span>.<br />
+                  Later: iframe / WebGL / video / instructions go here.
+                </h3>
               </div>
             </div>
           </DialogContent>
@@ -325,4 +349,4 @@ const Home = () => {
   );
 };
   
-  export default Home;
+export default Home;
