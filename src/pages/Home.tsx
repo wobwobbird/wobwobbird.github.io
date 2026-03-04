@@ -225,11 +225,12 @@ const Home = () => {
           scrollable
       >
         {/* Body - heading*/}
-        <h1 className="pt-14">Guy - Full-Stack Dev</h1>
         {/* Body - intro*/}
-        <h2 className="pt-5 text-left">Introduction</h2>
+        <h2 className="pt-14 text-left">Introduction</h2>
         <div className="flex flex-col sm:flex-row md:p-5 gap-4 ">
           <div className="h-auto p-0 flex flex-col gap-4 pt-5 flex-1" >
+            <h1 className="">Hi I'm Guy</h1>
+            <h1 className="">Full-Stack Developer</h1>
             <p>I'm a Full-Stack Developer based in London with two years of intensive self-driven learning and nine months of commercial experience at a PropTech startup.</p>
             <p>Recently, I've been focusing more on backend development, working with Node.js, Express, server architecture, authentication, and databases including SQLite and PostgreSQL.</p>
           </div>

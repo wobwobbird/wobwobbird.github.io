@@ -11,7 +11,7 @@ const Entry = () => {
             background={
                 <LetterGlitch 
                     glitchColors={['#2b4539', '#61dca3', '#61b3dc']}
-                    glitchSpeed={100}
+                    glitchSpeed={200}
                     centerVignette={false}
                     outerVignette={false}
                     smooth={true}
