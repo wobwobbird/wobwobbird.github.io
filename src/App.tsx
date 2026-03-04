@@ -48,6 +48,7 @@ function App() {
                     <img 
                       src={lord_marshy_logo}
                       alt="website logo"
+                      // className={`h-10 rotate-4 ${pathname === "/" ? "shadow-[0_0_25px_rgba(200,255,150,0.5)]" : ""}`}
                       className="h-10 rotate-4"
                     />
                   </Link>
@@ -58,12 +59,16 @@ function App() {
                     <img 
                       src={lord_marshy_logo}
                       alt="website logo"
-                      className="h-10 rotate-4 max-[600px]:hidden "
+                      className="h-10 rotate-4 max-[600px]:hidden"
                     />
                   </Link>
                   <div className="flex items-center gap-12">
-                    <NavLink to="/home" end>Home</NavLink>
-                    <NavLink to="/contact">Contact</NavLink>
+                    <NavLink to="/home" 
+                      className={pathname === "/home" ? "[text-shadow:0_0_20px_rgba(200,255,150,1),0_0_25px_rgba(200,255,150,0.5)]" : ""}
+                      >Home</NavLink>
+                    <NavLink to="/contact"
+                      className={pathname === "/contact" ? "[text-shadow:0_0_20px_rgba(200,255,150,1),0_0_25px_rgba(200,255,150,0.5)]" : ""}
+                    >Contact</NavLink>
                   </div>
                 </nav>
               )}
