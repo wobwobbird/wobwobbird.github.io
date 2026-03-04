@@ -177,10 +177,16 @@ const Board = ({ title, description, techStack, startApp, websiteLink, onStartAp
   return (
     <div
       className="
-        relative w-full min-h-50 flex flex-col gap-4 p-3 xs:p-5 rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] 
-        transition-all duration-200  shadow-lg  shadow-lime-100/40
+        relative w-full min-h-50 flex flex-col gap-4 p-3 xs:p-5 rounded-[1.25em] 
+        bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] 
+        border border-white
+        transition-all duration-200  hover:shadow-[0_0_25px_6px_rgba(200,255,150,0.25)]
+        hover:bg-[hsla(0,0%,100%,0.05)]
+        hover:scale-[1.01]
+
       "
-      style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
+      // style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
+      // shadow-[inset_0_0_0_0.1em_hsla(0,0%,100%,0.3)]
     >
       <h3>{title}</h3>
       <p>{description}</p>
