@@ -19,6 +19,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import DemoPage from "@/certificates/page";
 
 
 interface StartAppAction {
@@ -41,6 +42,13 @@ interface ProjectBoardData {
   techStack: IconSetItem[];
   startApp?: StartAppAction;
   websiteLink?: WebsiteLinkAction;
+}
+
+interface CourseData {
+  title: string;
+  description: string;
+  startApp?: StartAppAction;
+  modalContent?: React.ReactNode;
 }
 
 const PROJECTS: ProjectBoardData[] = [
@@ -98,6 +106,12 @@ const COMMERCIAL_PROJECTS: ProjectBoardData[] = [
     websiteLink: { label: "Visit Site", url: "https://irealty.app/" },
   },
 ];
+
+const LEARNING_COURSES: CourseData = {
+  title: "Courses Completed",
+  description: "Software development courses I have completed",
+  modalContent: DemoPage()
+};
 
 const StartAppButton = ({ label, underConstruction = false, onClick }: StartAppButtonProps) => {
   const [isFlashing, setIsFlashing] = useState(false);
@@ -209,9 +223,9 @@ const Board = ({ title, description, techStack, startApp, websiteLink, onStartAp
 };
 
 const Home = () => {
-  const [openProject, setOpenProject] = useState<ProjectBoardData | null >(null);
+  const [openProject, setOpenProject] = useState<ProjectBoardData | CourseData | null >(null);
 
-  const handleOpenDemo = (project: ProjectBoardData) => {
+  const handleOpenDemo = (project: ProjectBoardData | CourseData) => {
     setOpenProject(project);
   }
 
@@ -257,6 +271,7 @@ const Home = () => {
             />
           </div>
         </div>
+
         {/* Body - Projects */}
 
         <div className="flex flex-col gap-4 text-left">
@@ -297,6 +312,13 @@ const Home = () => {
           <p>
             I have completed over 20 courses, and they can all be viewed in the certificate section on my LinkedIn.
           </p>
+
+          {/* <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={onStartAppClick}> */} 
+          <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => handleOpenDemo(LEARNING_COURSES)}>
+            <p className=" ">{"View Certs"}</p>
+            <SquareTerminal className="size-4 shrink-0" />
+          </Button>
+
           <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}>
             <p className=" ">{"View Certs"}</p>
             <LiaLinkedin className="size-6 shrink-0 -ml-1.5" aria-hidden />
@@ -343,10 +365,15 @@ const Home = () => {
                   Demo area for <span className="font-semibold">{openProject?.title}</span>.<br />
                   Later: iframe / WebGL / video / instructions go here.
                 </p> */}
-                <h3 className="text-3xl text-center text-white/80">
-                  Demo area for <span className="font-semibold">{openProject?.title}</span>.<br />
-                  Later: iframe / WebGL / video / instructions go here.
-                </h3>
+                {openProject && "modalContent" in openProject && openProject.modalContent
+                  ? openProject.modalContent
+                  : (
+                      <h3 className="text-3xl text-center text-white/80">
+                        Demo area for <span className="font-semibold">{openProject?.title}</span>.<br />
+                        Later: iframe / WebGL / video / instructions go here.
+                      </h3>
+                    )
+                }
               </div>
             </div>
           </DialogContent>

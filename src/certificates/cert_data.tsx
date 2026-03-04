@@ -25,3 +25,5 @@ export const certs: Certs[] = [
   { id: "21", category: "Backend & Databases", specialisation: "Databases & SQL", course: "Design Databases With PostgreSQL Skill Path", details: "", provider: "Codecademy", date_completed: new Date("2026-01-01"), link: "", status: "Completed" },
   { id: "22", category: "Backend & Databases", specialisation: "Node & Express", course: "Securing Express Applications [Skill Path]", details: "", provider: "Codecademy", date_completed: new Date("2026-01-01"), link: "", status: "Completed" },
 ]
+
+export default certs;
