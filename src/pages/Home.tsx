@@ -9,6 +9,7 @@ import profilePic_nobg from '../assets/profile_pic_nobg.png';
 import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
 import { Button } from "@/components/ui/button"
 import { ExternalLink, SquareTerminal } from "lucide-react"
+import { LiaLinkedin } from "react-icons/lia";
 import CircularText from "@/components/CircularText";
 import { useState, useEffect } from "react";
 import {
@@ -241,8 +242,12 @@ const Home = () => {
           <p>
             I have completed over 20 courses, and they can all be viewed in the certificate section on my LinkedIn.
           </p>
-          {/* <WebsiteLinkButton label={websiteLink.label} url={websiteLink.url} /> */}
-          <p>
+          <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}>
+            <p className=" ">{"View Certs"}</p>
+            <LiaLinkedin className="size-6 shrink-0" aria-hidden />
+            <ExternalLink className="size-4 shrink-0" aria-hidden />
+          </Button>
+          {/* <p>
             <span
               role="link"
               tabIndex={0}
@@ -252,7 +257,7 @@ const Home = () => {
             >
               View my certificates on LinkedIn
             </span>
-          </p>
+          </p> */}
         </div>
         <div className="h-[220px] flex items-center justify-center">
           <CircularText
