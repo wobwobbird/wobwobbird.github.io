@@ -220,7 +220,7 @@ const Home = () => {
         
         {/* Body - Commercial */}
         <div className="text-left flex flex-col gap-4 pt-4">
-          <h2 className="pt-5 text-left">Commercial Experiance</h2>
+          <h2 className="pt-5 text-left">Commercial Experience</h2>
           {COMMERCIAL_PROJECTS.map((project) => (
             <Board
               key={project.title}
@@ -233,20 +233,30 @@ const Home = () => {
           ))}
         </div>
         {/* Body - Learning */}
-        <div className="text-left" >
-          <h2 className="pt-5 text-left pb-4">Learning</h2>
-          <p>I have been putting in the effort to learn about many different areas</p>
-          <div className="flex flex-row gap-2">
-            <p>So my learning certificates on my linkedIn:</p>
-            <p
-              className="cursor-pointer text-blue-600 underline hover:text-blue-800 hover:underline"
+        <div className="text-left flex flex-col gap-4">
+          <h2 className="pt-5 text-left">Learning</h2>
+          <p>
+            Over the last two years I've been learning intensively and have completed many courses across the front end and the back end. I've focused mainly on Codecademy because I like the blend of theory and interactive practice the platform offers.
+          </p>
+          <p>
+            I have completed over 20 courses, and they can all be viewed in the certificate section on my LinkedIn.
+          </p>
+          {/* <WebsiteLinkButton label={websiteLink.label} url={websiteLink.url} /> */}
+          <p>
+            <span
+              role="link"
+              tabIndex={0}
+              className="cursor-pointer text-blue-600 underline hover:text-blue-800"
               onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}
-            >here</p>
-          </div>
+              onKeyDown={(e) => e.key === "Enter" && (e.currentTarget as HTMLElement).click()}
+            >
+              View my certificates on LinkedIn
+            </span>
+          </p>
         </div>
-        <div className="h-[160px] flex items-center justify-center">
+        <div className="h-[220px] flex items-center justify-center">
           <CircularText
-            text="FRONT-END*BACK-END*DEVELOPER*"
+            text="FRONT-END * BACK-END * DEVELOPER * "
             size="text-xs"
             width="100px"        
             onHover="speedUp"
