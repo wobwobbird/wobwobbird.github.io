@@ -1,0 +1,27 @@
+import type { Certs } from "./columns"
+
+// Certificates in chronological order by date_completed (earliest first). IDs match order.
+export const certs: Certs[] = [
+  { id: "1", category: "Game Development", specialisation: "Game Development & Interactive Systems", course: "Complete C# Unity Game Developer 2D", details: "UC-e0c6cc40-fe55-4c12-b4a0-247b7b9b5966", provider: "Udemy", date_completed: new Date("2025-01-01"), link: "", status: "Completed" },
+  { id: "2", category: "Frontend Development", specialisation: "JavaScript", course: "Building Interactive JavaScript Websites Course", details: "8B6269F5-0", provider: "Codecademy", date_completed: new Date("2025-05-01"), link: "", status: "Completed" },
+  { id: "3", category: "Frontend Development", specialisation: "HTML & CSS", course: "Learn CSS Course", details: "65DA82B5-3", provider: "Codecademy", date_completed: new Date("2025-05-01"), link: "", status: "Completed" },
+  { id: "4", category: "Frontend Development", specialisation: "HTML & CSS", course: "Learn HTML Course", details: "7D639918-1", provider: "Codecademy", date_completed: new Date("2025-05-01"), link: "", status: "Completed" },
+  { id: "5", category: "Programming Languages", specialisation: "JavaScript", course: "Learn JavaScript Course", details: "CCB34343-C", provider: "Codecademy", date_completed: new Date("2025-05-01"), link: "", status: "Completed" },
+  { id: "6", category: "Other Technical Training", specialisation: "Computer Science & Systems", course: "Computer Science 101: Master the Theory Behind Programming", details: "UC-f1262c2e-17fd-4bd0-9653-3213a632b286", provider: "Udemy", date_completed: new Date("2025-05-01"), link: "", status: "Completed" },
+  { id: "7", category: "Other Technical Training", specialisation: "Tooling & Development Workflow", course: "Learn Git & GitHub Course", details: "CEFA439B-3", provider: "Codecademy", date_completed: new Date("2025-06-01"), link: "", status: "Completed" },
+  { id: "8", category: "Frontend Development", specialisation: "React Ecosystem", course: "Learn React Course", details: "7059EC6D-B", provider: "Codecademy", date_completed: new Date("2025-06-01"), link: "", status: "Completed" },
+  { id: "9", category: "Programming Languages", specialisation: "Python", course: "Learn Python 3 Course", details: "C6CD5992-8", provider: "Codecademy", date_completed: new Date("2025-08-01"), link: "", status: "Completed" },
+  { id: "10", category: "Programming Languages", specialisation: "TypeScript", course: "Learn TypeScript Course", details: "", provider: "Codecademy", date_completed: new Date("2025-09-01"), link: "", status: "Completed" },
+  { id: "11", category: "Frontend Development", specialisation: "React Ecosystem", course: "Learn Redux Course", details: "", provider: "Codecademy", date_completed: new Date("2025-09-01"), link: "", status: "Completed" },
+  { id: "12", category: "Frontend Development", specialisation: "React Ecosystem", course: "Create a Front-End App with React [Skill Path]", details: "", provider: "Codecademy", date_completed: new Date("2025-10-01"), link: "", status: "Completed" },
+  { id: "13", category: "Frontend Development", specialisation: "HTML & CSS", course: "Learn Sass Course", details: "", provider: "Codecademy", date_completed: new Date("2025-10-01"), link: "", status: "Completed" },
+  { id: "14", category: "Other Technical Training", specialisation: "Computer Science & Systems", course: "Learn Raspberry Pi Course", details: "", provider: "Codecademy", date_completed: new Date("2025-10-01"), link: "", status: "Completed" },
+  { id: "15", category: "Other Technical Training", specialisation: "Tooling & Development Workflow", course: "Learn the Command Line Course", details: "", provider: "Codecademy", date_completed: new Date("2025-10-01"), link: "", status: "Completed" },
+  { id: "16", category: "Backend & Databases", specialisation: "Node & Express", course: "Learn Node.js Course", details: "240305d50b925c17868f1ac7a21a3261", provider: "Codecademy", date_completed: new Date("2025-12-01"), link: "", status: "Completed" },
+  { id: "17", category: "Backend & Databases", specialisation: "Node & Express", course: "Learn Express Course", details: "", provider: "Codecademy", date_completed: new Date("2025-12-01"), link: "", status: "Completed" },
+  { id: "18", category: "Backend & Databases", specialisation: "Databases & SQL", course: "Learn SQL Course", details: "", provider: "Codecademy", date_completed: new Date("2025-12-01"), link: "", status: "Completed" },
+  { id: "19", category: "Backend & Databases", specialisation: "Databases & SQL", course: "Learn Node-SQLite Course", details: "", provider: "Codecademy", date_completed: new Date("2025-12-01"), link: "", status: "Completed" },
+  { id: "20", category: "Backend & Databases", specialisation: "Node & Express", course: "Create a Back-End App with JavaScript [Skill Path]", details: "", provider: "Codecademy", date_completed: new Date("2025-12-01"), link: "", status: "Completed" },
+  { id: "21", category: "Backend & Databases", specialisation: "Databases & SQL", course: "Design Databases With PostgreSQL Skill Path", details: "", provider: "Codecademy", date_completed: new Date("2026-01-01"), link: "", status: "Completed" },
+  { id: "22", category: "Backend & Databases", specialisation: "Node & Express", course: "Securing Express Applications [Skill Path]", details: "", provider: "Codecademy", date_completed: new Date("2026-01-01"), link: "", status: "Completed" },
+]
