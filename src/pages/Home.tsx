@@ -166,6 +166,16 @@ const Board = ({ title, description, techStack, startApp, websiteLink }: BoardPr
 };
 
 const Home = () => {
+  const [openProject, setOpenProject] = useState<ProjectBoardData | null >(null);
+
+  const handleOpenDemo = (project: ProjectBoardData) => {
+    setOpenProject(project);
+  }
+
+  const handleCloseDemo = () => {
+    setOpenProject(null);
+  }
+
   return (
       <PageHolder
           background={<LightRays />}
