@@ -235,7 +235,7 @@ const Home = () => {
 
   return (
       <PageHolder
-          // background={<LightRays />}
+          background={<LightRays />}
           scrollable
       >
         {/* Body - heading*/}
