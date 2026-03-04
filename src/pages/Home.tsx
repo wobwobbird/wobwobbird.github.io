@@ -299,15 +299,25 @@ const Home = () => {
         </div>
 
         <Dialog open={!!openProject} onOpenChange={(open) => (open ? null : handleCloseDemo())} >
-          <DialogContent className=" w-[90vw] max-h-[90vh] h-[80vh] z-10000 rounded-2xl p-0 overflow-hidden flex flex-col" >
-            <DialogHeader className="px-6 pt-4 pb-2">
+          <DialogContent className=" sm:max-w-[90vw] w-[90vw] max-h-[90vh] h-[90vh] z-10000 rounded-2xl p-0 overflow-hidden flex flex-col" >
+            
+            <DialogHeader className="px-6 pt-4 pb-2 bg-neutral-300">
               <DialogTitle
                 className="text-white bg-amber-100"
               >{openProject?.title ?? "Project demo"}</DialogTitle>
-              <DialogDescription>
-
-              </DialogDescription>
+              <DialogDescription
+                className="text-white bg-sky-400"
+              > {openProject?.description ?? "Interactive demo"}</DialogDescription>
             </DialogHeader>
+            
+            <div className="flex-1 overflow-auto px-6 pb-6 bg-teal-200">
+              <div className="w-full h-full flex items-center justify-center border border-dashed border-white/20 rounded-xl">
+                <p className="text-sm text-center text-white/80">
+                  Demo area for <span className="font-semibold">{openProject?.title}</span>.<br />
+                  Later: iframe / WebGL / video / instructions go here.
+                </p>
+              </div>
+            </div>
           </DialogContent>
         </Dialog>
 
