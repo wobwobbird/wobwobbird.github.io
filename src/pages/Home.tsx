@@ -26,6 +26,10 @@ interface StartAppAction {
   underConstruction?: boolean;
 }
 
+interface StartAppButtonProps extends StartAppAction {
+  onClick?: () => void;
+}
+
 interface WebsiteLinkAction {
   label: string;
   url: string;
@@ -50,7 +54,8 @@ const PROJECTS: ProjectBoardData[] = [
       { src: inkLogo, label: "Ink (TUI)" },
       { src: devicon("sqlite"), label: "SQLite" },
     ],
-    startApp: { label: "Run Demo", underConstruction: true },
+    // startApp: { label: "Run Demo", underConstruction: true },
+    startApp: { label: "Run Demo"},
     websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/Mood_Tracker" },
   },
   {
@@ -94,7 +99,7 @@ const COMMERCIAL_PROJECTS: ProjectBoardData[] = [
   },
 ];
 
-const StartAppButton = ({ label, underConstruction = false }: StartAppAction) => {
+const StartAppButton = ({ label, underConstruction = false, onClick }: StartAppButtonProps) => {
   const [isFlashing, setIsFlashing] = useState(false);
   const [clickedText, setClickedText] = useState<string | null>(null);
   const [isNarrowScreen, setIsNarrowScreen] = useState(false);
@@ -108,6 +113,11 @@ const StartAppButton = ({ label, underConstruction = false }: StartAppAction) =>
   }, []);
 
   const handleClick = () => {
+    if (onClick) {
+      onClick();
+      return;
+    }
+
     if (!underConstruction) return;
     setIsFlashing(true);
     setClickedText(isNarrowScreen ? "View on desktop to run app" : "Coming soon!");
@@ -140,9 +150,10 @@ interface BoardProps {
   techStack: IconSetItem[];
   startApp?: StartAppAction;
   websiteLink?: WebsiteLinkAction;
+  onStartAppClick?: () => void;
 }
 
-const Board = ({ title, description, techStack, startApp, websiteLink }: BoardProps) => {
+const Board = ({ title, description, techStack, startApp, websiteLink, onStartAppClick }: BoardProps) => {
   const hasActions = startApp || websiteLink;
 
 
@@ -157,7 +168,13 @@ const Board = ({ title, description, techStack, startApp, websiteLink }: BoardPr
       <IconSet items={techStack} />
       {hasActions && (
         <div className="flex flex-col gap-5 py-0 min-[470px]:flex-row">
-          {startApp && <StartAppButton label={startApp.label} underConstruction={startApp.underConstruction} />}
+          {startApp && (
+            <StartAppButton 
+              label={startApp.label}
+              underConstruction={startApp.underConstruction} 
+              onClick={onStartAppClick}
+            />
+          )}
           {websiteLink && <WebsiteLinkButton label={websiteLink.label} url={websiteLink.url} />}
         </div>
       )}
@@ -225,6 +242,7 @@ const Home = () => {
               techStack={project.techStack}
               startApp={project.startApp}
               websiteLink={project.websiteLink}
+              onStartAppClick={() => handleOpenDemo(project)}
             />
           ))}
         </div>
@@ -254,7 +272,7 @@ const Home = () => {
           </p>
           <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}>
             <p className=" ">{"View Certs"}</p>
-            <LiaLinkedin className="size-6 shrink-0" aria-hidden />
+            <LiaLinkedin className="size-6 shrink-0 -ml-1.5" aria-hidden />
             <ExternalLink className="size-4 shrink-0" aria-hidden />
           </Button>
           {/* <p>
@@ -279,6 +297,19 @@ const Home = () => {
             className="goBonkers mx-2"
           />
         </div>
+
+        <Dialog open={!!openProject} onOpenChange={(open) => (open ? null : handleCloseDemo())} >
+          <DialogContent className=" w-[90vw] max-h-[90vh] h-[80vh] z-10000 rounded-2xl p-0 overflow-hidden flex flex-col" >
+            <DialogHeader className="px-6 pt-4 pb-2">
+              <DialogTitle
+                className="text-white bg-amber-100"
+              >{openProject?.title ?? "Project demo"}</DialogTitle>
+              <DialogDescription>
+
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
 
       </PageHolder>
   );
