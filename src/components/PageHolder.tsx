@@ -19,7 +19,7 @@ const PageHolder = ({ background, children, className, scrollable, navbarOffset 
 
     return (
         <div className="fixed inset-0 w-full h-full">
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-black">
                 {background}
             </div>
             <div
