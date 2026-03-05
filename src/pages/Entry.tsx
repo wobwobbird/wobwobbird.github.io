@@ -27,19 +27,19 @@ const CubeHolder = () => (
 );
 
 const Entry = () => {
-    const [tagLineRandomNumber, setTagLineRandomNumber] = useState(Math.floor(Math.random() * 3));
-    const [oneLinerRandomNumber, setOneLinerRandomNumber] = useState(Math.floor(Math.random() * 3));
+    const [tagLineRandomNumber, setTagLineRandomNumber] = useState(Math.floor(Math.random() * 6));
+    // const [oneLinerRandomNumber, setOneLinerRandomNumber] = useState(Math.floor(Math.random() * 3));
 
     const tagLine = [
         "Full-Stack Developer · React, Node & beyond",
         "Building apps from idea to deployment",
-        "Full-Stack Developer · Problem solver & builder"
-    ]
-
-    const oneLiner = [
+        "Full-Stack Developer · Problem solver & builder",
         "Portfolio · Projects · Contact",
         "See what I've been building",
         "Projects, experience & how to get in touch"
+    ]
+
+    const oneLiner = [
     ]
 
     return (
@@ -48,7 +48,7 @@ const Entry = () => {
                 <LetterGlitch 
                     glitchColors={['#2b4539', '#61dca3', '#61b3dc']}
                     glitchSpeed={200}
-                    centerVignette={false}
+                    centerVignette={true}
                     outerVignette={false}
                     smooth={true}
                     characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>.,0123456789"
@@ -57,21 +57,48 @@ const Entry = () => {
             className="items-center gap-4 !w-[600px]"
             // className="items-center gap-4 !w-[600px] bg-amber-200"
         >
-            <h1 className="select-none w-full drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
+            {/* <h1 className="select-none w-full drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
             >Welcome to</h1>
-            {/* max-xs:text-4xl! */}
             <h1 className="display select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
+            >Guy's Website</h1> */}
+            {/* <h1 className=" select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
+            >{tagLine[oneLinerRandomNumber]}</h1> */}
+
+
+            <h1 className="
+                w-[320px] !text-3xl text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
+                "
+            >Welcome to</h1>
+            <h1 className="
+                w-[320px] !text-5xl text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
+                "
             >Guy's Website</h1>
-            <h1 className="select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
-            >{tagLine[oneLinerRandomNumber]}</h1>
-            
+            <h1 className="
+                w-[320px] !text-xl text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
+                "
+            >{tagLine[tagLineRandomNumber]}</h1>
+
+            {/* cube spacing: (320 - ((28+4)*7)) /6 = 16 */}
             <CubeHolder/>
-            
-            <h1 className="select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
-            >{oneLiner[tagLineRandomNumber]}</h1>
-            <Button asChild variant="outline" size="lg" className="px-10 has-[>svg]:px-10 rounded-xl [&_svg]:size-[1.2em]">
-                <Link to="/home">
-                    Enter <GrCodeSandbox data-icon="inline-end" />
+
+            {/* <h1 className="select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
+            >{oneLiner[tagLineRandomNumber]}</h1> */}
+            {/* <h1 className="
+                w-[320px] !text-2xl select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
+                "
+            >{oneLiner[tagLineRandomNumber]}</h1> */}
+            <Button className="
+                w-[320px] h-[40px] drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                rounded-xs  border-[#61b3dc] border-2 border-dashed" 
+                variant="outline"
+            >
+                <Link to="/home" className="flex flex-row items-center gap-4 ">
+                    <p className="p2 text-2xl! text-[#61b3dc]">Explore</p>
+                    <GrCodeSandbox className="size-7 text-[#61b3dc] stroke-[2]"/>
                 </Link>
             </Button>
         </PageHolder>

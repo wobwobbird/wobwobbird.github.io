@@ -142,20 +142,6 @@ const StartAppButton = ({ label, underConstruction = false, onClick }: StartAppB
     }
   };
 
-  // const handleClick = () => {
-  //   if (onClick) {
-  //     onClick();
-  //     return;
-  //   }
-
-  //   if (!underConstruction) return;
-  //   setIsFlashing(true);
-  //   setClickedText(isNarrowScreen ? "View on desktop to run app" : "Coming soon!");
-  //   setTimeout(() => {
-  //     setIsFlashing(false);
-  //   }, 400);
-  // };
-
   return (
     <Button
       className={`w-full min-[470px]:w-[200px] transition-colors duration-150 ${isFlashing ? "bg-red-500!" : ""}`}
@@ -317,6 +303,17 @@ const Home = () => {
           </p>
 
           {/* <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={onStartAppClick}> */} 
+          <p>
+            <span
+              role="link"
+              tabIndex={0}
+              className="cursor-pointer text-blue-600 underline hover:text-blue-800"
+              onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}
+              onKeyDown={(e) => e.key === "Enter" && (e.currentTarget as HTMLElement).click()}
+            >
+              View my certificates on LinkedIn
+            </span>
+          </p>
           <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => handleOpenDemo(LEARNING_COURSES)}>
             <p className=" ">{"View Certs"}</p>
             <SquareTerminal className="size-4 shrink-0" />
@@ -327,17 +324,6 @@ const Home = () => {
             <LiaLinkedin className="size-6 shrink-0 -ml-1.5" aria-hidden />
             <ExternalLink className="size-4 shrink-0" aria-hidden />
           </Button> */}
-          {/* <p>
-            <span
-              role="link"
-              tabIndex={0}
-              className="cursor-pointer text-blue-600 underline hover:text-blue-800"
-              onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}
-              onKeyDown={(e) => e.key === "Enter" && (e.currentTarget as HTMLElement).click()}
-            >
-              View my certificates on LinkedIn
-            </span>
-          </p> */}
         </div>
         <div className="h-[220px] flex items-center justify-center">
           <CircularText
@@ -364,10 +350,6 @@ const Home = () => {
             
             <div className="flex-1 overflow-auto px-6 pb-6 ">
               <div className="w-full h-full flex items-center justify-center border border-dashed border-white/20 rounded-xl">
-                {/* <p className="text-3xl text-center text-white/80">
-                  Demo area for <span className="font-semibold">{openProject?.title}</span>.<br />
-                  Later: iframe / WebGL / video / instructions go here.
-                </p> */}
                 {openProject && "modalContent" in openProject && openProject.modalContent
                   ? openProject.modalContent
                   : (

@@ -136,11 +136,22 @@ p {
   line-height: 1.1;
   font-size: 3rem;
 }
+
 /* Larger than 768px */
 @media (min-width: 768px) {
   .display {
     font-size: 4rem;
   }
+}
+
+.p2 {
+  font-family: "Google Sans Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 1000;
+  font-style: normal;
+  font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 60;
+  line-height: 1.1;
+  font-size: 1.75rem;
 }
 
 .caption {
