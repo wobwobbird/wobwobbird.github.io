@@ -63,7 +63,7 @@ const IconSet: React.FC<IconSetProps> = ({ items, className }) => {
             </span>
           </div>
 
-          <span className="absolute top-full left-1/2 text-center whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [transform:translate(-50%,0)] group-hover:opacity-100 group-hover:[transform:translate(-50%,-2em)] group-data-[pressed=true]:opacity-100 group-data-[pressed=true]:[transform:translate(-50%,-2em)]">
+          <span className="absolute select-none top-full left-1/2 text-center whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [transform:translate(-50%,0)] group-hover:opacity-100 group-hover:[transform:translate(-50%,-2em)] group-data-[pressed=true]:opacity-100 group-data-[pressed=true]:[transform:translate(-50%,-2em)]">
             {item.label}
           </span>
         </div>

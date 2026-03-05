@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/dialog";
 import DemoPage from "@/certificates/page";
 import { useMediaQuery } from '../hooks/windowWidth';
+import GlassPanel from "@/components/GlassPanel";
 
 interface StartAppAction {
   label: string;
@@ -189,7 +190,7 @@ const Board = ({ title, description, techStack, startApp, websiteLink, onStartAp
       <p>{description}</p>
 
       <IconSet items={techStack} />
-      {hasActions && isSmOrLarger && (
+      {hasActions && (
         <div className="flex flex-col gap-5 py-0 min-[470px]:flex-row">
           {startApp && (
             <StartAppButton 
@@ -224,24 +225,28 @@ const Home = () => {
           background={<LightRays />}
           scrollable
       >
-        {bannerShown && isNarrowScreen && (
-          <div className="mt-5 p-3 bg-green-950 border-amber-950 border rounded-4xl flex flex-row items-center gap-3">
-            <Brain className="size-5"/>
-            <p className="flex-1 min-w-0">View on desktop for the best experiance!</p>
-            {/* <Brain className="size-5"/> */}
-            <button 
-              className="shrink-0 p-1!" aria-label="Dismiss"
-              onClick={() => setBannerShown(false)}
-            ><X className="size-4 text-[rgb(0,0,0)] stroke-5"/></button>
+        {bannerShown && isNarrowScreen &&(
+          <div className="mt-5 flex flex-row items-center gap-3">
+            <GlassPanel>
+              <Brain className="size-5 mx-"/>
+              <p className="flex-1 min-w-0">View on desktop for the best experiance!</p>
+              {/* <Brain className="size-5"/> */}
+              <button 
+                className="shrink-0 p-1! mx-2 bg-white!" aria-label="Dismiss"
+                onClick={() => setBannerShown(false)}
+              ><X className="size-4 text-[rgb(0,0,0)] stroke-5"/></button>
+            </GlassPanel>
           </div>
         )}
         {bannerConstructionShown && (
-          <div className="mt-5 p-3 bg-green-950 border-amber-950 border rounded-4xl flex flex-row items-center gap-3">
-            <p className="flex-1 min-w-0">🚧 Site under construction | Some features may not currently work as intended 🚧</p>
-            <button 
-              className="shrink-0 p-1!" aria-label="Dismiss"
-              onClick={() => setBannerConstructionShown(false)}
-            ><X className="size-4 text-[rgb(0,0,0)] stroke-5"/></button>
+          <div className="mt-5 flex flex-row items-center gap-3">
+            <GlassPanel>
+              <p className="flex-1 min-w-0">🚧 Site under construction | Some features may not currently work as intended 🚧</p>
+              <button 
+                className="shrink-0 p-1! mx-2! bg-white!" aria-label="Dismiss"
+                onClick={() => setBannerConstructionShown(false)}
+              ><X className="size-4 text-[rgb(0,0,0)] stroke-5"/></button>
+            </GlassPanel>
           </div>
         )}
 
@@ -338,11 +343,6 @@ const Home = () => {
             <SquareTerminal className="size-4 shrink-0" />
           </Button>
 
-          {/* <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}>
-            <p className=" ">{"View Certs"}</p>
-            <LiaLinkedin className="size-6 shrink-0 -ml-1.5" aria-hidden />
-            <ExternalLink className="size-4 shrink-0" aria-hidden />
-          </Button> */}
         </div>
         <div className="h-[220px] flex items-center justify-center">
           <CircularText
@@ -352,7 +352,7 @@ const Home = () => {
             onHover="speedUp"
             spinDuration={40}
             className="goBonkers mx-2 select-none"
-          />
+            />
         </div>
 
         <Dialog open={!!openProject} onOpenChange={(open) => (open ? null : handleCloseDemo())} >
@@ -361,10 +361,10 @@ const Home = () => {
             <DialogHeader className="px-6 pt-4 pb-2">
               <DialogTitle
                 className="text-white"
-              >{openProject?.title ?? "Project demo"}</DialogTitle>
+                >{openProject?.title ?? "Project demo"}</DialogTitle>
               <DialogDescription
                 className="text-white"
-              > {openProject?.description ?? "Interactive demo"}</DialogDescription>
+                > {openProject?.description ?? "Interactive demo"}</DialogDescription>
             </DialogHeader>
             
             <div className="flex-1 overflow-auto px-6 pb-6 ">
@@ -372,12 +372,12 @@ const Home = () => {
                 {openProject && "modalContent" in openProject && openProject.modalContent
                   ? openProject.modalContent
                   : (
-                      <h3 className="text-3xl text-center text-white/80">
+                    <h3 className="text-3xl text-center text-white/80">
                         Demo area for <span className="font-semibold">{openProject?.title}</span>.<br />
                         Later: iframe / WebGL / video / instructions go here.
                       </h3>
                     )
-                }
+                  }
               </div>
             </div>
           </DialogContent>
@@ -386,5 +386,10 @@ const Home = () => {
       </PageHolder>
   );
 };
-  
+
+{/* <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}>
+  <p className=" ">{"View Certs"}</p>
+  <LiaLinkedin className="size-6 shrink-0 -ml-1.5" aria-hidden />
+  <ExternalLink className="size-4 shrink-0" aria-hidden />
+</Button> */}
 export default Home;
