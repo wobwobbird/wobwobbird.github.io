@@ -43,14 +43,14 @@ const Contact = () => {
             className="items-center"
         >
             <h1 className="display select-none">
-                <span className="block -mb-5 !text-8xl">Get in</span>
-                <span className="block !text-8xl">Contact</span>
+                <span className="block -mb-5 text-8xl! max-sm:text-5xl!">Get in</span>
+                <span className="block !text-8xl max-sm:text-7xl!">Contact</span>
             </h1>
-            <h2 className="pt-0 !text-4xl select-none">I don't bite</h2>
+            <h2 className="pt-0 !text-4xl max-sm:text-3.5xl! select-none">I don't bite</h2>
             <div className="h-auto relative">
                 <GlassIcons items={items} className="custom-class" />
             </div>
-            <div className="w-[280px] md:w-[380px] h-auto pt-0 mx-auto">
+            <div className="w-[280px] sm:w-[380px] h-auto pt-0 mx-auto">
                 <GlassPanel>
                     <div className="flex flex-col text-center"> 
                         <p className="text-xl font-semibold select-none">Open to fulltime</p>

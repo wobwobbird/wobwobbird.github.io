@@ -5,26 +5,30 @@ import { Button } from "@/components/ui/button"
 import { GrCodeSandbox } from "react-icons/gr";
 import Cubes from '../components/Cubes';
 import { useState } from "react";
+import { useMediaQuery } from '../hooks/windowWidth';
 
-const CubeHolder = () => (
-    // <div className="h-[320px] w-[320px] mx-4 my-10 bg-[rgba(0,0,0,1)] rounded-2xl flex items-center justify-center shadow-[0_0_50px_15px_rgba(0,0,0,1)]">
-    <div className="h-[320px] w-[320px] mx-4 bg-[rgba(0,0,0,0.6)] rounded-2xl flex items-center justify-center shadow-[0_0_50px_15px_rgba(0,0,0,0.6)]">
-        <div className="h-[100%] w-[100%]">
-            <Cubes
-                gridSize={7}
-                maxAngle={150}
-                radius={3}
-                borderStyle="2px dashed #61b3dc"
-                faceColor="rgb(0, 0, 0)" 
-                rippleColor="rgba(97, 220, 163, 0.3)"
-                // rippleColor="#ff6b6b"
-                rippleSpeed={1.5}
-                autoAnimate
-                rippleOnClick
-            />
+const CubeHolder = () => {
+    const isSm = useMediaQuery("(min-width: 640px)");
+    return (
+        // <div className="h-[320px] w-[320px] mx-4 my-10 bg-[rgba(0,0,0,1)] rounded-2xl flex items-center justify-center shadow-[0_0_50px_15px_rgba(0,0,0,1)]">
+        <div className="size-[320px] max-sm:size-[280px] mx-4 bg-[rgba(0,0,0,0.6)] rounded-2xl flex items-center justify-center shadow-[0_0_50px_15px_rgba(0,0,0,0.6)]">
+            <div className="size-full">
+                <Cubes
+                    gridSize={isSm ? 7 : 6}
+                    maxAngle={150}
+                    radius={3}
+                    borderStyle="2px dashed #61b3dc"
+                    faceColor="rgb(0, 0, 0)" 
+                    rippleColor="rgba(97, 220, 163, 0.3)"
+                    // rippleColor="#ff6b6b"
+                    rippleSpeed={1.5}
+                    autoAnimate
+                    rippleOnClick
+                />
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 const Entry = () => {
     const [tagLineRandomNumber, setTagLineRandomNumber] = useState(Math.floor(Math.random() * 6));
@@ -66,17 +70,17 @@ const Entry = () => {
 
 
             <h1 className="
-                w-[320px] !text-3xl text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                w-[320px] max-sm:w-[280px] text-3xl! max-sm:text-2.5xl! text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
                 bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
                 "
             >Welcome to</h1>
             <h1 className="
-                w-[320px] !text-5xl text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                w-[320px] max-sm:w-[280px] text-5xl! max-sm:text-4xl! text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
                 bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
                 "
             >Guy's Website</h1>
             <h1 className="
-                w-[320px] !text-xl text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                w-[320px] max-sm:w-[280px] text-xl! max-sm:text-md! text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
                 bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
                 "
             >{tagLine[tagLineRandomNumber]}</h1>
@@ -92,7 +96,7 @@ const Entry = () => {
                 "
             >{oneLiner[tagLineRandomNumber]}</h1> */}
             <Button className="
-                w-[320px] h-[40px] drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                w-[320px] max-sm:w-[280px] h-[40px] drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
                 rounded-xs  border-[#61b3dc] border-2 border-dashed" 
                 variant="outline"
             >
