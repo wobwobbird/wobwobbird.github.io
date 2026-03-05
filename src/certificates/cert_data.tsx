@@ -2,7 +2,7 @@ import type { Certs } from "./columns"
 
 // Certificates in chronological order by date_completed (earliest first). IDs match order.
 export const certs: Certs[] = [
-  { id: "1", category: "Game Development", specialisation: "Game Development & Interactive Systems", course: "Complete C# Unity Game Developer 2D", details: "UC-e0c6cc40-fe55-4c12-b4a0-247b7b9b5966", provider: "Udemy", date_completed: new Date("2025-01-01"), link: "", status: "Completed" },
+  { id: "1", category: "Game Development", specialisation: "Game Development & Interactive Systems", course: "Complete C# Unity Game Developer 2D", details: "UC-e0c6cc40-fe55-4c12-b4a0-247b7b9b5966", provider: "Udemy", date_completed: new Date("2025-01-01"), link: "https://www.codecademy.com/profiles/LordMarshy/certificates/705dcb15de0da4dd9d9fc4f3274b430e", status: "Completed" },
   { id: "2", category: "Frontend Development", specialisation: "JavaScript", course: "Building Interactive JavaScript Websites Course", details: "8B6269F5-0", provider: "Codecademy", date_completed: new Date("2025-05-01"), link: "", status: "Completed" },
   { id: "3", category: "Frontend Development", specialisation: "HTML & CSS", course: "Learn CSS Course", details: "65DA82B5-3", provider: "Codecademy", date_completed: new Date("2025-05-01"), link: "", status: "Completed" },
   { id: "4", category: "Frontend Development", specialisation: "HTML & CSS", course: "Learn HTML Course", details: "7D639918-1", provider: "Codecademy", date_completed: new Date("2025-05-01"), link: "", status: "Completed" },
