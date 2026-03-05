@@ -5,15 +5,35 @@ import { Button } from "@/components/ui/button"
 import { GrCodeSandbox } from "react-icons/gr";
 import Cubes from '../components/Cubes';
 
-const Entry = () => {
+const CubeHolder = () => (
+    // <div className="h-[320px] w-[320px] mx-4 my-10 bg-[rgba(0,0,0,1)] rounded-2xl flex items-center justify-center shadow-[0_0_50px_15px_rgba(0,0,0,1)]">
+    <div className="h-[320px] w-[320px] mx-4 my-10 bg-[rgba(0,0,0,0.6)] rounded-2xl flex items-center justify-center shadow-[0_0_50px_15px_rgba(0,0,0,0.6)]">
+        <div className="h-[100%] w-[100%]">
+            <Cubes
+                gridSize={8}
+                maxAngle={100}
+                radius={4}
+                borderStyle="2px dashed #61b3dc"
+                faceColor="rgb(0, 0, 0)" 
+                rippleColor="rgba(97, 220, 163, 0.3)"
+                // rippleColor="#ff6b6b"
+                rippleSpeed={1.5}
+                // autoAnimate
+                rippleOnClick
+            />
+        </div>
+    </div>
+);
 
+const Entry = () => {
     return (
         <PageHolder 
+            // className="bg-amber-100 items-center"
             background={
                 <LetterGlitch 
                     glitchColors={['#2b4539', '#61dca3', '#61b3dc']}
                     glitchSpeed={200}
-                    centerVignette={true}
+                    centerVignette={false}
                     outerVignette={false}
                     smooth={true}
                     characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>.,0123456789"
@@ -27,20 +47,7 @@ const Entry = () => {
             >Guy's Website</h1>
             <h1 className="w-full sm:w-[600px] max-xs:text-2xl!  max-md:pt-4 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
             >Full-Stack Software Developer</h1>
-            <div className="h-[300px] w-[300px] mx-4 my-10 bg-[rgb(0, 0, 0)] ">
-                <Cubes 
-                    gridSize={8}
-                    maxAngle={100}
-                    radius={4}
-                    borderStyle="2px dashed #B19EEF"
-                    faceColor="#1a1a2e" 
-                    rippleColor="rgba(0, 107, 23, 0.48)"
-                    // rippleColor="#ff6b6b"
-                    rippleSpeed={1.5}
-                    // autoAnimate
-                    rippleOnClick
-                />
-            </div>
+            <CubeHolder/>
 
             {/* <h2 className="google-sans-flex-bold-round text-4xl md:text-6xl md:-mb-5 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
             >Welcome to</h2>
