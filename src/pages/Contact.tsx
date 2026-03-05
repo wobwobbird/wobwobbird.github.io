@@ -43,10 +43,10 @@ const Contact = () => {
             className="items-center"
         >
             <h1 className="display select-none">
-                <span className="block -mb-5">Get in</span>
-                <span className="block">Contact</span>
+                <span className="block -mb-5 !text-8xl">Get in</span>
+                <span className="block !text-8xl">Contact</span>
             </h1>
-            <h2 className="pt-0 select-none">I don't bite</h2>
+            <h2 className="pt-0 !text-4xl select-none">I don't bite</h2>
             <div className="h-auto relative">
                 <GlassIcons items={items} className="custom-class" />
             </div>

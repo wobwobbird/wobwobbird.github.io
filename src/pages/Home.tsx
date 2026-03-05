@@ -322,11 +322,11 @@ const Home = () => {
             <SquareTerminal className="size-4 shrink-0" />
           </Button>
 
-          <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}>
+          {/* <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open("https://www.linkedin.com/in/guymarshman/details/certifications/")}>
             <p className=" ">{"View Certs"}</p>
             <LiaLinkedin className="size-6 shrink-0 -ml-1.5" aria-hidden />
             <ExternalLink className="size-4 shrink-0" aria-hidden />
-          </Button>
+          </Button> */}
           {/* <p>
             <span
               role="link"
