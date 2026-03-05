@@ -75,20 +75,6 @@ function App() {
               )}
           </GlassSurface>
         </div>
-            {/* <nav className="app-nav">
-              <Link to="/">
-                <img 
-                  src={lord_marshy_logo}
-                  alt="website logo"
-                  className="h-10 rotate-4"
-                />
-              </Link>   
-              {pathname !== "/" && (
-                <div className="flex items-center gap-12">
-                  <NavLink to="/home" end>Home</NavLink>
-                  <NavLink to="/contact">Contact</NavLink>
-                </div>
-              )} */}
 
         <Routes>
           <Route path="/" element={<Entry/>} />

@@ -244,7 +244,7 @@ const Home = () => {
             ><X className="size-4 text-[rgb(0,0,0)] stroke-5"/></button>
           </div>
         )}
-        
+
         {/* Body - heading*/}
         {/* Body - intro*/}
 

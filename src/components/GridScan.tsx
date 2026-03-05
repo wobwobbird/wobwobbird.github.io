@@ -460,7 +460,7 @@ export const GridScan: React.FC<GridScanProps> = ({
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.NoToneMapping;
     renderer.autoClear = false;
-    renderer.setClearColor(0x000000, 0);
+    renderer.setClearColor(0x000000, 1);
     container.appendChild(renderer.domElement);
 
     const uniforms = {
