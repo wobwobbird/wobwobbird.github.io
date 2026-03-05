@@ -10,8 +10,8 @@ interface PageHolderProps {
 
 const PageHolder = ({ background, children, className, scrollable, navbarOffset = true }: PageHolderProps) => {
     const contentAreaClasses = scrollable
-        ? "relative z-10 w-full min-h-0 pt-14 overflow-y-auto overflow-x-hidden overscroll-contain"
-        : `relative z-10 flex items-center justify-center w-full h-full ${navbarOffset !== false ? "pt-14" : ""}`;
+        ? "relative z-10 w-full min-h-0 pt-[90px] overflow-y-auto overflow-x-hidden overscroll-contain"
+        : `relative z-10 flex items-center justify-center w-full h-full ${navbarOffset !== false ? "pt-[90px]" : ""}`;
 
     const contentWrapperClasses = scrollable
         ? `min-w-0 w-full max-w-[1100px] h-auto mx-auto px-3 md:px-10 flex flex-col ${className || ""}`
@@ -24,7 +24,7 @@ const PageHolder = ({ background, children, className, scrollable, navbarOffset 
             </div>
             <div
                 className={contentAreaClasses}
-                style={scrollable ? { height: "100vh" } : undefined}
+                style={scrollable ? { height: "100dvh" } : undefined}
                 {...(scrollable ? { "data-lenis-prevent": "" } : {})}
             >
                 <div className={contentWrapperClasses}>

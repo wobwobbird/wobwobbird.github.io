@@ -23,6 +23,7 @@ function App() {
           allowNestedScroll: true, // Enables overflow scroll in pages like Home
         }}
       >
+        {/* navbar is 20 + 70 = 90px from top */}
         <div className="app-nav-wrapper">
           <GlassSurface 
             width="100%"

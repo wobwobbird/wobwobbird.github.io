@@ -5,10 +5,9 @@ import type { IconSetItem } from "@/components/IconSet";
 import inkLogo from '../assets/ink_logo.png'
 import ProfileCard from "@/components/ProfileCard";
 import profilePic_nobg from '../assets/profile_pic_nobg.png';
-// import lordMarshy from '../assets/lord_marshy_logo.png'
 import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
 import { Button } from "@/components/ui/button"
-import { ExternalLink, SquareTerminal } from "lucide-react"
+import { ExternalLink, SquareTerminal, X, Brain } from "lucide-react"
 import { LiaLinkedin } from "react-icons/lia";
 import CircularText from "@/components/CircularText";
 import { useState, useEffect } from "react";
@@ -20,7 +19,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import DemoPage from "@/certificates/page";
-
+import { useMediaQuery } from '../hooks/windowWidth';
 
 interface StartAppAction {
   label: string;
@@ -155,7 +154,7 @@ const StartAppButton = ({ label, underConstruction = false, onClick }: StartAppB
 
 const WebsiteLinkButton = ({ label, url }: WebsiteLinkAction) => (
   <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open(url)}>
-    <p className=" ">{label}</p>
+    <p>{label}</p>
     <ExternalLink className="size-4 shrink-0" aria-hidden />
   </Button>
 );
@@ -171,8 +170,7 @@ interface BoardProps {
 
 const Board = ({ title, description, techStack, startApp, websiteLink, onStartAppClick }: BoardProps) => {
   const hasActions = startApp || websiteLink;
-
-  // transition-all duration-200 hover:bg-[hsla(0,0%,100%,0.22)] hover:shadow-lg hover:scale-[1.01] shadow-amber-600
+  const isSmOrLarger = useMediaQuery("(min-width: 640px)");
 
   return (
     <div
@@ -181,18 +179,17 @@ const Board = ({ title, description, techStack, startApp, websiteLink, onStartAp
         bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] 
         border border-white
         transition-all duration-200  hover:shadow-[0_0_25px_6px_rgba(200,255,150,0.25)]
-        hover:bg-[hsla(0,0%,100%,0.05)]
-        hover:scale-[1.01]
+        hover:bg-[hsla(0,0%,100%,0.05)] hover:scale-[1.01]
+        active:shadow-[0_0_25px_6px_rgba(200,255,150,0.25)]
+        active:bg-[hsla(0,0%,100%,0.05)] active:scale-[1.01]
 
       "
-      // style={{ boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset' }}
-      // shadow-[inset_0_0_0_0.1em_hsla(0,0%,100%,0.3)]
     >
       <h3>{title}</h3>
       <p>{description}</p>
 
       <IconSet items={techStack} />
-      {hasActions && (
+      {hasActions && isSmOrLarger && (
         <div className="flex flex-col gap-5 py-0 min-[470px]:flex-row">
           {startApp && (
             <StartAppButton 
@@ -210,6 +207,9 @@ const Board = ({ title, description, techStack, startApp, websiteLink, onStartAp
 
 const Home = () => {
   const [openProject, setOpenProject] = useState<ProjectBoardData | CourseData | null >(null);
+  const [bannerShown, setBannerShown] = useState(true);
+  const [bannerConstructionShown, setBannerConstructionShown] = useState(true);
+  const isNarrowScreen = !useMediaQuery("(min-width: 640px)");
 
   const handleOpenDemo = (project: ProjectBoardData | CourseData) => {
     setOpenProject(project);
@@ -224,10 +224,29 @@ const Home = () => {
           background={<LightRays />}
           scrollable
       >
+        {bannerShown && isNarrowScreen && (
+          <div className="mt-5 p-3 bg-green-950 border-amber-950 border rounded-4xl flex flex-row items-center gap-3">
+            <Brain className="size-5"/>
+            <p className="flex-1 min-w-0">View on desktop for the best experiance!</p>
+            {/* <Brain className="size-5"/> */}
+            <button 
+              className="shrink-0 p-1!" aria-label="Dismiss"
+              onClick={() => setBannerShown(false)}
+            ><X className="size-4 text-[rgb(0,0,0)] stroke-5"/></button>
+          </div>
+        )}
+        {bannerConstructionShown && (
+          <div className="mt-5 p-3 bg-green-950 border-amber-950 border rounded-4xl flex flex-row items-center gap-3">
+            <p className="flex-1 min-w-0">🚧 Site under construction | Some features may not currently work as intended 🚧</p>
+            <button 
+              className="shrink-0 p-1!" aria-label="Dismiss"
+              onClick={() => setBannerConstructionShown(false)}
+            ><X className="size-4 text-[rgb(0,0,0)] stroke-5"/></button>
+          </div>
+        )}
+        
         {/* Body - heading*/}
         {/* Body - intro*/}
-        <p className="mt-14 p-3 bg-green-950 border-amber-950 border rounded-4xl"
-        >🚧 Site under construction | Some features may not currently work as intended 🚧</p>
 
         <h2 className="pt-5 text-left">Introduction</h2>
         <div className="flex flex-col sm:flex-row md:p-5 gap-4 ">

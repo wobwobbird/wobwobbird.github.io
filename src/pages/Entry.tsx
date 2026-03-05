@@ -10,7 +10,6 @@ import { useMediaQuery } from '../hooks/windowWidth';
 const CubeHolder = () => {
     const isSm = useMediaQuery("(min-width: 640px)");
     return (
-        // <div className="h-[320px] w-[320px] mx-4 my-10 bg-[rgba(0,0,0,1)] rounded-2xl flex items-center justify-center shadow-[0_0_50px_15px_rgba(0,0,0,1)]">
         <div className="size-[320px] max-sm:size-[280px] mx-4 bg-[rgba(0,0,0,0.6)] rounded-2xl flex items-center justify-center shadow-[0_0_50px_15px_rgba(0,0,0,0.6)]">
             <div className="size-full">
                 <Cubes
@@ -20,7 +19,6 @@ const CubeHolder = () => {
                     borderStyle="2px dashed #61b3dc"
                     faceColor="rgb(0, 0, 0)" 
                     rippleColor="rgba(97, 220, 163, 0.3)"
-                    // rippleColor="#ff6b6b"
                     rippleSpeed={1.5}
                     autoAnimate
                     rippleOnClick
@@ -32,7 +30,6 @@ const CubeHolder = () => {
 
 const Entry = () => {
     const [tagLineRandomNumber, setTagLineRandomNumber] = useState(Math.floor(Math.random() * 6));
-    // const [oneLinerRandomNumber, setOneLinerRandomNumber] = useState(Math.floor(Math.random() * 3));
 
     const tagLine = [
         "Full-Stack Developer · React, Node & beyond",
@@ -41,9 +38,6 @@ const Entry = () => {
         "Portfolio · Projects · Contact",
         "See what I've been building",
         "Projects, experience & how to get in touch"
-    ]
-
-    const oneLiner = [
     ]
 
     return (
@@ -58,50 +52,45 @@ const Entry = () => {
                     characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>.,0123456789"
                 />
             } 
-            className="items-center gap-4 !w-[600px]"
-            // className="items-center gap-4 !w-[600px] bg-amber-200"
+            className="items-center gap-4 max-sm:gap-[14px] !w-[612px]"
         >
-            {/* <h1 className="select-none w-full drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
-            >Welcome to</h1>
-            <h1 className="display select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
-            >Guy's Website</h1> */}
-            {/* <h1 className=" select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
-            >{tagLine[oneLinerRandomNumber]}</h1> */}
-
-
             <h1 className="
-                w-[320px] max-sm:w-[280px] text-3xl! max-sm:text-2.5xl! text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                w-[320px] max-sm:w-[280px] sm:h-[64px] text-3xl! max-sm:text-2.5xl! text-[#61dca3] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
                 bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
-                "
+                flex items-center justify-center text-center
+                transition-all duration-200 hover:scale-[1.01] active:scale-[1.01]"
             >Welcome to</h1>
             <h1 className="
-                w-[320px] max-sm:w-[280px] text-5xl! max-sm:text-4xl! text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
-                bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
-                "
+                w-[416px] max-sm:w-[280px] sm:h-[82px] text-5xl! max-sm:text-4xl! text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                bg-black rounded-xs border-[#61dca3] border-2 border-dashed
+                flex items-center justify-center text-center
+                transition-all duration-200 hover:scale-[1.05] active:scale-[1.05]"
             >Guy's Website</h1>
             <h1 className="
-                w-[320px] max-sm:w-[280px] text-xl! max-sm:text-md! text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                w-[320px] max-sm:w-[280px] sm:h-[64px] text-xl! max-sm:text-md! text-[#61dca3] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
                 bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
-                "
+                flex items-center justify-center text-center
+                transition-all duration-200 hover:scale-[1.01] active:scale-[1.01]"
             >{tagLine[tagLineRandomNumber]}</h1>
 
+            {/* Desktop */}
+            {/* cube height spacing: (320 - ((28+4)*7)) /6 = 16 */}
             {/* cube spacing: (320 - ((28+4)*7)) /6 = 16 */}
-            <CubeHolder/>
-
-            {/* <h1 className="select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
-            >{oneLiner[tagLineRandomNumber]}</h1> */}
-            {/* <h1 className="
-                w-[320px] !text-2xl select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
-                bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
-                "
-            >{oneLiner[tagLineRandomNumber]}</h1> */}
+            {/* Too add row on either side: 64+32=96 */} 
+            
+            {/* Mobile */}
+            {/* cube height spacing: (280 - ((31+4)*6)) /5 = 14 */}
+            {/* Too add row on either side: 70+28=98 */}             <CubeHolder/>
+            
             <Button className="
-                w-[320px] max-sm:w-[280px] h-[40px] drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
-                rounded-xs  border-[#61b3dc] border-2 border-dashed" 
+                w-[224px] max-sm:w-[182px] h-[40px] drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
+                rounded-xs  border-[#61dca3] border-2 border-dashed
+                hover:bg-[rgba(97,220,163,0.6)] hover:scale-[1.01]
+                active:bg-[rgba(97,220,163,0.6)] active:scale-[1.01]"
                 variant="outline"
             >
                 <Link to="/home" className="flex flex-row items-center gap-4 ">
-                    <p className="p2 text-2xl! text-[#61b3dc]">Explore</p>
+                    <p className="p2 text-2xl! text-[#61b3dc] select-none">Explore</p>
                     <GrCodeSandbox className="size-7 text-[#61b3dc] stroke-[2]"/>
                 </Link>
             </Button>
