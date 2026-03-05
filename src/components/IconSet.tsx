@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const DEVICON_BASE = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
 
@@ -18,6 +18,29 @@ export interface IconSetProps {
 
 const IconSet: React.FC<IconSetProps> = ({ items, className }) => {
   const [pressedIndex, setPressedIndex] = useState<number | null>(null);
+  const [tapRevealedIndex, setTapRevealedIndex] = useState<number | null>(null);
+  const tapTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    return () => {
+      if (tapTimeoutRef.current) clearTimeout(tapTimeoutRef.current);
+    };
+  }, []);
+
+  const handleTapReveal = (index: number) => {
+    if (tapTimeoutRef.current) clearTimeout(tapTimeoutRef.current);
+    setTapRevealedIndex(index);
+    tapTimeoutRef.current = setTimeout(() => {
+      setTapRevealedIndex(null);
+      tapTimeoutRef.current = null;
+    }, 1000);
+  };
+
+  const handlePointerDown = (e: React.PointerEvent, index: number) => {
+    if (e.pointerType !== 'touch') setPressedIndex(index);
+  };
 
   return (
     <>
@@ -38,10 +61,12 @@ const IconSet: React.FC<IconSetProps> = ({ items, className }) => {
           key={index}
           className="relative flex flex-col items-center group pb-[2em]"
           data-pressed={pressedIndex === index}
-          onPointerDown={() => setPressedIndex(index)}
+          data-tap-revealed={tapRevealedIndex === index}
+          onPointerDown={(e) => handlePointerDown(e, index)}
           onPointerUp={() => setPressedIndex(null)}
           onPointerLeave={() => setPressedIndex(null)}
           onPointerCancel={() => setPressedIndex(null)}
+          onClick={() => isTouchDevice && handleTapReveal(index)}
         >
           <div
             role="img"
@@ -63,7 +88,7 @@ const IconSet: React.FC<IconSetProps> = ({ items, className }) => {
             </span>
           </div>
 
-          <span className="absolute select-none top-full left-1/2 text-center whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [transform:translate(-50%,0)] group-hover:opacity-100 group-hover:[transform:translate(-50%,-2em)] group-data-[pressed=true]:opacity-100 group-data-[pressed=true]:[transform:translate(-50%,-2em)]">
+          <span className="absolute select-none top-full left-1/2 text-center whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [transform:translate(-50%,0)] group-hover:opacity-100 group-hover:[transform:translate(-50%,-2em)] group-data-[pressed=true]:opacity-100 group-data-[pressed=true]:[transform:translate(-50%,-2em)] group-data-[tap-revealed=true]:opacity-100 group-data-[tap-revealed=true]:[transform:translate(-50%,-2em)]">
             {item.label}
           </span>
         </div>
