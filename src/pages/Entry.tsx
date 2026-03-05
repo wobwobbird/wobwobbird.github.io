@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PageHolder from "@/components/PageHolder";
 import { Button } from "@/components/ui/button"
 import { GrCodeSandbox } from "react-icons/gr";
+import Cubes from '../components/Cubes';
 
 const Entry = () => {
 
@@ -12,7 +13,7 @@ const Entry = () => {
                 <LetterGlitch 
                     glitchColors={['#2b4539', '#61dca3', '#61b3dc']}
                     glitchSpeed={200}
-                    centerVignette={false}
+                    centerVignette={true}
                     outerVignette={false}
                     smooth={true}
                     characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>.,0123456789"
@@ -22,10 +23,25 @@ const Entry = () => {
         >
             <h1 className="w-full max-xs:text-3xl! md:-mb-4 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
             >Welcome to</h1>
-            <h1 className="display w-full max-xs:text-4xl! drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
+            <h1 className="display w-full max-xs:text-4xl! text-6xl! drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
             >Guy's Website</h1>
-            <h1 className="w-full sm:w-[600px] max-xs:text-2xl! max-md:pt-4 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
+            <h1 className="w-full sm:w-[600px] max-xs:text-2xl!  max-md:pt-4 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
             >Full-Stack Software Developer</h1>
+            <div className="h-[300px] w-[300px] mx-4 my-10 bg-[rgb(0, 0, 0)] ">
+                <Cubes 
+                    gridSize={8}
+                    maxAngle={100}
+                    radius={4}
+                    borderStyle="2px dashed #B19EEF"
+                    faceColor="#1a1a2e" 
+                    rippleColor="rgba(0, 107, 23, 0.48)"
+                    // rippleColor="#ff6b6b"
+                    rippleSpeed={1.5}
+                    // autoAnimate
+                    rippleOnClick
+                />
+            </div>
+
             {/* <h2 className="google-sans-flex-bold-round text-4xl md:text-6xl md:-mb-5 drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
             >Welcome to</h2>
             <h2 className="google-sans-flex-bold-round text-6xl md:text-8xl max-w-full text-center drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
@@ -55,10 +71,7 @@ const Entry = () => {
                     >Enter</p>
                 </GlassSurface>
             </Link> */}
-            <p
-                className="mt-5 p-3 bg-green-950 border-amber-950 border rounded-4xl"
-            >🚧 Site under construction 🚧</p>
-            <Button asChild variant="outline" className="mt-10 px-20 has-[>svg]:px-10 rounded-xl [&_svg]:size-[1.2em]">
+            <Button asChild variant="outline" className="px-10 has-[>svg]:px-10 rounded-xl [&_svg]:size-[1.2em]">
                 <Link to="/home">
                     Enter <GrCodeSandbox data-icon="inline-end" />
                 </Link>

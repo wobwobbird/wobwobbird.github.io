@@ -240,7 +240,10 @@ const Home = () => {
       >
         {/* Body - heading*/}
         {/* Body - intro*/}
-        <h2 className="pt-14 text-left">Introduction</h2>
+        <p className="mt-14 p-3 bg-green-950 border-amber-950 border rounded-4xl"
+        >🚧 Site under construction | Some features may not currently work as intended 🚧</p>
+
+        <h2 className="pt-5 text-left">Introduction</h2>
         <div className="flex flex-col sm:flex-row md:p-5 gap-4 ">
           <div className="h-auto p-0 flex flex-col gap-4 pt-5 flex-1" >
             <h1 className="">Hi I'm Guy</h1>
