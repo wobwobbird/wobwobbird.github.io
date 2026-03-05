@@ -8,6 +8,7 @@ import GlassSurface from './components/GlassSurface';
 import { ReactLenis } from 'lenis/react'
 import lord_marshy_logo from './assets/lord_marshy_logo.png'
 import { NavLink } from 'react-router-dom';
+import EmptyPage from './pages/emptyPage';
 
 function App() {
   const { pathname } = useLocation();
@@ -81,6 +82,7 @@ function App() {
           <Route path="/vite" element={<Vite/>} />
           <Route path="/home" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/empty" element={<EmptyPage />} />
         </Routes>
       </ReactLenis>
   )

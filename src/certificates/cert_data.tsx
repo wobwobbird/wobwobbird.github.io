@@ -24,6 +24,10 @@ export const certs: Certs[] = [
   { id: "20", category: "Backend & Databases", specialisation: "Node & Express", course: "Create a Back-End App with JavaScript [Skill Path]", details: "", provider: "Codecademy", date_completed: new Date("2025-12-01"), link: "", status: "Completed" },
   { id: "21", category: "Backend & Databases", specialisation: "Databases & SQL", course: "Design Databases With PostgreSQL Skill Path", details: "", provider: "Codecademy", date_completed: new Date("2026-01-01"), link: "", status: "Completed" },
   { id: "22", category: "Backend & Databases", specialisation: "Node & Express", course: "Securing Express Applications [Skill Path]", details: "", provider: "Codecademy", date_completed: new Date("2026-01-01"), link: "", status: "Completed" },
+  { id: "23", category: "Backend & Databases", specialisation: "Dummy", course: "Dummy", details: "", provider: "Codecademy", date_completed: new Date("2026-01-01"), link: "", status: "Completed" },
+  { id: "24", category: "Backend & Databases", specialisation: "Dummy", course: "Dummy", details: "", provider: "Codecademy", date_completed: new Date("2026-01-01"), link: "", status: "Completed" },
+  { id: "25", category: "Backend & Databases", specialisation: "Dummy", course: "Dummy", details: "", provider: "Codecademy", date_completed: new Date("2026-01-01"), link: "", status: "Completed" },
+  { id: "26", category: "Backend & Databases", specialisation: "Dummy", course: "Dummy", details: "", provider: "Codecademy", date_completed: new Date("2026-01-01"), link: "", status: "Completed" },
 ]
 
 export default certs;
