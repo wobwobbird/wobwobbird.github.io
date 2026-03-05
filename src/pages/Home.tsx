@@ -346,7 +346,7 @@ const Home = () => {
             width="100px"        
             onHover="speedUp"
             spinDuration={40}
-            className="goBonkers mx-2"
+            className="goBonkers mx-2 select-none"
           />
         </div>
 

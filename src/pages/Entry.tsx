@@ -11,15 +11,15 @@ const CubeHolder = () => (
     <div className="h-[320px] w-[320px] mx-4 bg-[rgba(0,0,0,0.6)] rounded-2xl flex items-center justify-center shadow-[0_0_50px_15px_rgba(0,0,0,0.6)]">
         <div className="h-[100%] w-[100%]">
             <Cubes
-                gridSize={8}
-                maxAngle={100}
-                radius={4}
+                gridSize={7}
+                maxAngle={150}
+                radius={3}
                 borderStyle="2px dashed #61b3dc"
                 faceColor="rgb(0, 0, 0)" 
                 rippleColor="rgba(97, 220, 163, 0.3)"
                 // rippleColor="#ff6b6b"
                 rippleSpeed={1.5}
-                // autoAnimate
+                autoAnimate
                 rippleOnClick
             />
         </div>
@@ -55,20 +55,21 @@ const Entry = () => {
                 />
             } 
             className="items-center gap-4 !w-[600px]"
+            // className="items-center gap-4 !w-[600px] bg-amber-200"
         >
-            <h1 className="select-none w-full drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
+            <h1 className="select-none w-full drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
             >Welcome to</h1>
             {/* max-xs:text-4xl! */}
-            <h1 className="display select-none select-none drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
+            <h1 className="display select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
             >Guy's Website</h1>
-            <h1 className="select-none drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
+            <h1 className="select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
             >{tagLine[oneLinerRandomNumber]}</h1>
             
             <CubeHolder/>
             
-            <h1 className="select-none drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]"
+            <h1 className="select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
             >{oneLiner[tagLineRandomNumber]}</h1>
-            <Button asChild variant="outline" className="px-10 has-[>svg]:px-10 rounded-xl [&_svg]:size-[1.2em]">
+            <Button asChild variant="outline" size="lg" className="px-10 has-[>svg]:px-10 rounded-xl [&_svg]:size-[1.2em]">
                 <Link to="/home">
                     Enter <GrCodeSandbox data-icon="inline-end" />
                 </Link>
