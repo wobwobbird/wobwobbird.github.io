@@ -8,7 +8,7 @@ import profilePic_nobg from '../assets/profile_pic_nobg.png';
 import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
 import { Button } from "@/components/ui/button"
 import { ExternalLink, SquareTerminal, X, Brain } from "lucide-react"
-import { LiaLinkedin } from "react-icons/lia";
+// import { LiaLinkedin } from "react-icons/lia";
 import CircularText from "@/components/CircularText";
 import { useState, useEffect } from "react";
 import {
@@ -171,7 +171,7 @@ interface BoardProps {
 
 const Board = ({ title, description, techStack, startApp, websiteLink, onStartAppClick }: BoardProps) => {
   const hasActions = startApp || websiteLink;
-  const isSmOrLarger = useMediaQuery("(min-width: 640px)");
+  // const isSmOrLarger = useMediaQuery("(min-width: 640px)");
 
   return (
     <div

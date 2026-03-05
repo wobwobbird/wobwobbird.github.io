@@ -1,20 +1,8 @@
 import PageHolder from "@/components/PageHolder";
 import { GridScan } from "@/components/GridScan";
 import DemoPage from "@/certificates/page";
-
-interface CourseData {
-    title: string;
-    description: string;
-    modalContent?: React.ReactNode;
-  }
   
 const EmptyPage = () => {
-
-    const LEARNING_COURSES: CourseData = {
-        title: "Courses Completed",
-        description: "Software development courses I have completed",
-        modalContent: DemoPage()
-    };
       
     return (
         <PageHolder

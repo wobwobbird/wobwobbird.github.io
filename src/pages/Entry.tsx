@@ -29,7 +29,7 @@ const CubeHolder = () => {
 };
 
 const Entry = () => {
-    const [tagLineRandomNumber, setTagLineRandomNumber] = useState(Math.floor(Math.random() * 6));
+    const [tagLineRandomNumber, _setTagLineRandomNumber] = useState(Math.floor(Math.random() * 6));
 
     const tagLine = [
         "Full-Stack Developer · React, Node & beyond",
@@ -39,6 +39,7 @@ const Entry = () => {
         "See what I've been building",
         "Projects, experience & how to get in touch"
     ]
+
 
     return (
         <PageHolder 
