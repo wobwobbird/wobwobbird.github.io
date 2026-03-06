@@ -79,14 +79,14 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex items-center py-4 gap-4">
+      <div className="flex items-center pb-4 gap-4">
         <Input
           placeholder="Filter Course Name..."
           value={(table.getColumn("course")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("course")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="max-w-sm data-table"
         />
 
         {/* <Input
@@ -100,11 +100,11 @@ export function DataTable<TData, TValue>({
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto text-black">
+            <Button variant="outline" className="ml-auto data-table data-table-button">
               Columns
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="end" className="data-table-button">
             {table
               .getAllColumns()
               .filter(
@@ -114,7 +114,7 @@ export function DataTable<TData, TValue>({
                 return (
                   <DropdownMenuCheckboxItem
                     key={column.id}
-                    className="capitalize"
+                    className="capitalize data-table"
                     checked={column.getIsVisible()}
                     onCheckedChange={(value) =>
                       column.toggleVisibility(!!value)
@@ -127,14 +127,14 @@ export function DataTable<TData, TValue>({
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="overflow-hidden rounded-md border text-white [&_th]:text-left [&_td]:text-left">
+      <div className="overflow-hidden rounded-md border data-table [&_th]:text-left [&_td]:text-left">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} className="text-inherit font-medium">
+                    <TableHead key={header.id} className="text-inherit font-medium py-2">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -153,6 +153,7 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  className="border-dashed data-table"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -163,32 +164,14 @@ export function DataTable<TData, TValue>({
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-left">
+                <TableCell colSpan={columns.length} className="h-24 text-left data-table">
                   No results.
                 </TableCell>
               </TableRow>
             )}
           </TableBody>
         </Table>
-        <DataTablePagination table={table} />
-      </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
+        <DataTablePagination table={table}/>
       </div>
     </div>
   )

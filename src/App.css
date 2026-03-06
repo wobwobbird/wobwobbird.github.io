@@ -96,3 +96,19 @@
 
 
  */
+
+ .data-table {
+  color: #61b3dc;
+  border-color: #61dca3;
+}
+
+.data-table-button {
+  background-color: #000000 !important;
+  border-color: #61dca3 !important;
+  z-index: 10000;
+}
+
+.data-table-button-hover:hover {
+  background-color: #61dca327 !important;
+}
+

@@ -104,7 +104,7 @@ export const columns: ColumnDef<Certs>[] = [
     cell: ({ row }) => {
       const url = row.getValue("link") as string
       return url ? (
-        <a href={url} target="_blank" rel="noopener noreferrer" className="text-primary underline">
+        <a href={url} target="_blank" rel="noopener noreferrer" className="data-table underline">
           View
         </a>
       ) : "—"

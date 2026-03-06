@@ -6,7 +6,7 @@ import { certs } from './cert_data';
 export default function DemoPage() {
    
     return (
-        <div className="w-full h-[80%] min-h-0 flex flex-col bg-blue-600 rounded-xl">
+        <div className="w-full h-[100%] min-h-0 flex flex-col bg-black rounded-xl">
             <div className="flex-1 min-h-0 overflow-auto">
                 <DataTable columns={columns} data={certs} />
             </div>
