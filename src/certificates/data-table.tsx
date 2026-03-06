@@ -41,6 +41,8 @@ import {
 
 import { Input } from "@/components/ui/input"
 
+import { DataTablePagination } from "./pagination";
+
 export function DataTable<TData, TValue>({
   columns,
   data,
@@ -168,6 +170,7 @@ export function DataTable<TData, TValue>({
             )}
           </TableBody>
         </Table>
+        <DataTablePagination table={table} />
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <Button

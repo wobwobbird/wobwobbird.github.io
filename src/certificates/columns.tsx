@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 // You can use a Zod schema here if you want.
 export type Certs = {
     id: string
-    category: "Programming Languages" | "Backend & Databases" | "Frontend Development" | "Game Development" | "Other Technical Training"
+    category: "Programming Languages" | "Backend & Databases" | "Frontend Development" | "Game Development" | "Other Technical Training" | "Dummy"
     specialisation: string
     course: string
     details: string
