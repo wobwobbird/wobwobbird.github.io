@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { useEffect } from "react";
 
 import {
   type ColumnDef,
@@ -48,9 +49,14 @@ export function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   )
+  // Example state {status: false, provider: false}
   const [columnVisibility, setColumnVisibility] =
-  React.useState<VisibilityState>({})
+  React.useState<VisibilityState>({status: false})
 
+  useEffect(() => {
+    console.log("Guy Column FIlters: ", columnVisibility)
+
+  }, [columnVisibility])
 
   const table = useReactTable({
     data,
@@ -92,7 +98,7 @@ export function DataTable<TData, TValue>({
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
+            <Button variant="outline" className="ml-auto text-black">
               Columns
             </Button>
           </DropdownMenuTrigger>
