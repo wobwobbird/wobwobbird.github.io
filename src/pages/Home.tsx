@@ -144,7 +144,7 @@ const StartAppButton = ({ label, underConstruction = false, onClick }: StartAppB
 
   return (
     <Button
-      className={`w-full min-[470px]:w-[200px] transition-colors duration-150 ${isFlashing ? "bg-red-500!" : ""}`}
+      className={`data-table data-table-button-hover border-dashed w-full min-[470px]:w-[200px] transition-colors duration-150 ${isFlashing ? "bg-red-500!" : ""}`}
       variant="outline"
       onClick={handleClick}
     >
@@ -154,7 +154,7 @@ const StartAppButton = ({ label, underConstruction = false, onClick }: StartAppB
 };
 
 const WebsiteLinkButton = ({ label, url }: WebsiteLinkAction) => (
-  <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open(url)}>
+  <Button className="data-table data-table-button-hover border-dashed w-full min-[470px]:w-[200px]" variant="outline" onClick={() => window.open(url)}>
     <p>{label}</p>
     <ExternalLink className="size-4 shrink-0" aria-hidden />
   </Button>
@@ -178,12 +178,11 @@ const Board = ({ title, description, techStack, startApp, websiteLink, onStartAp
       className="
         relative w-full min-h-50 flex flex-col gap-4 p-3 xs:p-5 rounded-[1.25em] 
         bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] [-webkit-backdrop-filter:blur(0.75em)] [-moz-backdrop-filter:blur(0.75em)] 
-        border border-white
+        border border-[#61dca3] border-dashed
         transition-all duration-200  hover:shadow-[0_0_25px_6px_rgba(200,255,150,0.25)]
         hover:bg-[hsla(0,0%,100%,0.05)] hover:scale-[1.01]
         active:shadow-[0_0_25px_6px_rgba(200,255,150,0.25)]
         active:bg-[hsla(0,0%,100%,0.05)] active:scale-[1.01]
-
       "
     >
       <h3>{title}</h3>
@@ -232,9 +231,9 @@ const Home = () => {
               <p className="flex-1 min-w-0">View on desktop for the best experiance!</p>
               {/* <Brain className="size-5"/> */}
               <button 
-                className="shrink-0 p-1! mx-2 bg-white!" aria-label="Dismiss"
+                className="shrink-0 p-1! mx-2 bg-black! " aria-label="Dismiss"
                 onClick={() => setBannerShown(false)}
-              ><X className="size-4 text-[rgb(0,0,0)] stroke-5"/></button>
+              ><X className="size-4 text-white stroke-5"/></button>
             </GlassPanel>
           </div>
         )}
@@ -243,9 +242,9 @@ const Home = () => {
             <GlassPanel>
               <p className="flex-1 min-w-0">🚧 Site under construction | Some features may not currently work as intended 🚧</p>
               <button 
-                className="shrink-0 p-1! mx-2! bg-white!" aria-label="Dismiss"
+                className="shrink-0 p-1! mx-2! bg-black!" aria-label="Dismiss"
                 onClick={() => setBannerConstructionShown(false)}
-              ><X className="size-4 text-[rgb(0,0,0)] stroke-5"/></button>
+              ><X className="size-4 text-white stroke-5"/></button>
             </GlassPanel>
           </div>
         )}
@@ -253,8 +252,8 @@ const Home = () => {
         {/* Body - heading*/}
         {/* Body - intro*/}
 
-        <h2 className="pt-5 text-left">Introduction</h2>
-        <div className="flex flex-col sm:flex-row md:p-5 gap-4 ">
+        <h2 className="pt-5 text-left data-table">Introduction</h2>
+        <div className="flex flex-col sm:flex-row md:p-5 gap-4 data-table">
           <div className="h-auto p-0 flex flex-col gap-4 pt-5 flex-1" >
             <h1 className="">Hi I'm Guy</h1>
             <h1 className="">Full-Stack Developer</h1>
@@ -287,8 +286,8 @@ const Home = () => {
 
         {/* Body - Projects */}
 
-        <div className="flex flex-col gap-4 text-left">
-          <h2 className="pt-5 text-left">Projects</h2>
+        <div className="flex flex-col gap-4 text-left data-table">
+          <h2 className="pt-5 text-left ">Projects</h2>
           {PROJECTS.map((project) => (
             <Board
               key={project.title}
@@ -303,7 +302,7 @@ const Home = () => {
         </div>
         
         {/* Body - Commercial */}
-        <div className="text-left flex flex-col gap-4 pt-4">
+        <div className="text-left flex flex-col gap-4 pt-4 data-table">
           <h2 className="pt-5 text-left">Commercial Experience</h2>
           {COMMERCIAL_PROJECTS.map((project) => (
             <Board
@@ -317,7 +316,7 @@ const Home = () => {
           ))}
         </div>
         {/* Body - Learning */}
-        <div className="text-left flex flex-col gap-4">
+        <div className="text-left flex flex-col gap-4 data-table">
           <h2 className="pt-5 text-left">Learning</h2>
           <p>
             Over the last two years I've been learning intensively and have completed many courses across the front end and the back end. I've focused mainly on Codecademy because I like the blend of theory and interactive practice the platform offers.
@@ -326,7 +325,6 @@ const Home = () => {
             I have completed over 20 courses, and they can all be viewed in the certificate section on my LinkedIn.
           </p>
 
-          {/* <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={onStartAppClick}> */} 
           <p>
             <span
               role="link"
@@ -338,7 +336,7 @@ const Home = () => {
               View my certificates on LinkedIn
             </span>
           </p>
-          <Button className="w-full min-[470px]:w-[200px]" variant="outline" onClick={() => handleOpenDemo(LEARNING_COURSES)}>
+          <Button className="data-table data-table-button-hover border-dashed w-full min-[470px]:w-[200px]" variant="outline" onClick={() => handleOpenDemo(LEARNING_COURSES)}>
             <p className=" ">{"View Certs"}</p>
             <SquareTerminal className="size-4 shrink-0" />
           </Button>
@@ -351,19 +349,19 @@ const Home = () => {
             width="100px"        
             onHover="speedUp"
             spinDuration={40}
-            className="goBonkers mx-2 select-none"
+            className="goBonkers mx-2 select-none text-[#61dca3]!"
             />
         </div>
 
         <Dialog open={!!openProject} onOpenChange={(open) => (open ? null : handleCloseDemo())} >
-          <DialogContent className=" sm:max-w-[90vw] w-[90vw] max-h-[90vh] h-[90vh] z-10000 rounded-2xl p-0 overflow-hidden flex flex-col" >
+          <DialogContent className="data-table sm:max-w-[90vw] w-[90vw] max-h-[90vh] h-[90vh] z-10000 rounded-2xl p-0 overflow-hidden flex flex-col" >
             
             <DialogHeader className="px-6 pt-4 pb-2">
               <DialogTitle
-                className="text-white"
+                className= "data-table"
                 >{openProject?.title ?? "Project demo"}</DialogTitle>
               <DialogDescription
-                className="text-white"
+                className="data-table"
                 > {openProject?.description ?? "Interactive demo"}</DialogDescription>
             </DialogHeader>
             

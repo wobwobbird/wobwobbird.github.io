@@ -66,10 +66,10 @@ function App() {
                   </Link>
                   <div className="select-none flex items-center gap-12">
                     <NavLink to="/home" 
-                      className={pathname === "/home" ? "[text-shadow:0_0_20px_rgba(200,255,150,1),0_0_25px_rgba(200,255,150,0.5)]" : ""}
+                      className={pathname === "/home" ? "[text-shadow:0_0_20px_rgba(97,220,163,1),0_0_25px_rgba(200,255,150,0.5)]" : ""}
                       >Home</NavLink>
                     <NavLink to="/contact"
-                      className={pathname === "/contact" ? "[text-shadow:0_0_20px_rgba(200,255,150,1),0_0_25px_rgba(200,255,150,0.5)]" : ""}
+                      className={pathname === "/contact" ? "[text-shadow:0_0_20px_rgba(97,220,163,1),0_0_25px_rgba(200,255,150,0.5)]" : ""}
                     >Contact</NavLink>
                   </div>
                 </nav>

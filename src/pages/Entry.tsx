@@ -59,7 +59,7 @@ const Entry = () => {
                 w-[320px] max-sm:w-[280px] sm:h-[64px] text-3xl! max-sm:text-2.5xl! text-[#61dca3] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
                 bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
                 flex items-center justify-center text-center
-                transition-all duration-200 hover:scale-[1.01] active:scale-[1.01]"
+                transition-all duration-200 hover:scale-[1.05] active:scale-[1.05]"
             >Welcome to</h1>
             <h1 className="
                 w-[416px] max-sm:w-[280px] sm:h-[82px] text-5xl! max-sm:text-4xl! text-[#61b3dc] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
@@ -71,7 +71,7 @@ const Entry = () => {
                 w-[320px] max-sm:w-[280px] sm:h-[64px] text-xl! max-sm:text-md! text-[#61dca3] select-none drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]
                 bg-black rounded-xs border-[#61b3dc] border-2 border-dashed
                 flex items-center justify-center text-center
-                transition-all duration-200 hover:scale-[1.01] active:scale-[1.01]"
+                transition-all duration-200 hover:scale-[1.05] active:scale-[1.05]"
             >{tagLine[tagLineRandomNumber]}</h1>
 
             {/* Desktop */}

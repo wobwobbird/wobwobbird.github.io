@@ -42,17 +42,17 @@ const Contact = () => {
             }
             className="items-center"
         >
-            <h1 className="display select-none">
+            <h1 className="display select-none text-[#61dca3]">
                 <span className="block -mb-5 text-8xl! max-sm:text-5xl!">Get in</span>
-                <span className="block !text-8xl max-sm:text-7xl!">Contact</span>
+                <span className="block text-8xl! max-sm:text-7xl!">Contact</span>
             </h1>
-            <h2 className="pt-0 !text-4xl max-sm:text-3.5xl! select-none">I don't bite</h2>
+            <h2 className="pt-0 text-4xl! max-sm:text-3.5xl! select-none data-table">I don't bite</h2>
             <div className="h-auto relative">
-                <GlassIcons items={items} className="custom-class" />
+                <GlassIcons items={items} className="custom-class " />
             </div>
             <div className="w-[280px] sm:w-[380px] h-auto pt-0 mx-auto">
                 <GlassPanel>
-                    <div className="flex flex-col text-center"> 
+                    <div className="flex flex-col text-center text-[#61dca3]"> 
                         <p className="text-xl font-semibold select-none">Open to fulltime</p>
                         <p className="text-xl font-semibold select-none">(Office | Hybrid | Remote)</p>
                         <p className="text-xl font-semibold select-none">and contract work</p>
