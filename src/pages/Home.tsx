@@ -371,9 +371,7 @@ const Home = () => {
                   ? openProject.modalContent
                   : (
                     <h3 className="text-3xl text-center text-white/80">
-                        Demo area for <span className="font-semibold">{openProject?.title}</span>.<br />
-                        Later: iframe / WebGL / video / instructions go here.
-                      </h3>
+                        Demo area for <span className="font-semibold">{openProject?.title}</span>                   </h3>
                     )
                   }
               </div>
