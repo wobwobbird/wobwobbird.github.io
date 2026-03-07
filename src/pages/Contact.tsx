@@ -4,7 +4,7 @@ import GlassIcons from "@/components/GlassIcons";
 import { FiGithub, FiFileText } from 'react-icons/fi';
 import { LiaLinkedin } from "react-icons/lia";
 import cvPdf from '@/assets/Guy_Marshman_CV.pdf';
-import GlassPanel from "@/components/GlassPanel";
+// import GlassPanel from "@/components/GlassPanel";
 
 const Contact = () => {
     const items = [
@@ -50,7 +50,7 @@ const Contact = () => {
             <div className="h-auto relative">
                 <GlassIcons items={items} className="custom-class " />
             </div>
-            <div className="w-[280px] sm:w-[380px] h-auto pt-0 mx-auto">
+            {/* <div className="w-[280px] sm:w-[380px] h-auto pt-0 mx-auto">
                 <GlassPanel>
                     <div className="flex flex-col text-center text-[#61dca3]"> 
                         <p className="text-xl font-semibold select-none">Open to fulltime</p>
@@ -58,7 +58,7 @@ const Contact = () => {
                         <p className="text-xl font-semibold select-none">and contract work</p>
                     </div>
                 </GlassPanel>
-            </div>
+            </div> */}
         </PageHolder>
     );
 }
