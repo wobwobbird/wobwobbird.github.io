@@ -53,6 +53,21 @@ interface CourseData {
 
 const PROJECTS: ProjectBoardData[] = [
   {
+    title: "GitProof",
+    description: "Web app for issuing and sharing developer proofs",
+    techStack: [
+      { src: devicon("react"), label: "React" },
+      { src: devicon("typescript"), label: "TypeScript" },
+      { src: devicon("neon"), label: "Neon" },
+      { src: devicon("bun"), label: "Bun" },
+      { src: devicon("prisma"), label: "Prisma" },
+      { src: devicon("tailwindcss"), label: "Tailwind" },
+      { src: devicon("postgresql"), label: "PostgreSQL" },
+    ],
+    startApp: { label: "Run Demo"},
+    websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/gitproof" },
+  },
+  {
     title: "Mood Tracker",
     description: "Mental Health Tracker CLI tool, record mood and review results. Uses Ink to create a full screen TUI, saves results in a SQLite database.",
     techStack: [
