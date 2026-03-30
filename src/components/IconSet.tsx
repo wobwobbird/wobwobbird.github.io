@@ -9,6 +9,8 @@ export const devicon = (name: string) =>
 export interface IconSetItem {
   src: string;
   label: string;
+  /** Width/height of the image inside the tile, as % of the tile (default 80). */
+  imageFillPercent?: number;
 }
 
 export interface IconSetProps {
@@ -56,7 +58,9 @@ const IconSet: React.FC<IconSetProps> = ({ items, className }) => {
       <div
         className={`icon-set-scroll grid grid-flow-col auto-cols-[5rem] gap-[0em] justify-items-center py-[0em] pb-[0em] overflow-x-auto overflow-y-hidden w-full max-w-full min-w-0 touch-pan-x ${className || ''}`}
       >
-      {items.map((item, index) => (
+      {items.map((item, index) => {
+        const fill = item.imageFillPercent ?? 80;
+        return (
         <div
           key={index}
           className="relative flex flex-col items-center group pb-[2em]"
@@ -82,7 +86,8 @@ const IconSet: React.FC<IconSetProps> = ({ items, className }) => {
               <img
                 src={item.src}
                 alt={item.label}
-                className="w-[80%] h-[80%] min-w-0 min-h-0 object-contain pointer-events-none"
+                className="min-w-0 min-h-0 object-contain pointer-events-none"
+                style={{ width: `${fill}%`, height: `${fill}%` }}
                 loading="lazy"
               />
             </span>
@@ -92,7 +97,8 @@ const IconSet: React.FC<IconSetProps> = ({ items, className }) => {
             {item.label}
           </span>
         </div>
-      ))}
+        );
+      })}
       </div>
     </>
   );

@@ -3,6 +3,7 @@ import PageHolder from "@/components/PageHolder";
 import IconSet, { devicon } from "@/components/IconSet";
 import type { IconSetItem } from "@/components/IconSet";
 import inkLogo from '../assets/ink_logo.png'
+import neonLogo from '../assets/neon_logo.png'
 import ProfileCard from "@/components/ProfileCard";
 import profilePic_nobg from '../assets/profile_pic_nobg.png';
 import lordMarshy_s from '../assets/Lord_Marshy_Logo_small2.png'
@@ -42,6 +43,7 @@ interface ProjectBoardData {
   techStack: IconSetItem[];
   startApp?: StartAppAction;
   websiteLink?: WebsiteLinkAction;
+  modalContent?: React.ReactNode;
 }
 
 interface CourseData {
@@ -58,7 +60,7 @@ const PROJECTS: ProjectBoardData[] = [
     techStack: [
       { src: devicon("react"), label: "React" },
       { src: devicon("typescript"), label: "TypeScript" },
-      { src: devicon("neon"), label: "Neon" },
+      { src: neonLogo, label: "Neon", imageFillPercent: 68 },
       { src: devicon("bun"), label: "Bun" },
       { src: devicon("prisma"), label: "Prisma" },
       { src: devicon("tailwindcss"), label: "Tailwind" },
@@ -66,6 +68,13 @@ const PROJECTS: ProjectBoardData[] = [
     ],
     startApp: { label: "Run Demo"},
     websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/gitproof" },
+    modalContent: (
+      <iframe
+        title="GitProof demo"
+        className="w-full min-h-[min(70vh,calc(90vh-10rem))] flex-1 border-0 rounded-lg bg-black/20"
+        src="https://wobwobbird.github.io/GitProof/"
+      />
+    ),
   },
   {
     title: "Mood Tracker",
@@ -77,7 +86,6 @@ const PROJECTS: ProjectBoardData[] = [
       { src: inkLogo, label: "Ink (TUI)" },
       { src: devicon("sqlite"), label: "SQLite" },
     ],
-    // startApp: { label: "Run Demo", underConstruction: true },
     startApp: { label: "Run Demo"},
     websiteLink: { label: "Open on Github", url: "https://github.com/wobwobbird/Mood_Tracker" },
   },
@@ -380,12 +388,12 @@ const Home = () => {
                 > {openProject?.description ?? "Interactive demo"}</DialogDescription>
             </DialogHeader>
             
-            <div className="flex-1 overflow-auto px-6 pb-6 ">
-              <div className="w-full h-full flex items-center justify-center border border-dashed border-white/20 rounded-xl">
+            <div className="flex-1 overflow-auto px-6 pb-6 min-h-0 flex flex-col">
+              <div className="w-full flex-1 min-h-0 flex flex-col items-stretch border border-dashed border-white/20 rounded-xl overflow-hidden">
                 {openProject && "modalContent" in openProject && openProject.modalContent
                   ? openProject.modalContent
                   : (
-                    <h3 className="text-3xl text-center text-white/80">
+                    <h3 className="text-3xl text-center text-white/80 flex items-center justify-center flex-1">
                         Demo area for <span className="font-semibold">{openProject?.title}</span>                   </h3>
                     )
                   }
